@@ -3,7 +3,9 @@ package project.farmease.models;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
@@ -11,9 +13,13 @@ import javax.persistence.ManyToOne;
 @IdClass(HostuserId.class)
 public class Hostuser {
 
+	@Id
 	private String email;
+	@Id
 	private String equipmenttype;
+	@Id
 	private String manufacturer;
+	@Id
 	private String servicetype;
 	private String location;
 	private Integer rent;
@@ -21,7 +27,8 @@ public class Hostuser {
     @Basic(fetch = FetchType.LAZY)
     private byte[] img;
 	
-	@ManyToOne
+	@ManyToOne(optional=false)
+	@JoinColumn(name="email",insertable=false, updatable=false)
 	private User user;
 	
 	public Hostuser() {

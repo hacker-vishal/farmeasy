@@ -3,6 +3,7 @@ package project.farmease.models;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -19,7 +20,8 @@ public class Wishlist {
 	private String serviceprovider;
 	private Integer rent;
 	
-	@ManyToOne
+	@ManyToOne(optional=false)
+	@JoinColumn(name="email",insertable=false, updatable=false)
 	private User user;
 	
 	public Wishlist() {

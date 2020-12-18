@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class User {
@@ -20,23 +21,30 @@ public class User {
 	private String fname;
 	private String lname;
 	private String mobileno;
-	private Integer zip;
+	private Integer zipcode;
 	
-	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="user_email")
+	@OneToMany(mappedBy = "user")
 	private Set<Booking> booking;
 	
-	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn
+	@OneToMany(mappedBy = "user")
 	private Set<Address> address;
+	
+	@OneToMany(mappedBy = "user")
+	private Set<Wishlist> wishlist;
+	
+	@OneToMany(mappedBy = "user")
+	private Set<Hostuser> hostuser;
+	
+	@OneToOne(mappedBy = "user")
+	private Logincreds logincreds;
 
-	public User(String email, String fname, String lname, String mobileno, Integer zip) {
+	public User(String email, String fname, String lname, String mobileno, Integer zipcode) {
 		super();
 		this.email = email;
 		this.fname = fname;
 		this.lname = lname;
 		this.mobileno = mobileno;
-		this.zip = zip;
+		this.zipcode = zipcode;
 	}
 
 	public String getEmail() {
@@ -71,12 +79,12 @@ public class User {
 		this.mobileno = mobileno;
 	}
 
-	public Integer getZip() {
-		return zip;
+	public Integer getZipcode() {
+		return zipcode;
 	}
 
-	public void setZip(Integer zip) {
-		this.zip = zip;
+	public void setZipcode(Integer zipcode) {
+		this.zipcode = zipcode;
 	}
 
 	public Set<Booking> getBooking() {

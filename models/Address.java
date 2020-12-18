@@ -3,6 +3,7 @@ package project.farmease.models;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -16,7 +17,8 @@ public class Address {
 	private String city;
 	private String state;
 	
-	@ManyToOne
+	@ManyToOne(optional=false)
+	@JoinColumn(name="email",insertable=false, updatable=false)
 	private User user;
 	
 	public Address() {

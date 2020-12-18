@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -18,9 +19,10 @@ public class Booking {
 	private String servicetype;
 	private Timestamp dateofbooking;
 	private Timestamp datefinish;
-	private Integer rent;
+	private Double rent;
 	 
-	@ManyToOne
+	@ManyToOne(optional=false)
+	@JoinColumn(name="email",insertable=false, updatable=false)
 	private User user;
 	
 	public Booking() {
@@ -28,7 +30,7 @@ public class Booking {
 	}
 
 	public Booking(Integer bookingid, String email, String serviceprovider, String equipmenttype, String servicetype,
-			Timestamp dateofbooking, Timestamp datefinish, Integer rent, User user) {
+			Timestamp dateofbooking, Timestamp datefinish, Double rent, User user) {
 		super();
 		this.bookingid = bookingid;
 		this.email = email;
@@ -97,11 +99,11 @@ public class Booking {
 		this.datefinish = datefinish;
 	}
 
-	public Integer getRent() {
+	public Double getRent() {
 		return rent;
 	}
 
-	public void setRent(Integer rent) {
+	public void setRent(Double rent) {
 		this.rent = rent;
 	}
 

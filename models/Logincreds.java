@@ -2,6 +2,7 @@ package project.farmease.models;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -13,6 +14,7 @@ public class Logincreds {
 	private Integer otp;
 	
 	@OneToOne
+	@JoinColumn(name = "email")
 	private User user;
 	
 	public Logincreds() {

@@ -8,13 +8,9 @@ import javax.persistence.Id;
 @SuppressWarnings("serial")
 public class WishlistId implements Serializable{
 
-	@Id
 	private String email;
-	@Id
 	private String equipmenttype;
-	@Id
 	private String servicetype;
-	@Id
 	private String serviceprovider;
 	
 	public WishlistId() {

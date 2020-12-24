@@ -4,24 +4,35 @@ use farmease;
 
 create table user (email varchar(30) not null, fname varchar(15) not null, 
 lname varchar(15) not null,mobileno varchar(15) not null, zipcode int,
-PRIMARY KEY (email));
+PRIMARY KEY (email)); 
 
-create table logincreds (email varchar(30) not null, password varchar(20) not
-null, otp int);
+create table logincreds (email varchar(30) not null primary key, password 
+varchar(20) not null, otp int); //foreign key user.email
 
 create table address (email varchar(30) not null, location varchar(50), 
-city varchar(20), state varchar(20), zipcode int);
+city varchar(20), state varchar(20), zipcode int, Primary key(email,zipcode));
+//foreign key user.email
 
 create table wishlist (email varchar(30) not null, equipmenttype varchar(20) not 
-null, servicetype varchar(20),serviceprovider varchar(30) not null, rent int);
+null, servicetype varchar(20) not null,serviceprovider varchar(30) not null, 
+rent int, primary key(email, equipmenttype, servicetype, serviceprovider));
+//foreign key user.email
 
-create table booking (email varchar(30)not null, serviceprovider varchar(30) not 
-null, equipmenttype varchar(20) not null, servicetype varchar(20), 
-dateofbooking date not null, rent double not null);
+create table booking (bookingid int not null auto_increment, email varchar(30)not null, 
+serviceprovider varchar(30) not null, equipmenttype varchar(20) not null, 
+servicetype varchar(20), dateofbooking datetime not, datefinish datetime,
+rent double not null, primary key(bookingid));
+//foreign key user.email
 
 create table hostuser (email varchar(30) not null, equipmenttype varchar(20) not 
-null, manufacturer varchar(20), servicetype varchar(20), location varchar(20), 
-rent int, img blob);
+null, manufacturer varchar(20) not null, servicetype varchar(20) not null, 
+location varchar(20) not null, rent int, img longblob, primary 
+key(email, equipmenttype, manufacturer, servicetype));
+//foreign key user.email
+
+============================================================================
+*********first create all tables then add foreign keys**********
+alter table address add foreign key (email) references user(email);
 
 ***To add images-
 INSERT INTO xx_BLOB(ID,IMAGE) VALUES(1,LOAD_FILE('E:/Images/jack.jpg'));

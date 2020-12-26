@@ -6,14 +6,18 @@ import java.util.Objects;
 @SuppressWarnings("serial")
 public class HostuserId implements Serializable {
 
-	private String email;
+	private String hostemail;
 	private String equipmenttype;
 	private String manufacturer;
 	private String servicetype;
 
-	public HostuserId(String email, String equipmenttype, String manufacturer, String servicetype) {
+	public HostuserId() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public HostuserId(String hostemail, String equipmenttype, String manufacturer, String servicetype) {
 		super();
-		this.email = email;
+		this.hostemail = hostemail;
 		this.equipmenttype = equipmenttype;
 		this.manufacturer = manufacturer;
 		this.servicetype = servicetype;
@@ -25,7 +29,7 @@ public class HostuserId implements Serializable {
         if (o == null || getClass() != o.getClass()) 
         	return false;
         HostuserId hostuserId = (HostuserId) o;
-        return email.equals(hostuserId.email) &&
+        return hostemail.equals(hostuserId.hostemail) &&
                 equipmenttype.equals(hostuserId.equipmenttype) &&
                 manufacturer.equals(hostuserId.manufacturer) &&
                 servicetype.equals(hostuserId.servicetype);
@@ -33,6 +37,6 @@ public class HostuserId implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(email,equipmenttype,manufacturer,servicetype);
+		return Objects.hash(hostemail,equipmenttype,manufacturer,servicetype);
 	}
 }

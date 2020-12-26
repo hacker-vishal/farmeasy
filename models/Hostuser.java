@@ -1,6 +1,10 @@
 package project.farmease.models;
 
+import java.util.Set;
+
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -8,37 +12,43 @@ import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 @IdClass(HostuserId.class)
 public class Hostuser {
 
 	@Id
-	private String email;
+	@Column(length=30)
+	private String hostemail;
 	@Id
+	@Column(length=20)
 	private String equipmenttype;
 	@Id
+	@Column(length=20)
 	private String manufacturer;
 	@Id
+	@Column(length=20)
 	private String servicetype;
+	@Column(nullable = false,length=50)
 	private String location;
 	private Integer rent;
 	@Lob
     @Basic(fetch = FetchType.LAZY)
     private byte[] img;
 	
-	@ManyToOne(optional=false)
-	@JoinColumn(name="email",insertable=false, updatable=false)
+	@ManyToOne(optional=false,fetch = FetchType.LAZY)
+	@JoinColumn(name="hostemail",insertable=false, updatable=false)
 	private User user;
 	
 	public Hostuser() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Hostuser(String email, String equipmenttype, String manufacturer, String servicetype, String location,
+	public Hostuser(String hostemail, String equipmenttype, String manufacturer, String servicetype, String location,
 			Integer rent, byte[] img) {
 		super();
-		this.email = email;
+		this.hostemail = hostemail;
 		this.equipmenttype = equipmenttype;
 		this.manufacturer = manufacturer;
 		this.servicetype = servicetype;
@@ -46,13 +56,13 @@ public class Hostuser {
 		this.rent = rent;
 		this.img = img;
 	}
-
-	public String getEmail() {
-		return email;
+	
+	public String getHostemail() {
+		return hostemail;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setHostemail(String hostemail) {
+		this.hostemail = hostemail;
 	}
 
 	public String getEquipmenttype() {

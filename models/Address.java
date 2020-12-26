@@ -1,6 +1,8 @@
 package project.farmease.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
@@ -10,14 +12,18 @@ import javax.persistence.ManyToOne;
 @IdClass(AddressId.class)
 public class Address {
     @Id
+    @Column(length=30)
 	private String email;
     @Id
     private Integer zipcode;
+    @Column(length=50)
 	private String location;
+    @Column(length=20)
 	private String city;
+    @Column(length=20)
 	private String state;
 	
-	@ManyToOne(optional=false)
+	@ManyToOne(optional=false,fetch = FetchType.LAZY)
 	@JoinColumn(name="email",insertable=false, updatable=false)
 	private User user;
 	

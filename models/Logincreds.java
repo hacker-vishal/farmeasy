@@ -1,6 +1,8 @@
 package project.farmease.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -10,11 +12,12 @@ public class Logincreds {
 
 	@Id
 	private String email;
+	@Column(nullable = false,length=20)
 	private String password;
 	private Integer otp;
 	
-	@OneToOne
-	@JoinColumn(name = "email")
+	@OneToOne(optional=false,fetch = FetchType.LAZY)
+	@JoinColumn(name = "email",insertable=false, updatable=false)
 	private User user;
 	
 	public Logincreds() {

@@ -2,10 +2,13 @@ package project.farmease.models;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -13,29 +16,45 @@ public class Booking {
 
 	@Id
 	private Integer bookingid;
+	@Column(nullable = false,length=30)
 	private String email;
+	@Column(nullable = false,length=30)
 	private String serviceprovider;
+	@Column(nullable = false,length=30)
 	private String equipmenttype;
+	@Column(nullable = false,length=20)
+	private String manufacturer;
+	@Column(nullable = false,length=20)
 	private String servicetype;
+	@Column(nullable = false)
 	private Timestamp dateofbooking;
 	private Timestamp datefinish;
 	private Double rent;
 	 
-	@ManyToOne(optional=false)
+	@ManyToOne(optional=false,fetch = FetchType.LAZY)
 	@JoinColumn(name="email",insertable=false, updatable=false)
 	private User user;
+	
+	@ManyToOne
+	@JoinColumns({
+	@JoinColumn(name="equipmenttype",referencedColumnName = "equipmenttype",insertable=false, updatable=false),
+	@JoinColumn(name="serviceprovider",referencedColumnName = "hostemail",insertable=false, updatable=false),
+	@JoinColumn(name="manufacturer",referencedColumnName = "manufacturer",insertable=false, updatable=false),
+	@JoinColumn(name="servicetype",referencedColumnName = "servicetype",insertable=false, updatable=false)})
+	private Hostuser hostuser;
 	
 	public Booking() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Booking(Integer bookingid, String email, String serviceprovider, String equipmenttype, String servicetype,
+	public Booking(Integer bookingid, String email, String serviceprovider, String equipmenttype,String manufacturer, String servicetype,
 			Timestamp dateofbooking, Timestamp datefinish, Double rent, User user) {
 		super();
 		this.bookingid = bookingid;
 		this.email = email;
 		this.serviceprovider = serviceprovider;
 		this.equipmenttype = equipmenttype;
+		this.manufacturer = manufacturer;
 		this.servicetype = servicetype;
 		this.dateofbooking = dateofbooking;
 		this.datefinish = datefinish;
@@ -73,6 +92,14 @@ public class Booking {
 
 	public void setEquipmenttype(String equipmenttype) {
 		this.equipmenttype = equipmenttype;
+	}
+
+	public String getManufacturer() {
+		return manufacturer;
+	}
+
+	public void setManufacturer(String manufacturer) {
+		this.manufacturer = manufacturer;
 	}
 
 	public String getServicetype() {
@@ -113,5 +140,13 @@ public class Booking {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public Hostuser getHostuser() {
+		return hostuser;
+	}
+
+	public void setHostuser(Hostuser hostuser) {
+		this.hostuser = hostuser;
 	}
 }

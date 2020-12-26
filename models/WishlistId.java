@@ -10,15 +10,15 @@ public class WishlistId implements Serializable{
 
 	private String email;
 	private String equipmenttype;
-	private String servicetype;
 	private String serviceprovider;
+	private String servicetype;
+	
 	
 	public WishlistId() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public WishlistId(String email, String equipmenttype, String servicetype, String serviceprovider) {
-		super();
 		this.email = email;
 		this.equipmenttype = equipmenttype;
 		this.servicetype = servicetype;

@@ -17,12 +17,14 @@ create table wishlist (email varchar(30) not null, equipmenttype varchar(20) not
 null, servicetype varchar(20) not null,serviceprovider varchar(30) not null, 
 rent int, primary key(email, equipmenttype, servicetype, serviceprovider));
 //foreign key user.email
+//foreign key hostuser.compositekey
 
 create table booking (bookingid int not null auto_increment, email varchar(30)not null, 
 serviceprovider varchar(30) not null, equipmenttype varchar(20) not null, 
-servicetype varchar(20), dateofbooking datetime not, datefinish datetime,
-rent double not null, primary key(bookingid));
+manufacturer varchar(20) not null, servicetype varchar(20), dateofbooking 
+datetime not null, datefinish datetime,rent double not null, primary key(bookingid));
 //foreign key user.email
+//foreign key hostuser.compositekey
 
 create table hostuser (email varchar(30) not null, equipmenttype varchar(20) not 
 null, manufacturer varchar(20) not null, servicetype varchar(20) not null, 
@@ -32,7 +34,17 @@ key(email, equipmenttype, manufacturer, servicetype));
 
 ============================================================================
 *********first create all tables then add foreign keys**********
-alter table address add foreign key (email) references user(email);
+-alter table address add foreign key (email) references user(email);
+-alter table wishlist add foreign key (email) references user(email);
+-alter table hostuser add foreign key (email) references user(email);
+
+***error
+-alter table booking add constraint foreign key (serviceprovider, equipmenttype, 
+ manufacturer, servicetype) references hostuser (equipmenttype, hostemail, 
+ manufacturer, servicetype);
+-alter table wishlist add constraint foreign key (serviceprovider, equipmenttype, 
+ manufacturer, servicetype) references hostuser (equipmenttype, hostemail, 
+ manufacturer, servicetype);***
 
 ***To add images-
 INSERT INTO xx_BLOB(ID,IMAGE) VALUES(1,LOAD_FILE('E:/Images/jack.jpg'));

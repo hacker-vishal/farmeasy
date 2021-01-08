@@ -16,3 +16,8 @@ git commit -u origin branchname
 push-
 git push -u origin POC's
 
+delete-
+git branch -d branchname
+
+pull-
+git pull origin POC's

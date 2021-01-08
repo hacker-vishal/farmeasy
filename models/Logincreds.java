@@ -11,9 +11,11 @@ import javax.persistence.OneToOne;
 public class Logincreds {
 
 	@Id
+	@Column(nullable=false,length=30)
 	private String email;
-	@Column(nullable = false,length=20)
+	@Column(nullable=false,length=20)
 	private String password;
+	@Column(nullable=true,length=6)
 	private Integer otp;
 	
 	@OneToOne(optional=false,fetch = FetchType.LAZY)
@@ -25,7 +27,6 @@ public class Logincreds {
 	}
 
 	public Logincreds(String email, String password, Integer otp) {
-		super();
 		this.email = email;
 		this.password = password;
 		this.otp = otp;
@@ -53,13 +54,5 @@ public class Logincreds {
 
 	public void setOtp(Integer otp) {
 		this.otp = otp;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 }

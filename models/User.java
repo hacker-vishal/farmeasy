@@ -26,7 +26,8 @@ public class User {
 	private String lname;
 	@Column(nullable = false,length=15)
 	private String mobileno;
-	private Integer zipcode;
+	@Column(nullable = false,length=20)
+	private String password;
 	
 	@OneToMany(mappedBy = "user",cascade=CascadeType.ALL)
 	private Set<Booking> booking;
@@ -43,13 +44,13 @@ public class User {
 	@OneToOne(mappedBy = "user",cascade=CascadeType.ALL)
 	private Logincreds logincreds;
 
-	public User(String email, String fname, String lname, String mobileno, Integer zipcode) {
+	public User(String email, String fname, String lname, String mobileno, String password) {
 		super();
 		this.email = email;
 		this.fname = fname;
 		this.lname = lname;
 		this.mobileno = mobileno;
-		this.zipcode = zipcode;
+		this.password = password;
 	}
 
 	public String getEmail() {
@@ -84,49 +85,11 @@ public class User {
 		this.mobileno = mobileno;
 	}
 
-	public Integer getZipcode() {
-		return zipcode;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setZipcode(Integer zipcode) {
-		this.zipcode = zipcode;
-	}
-
-	public Set<Booking> getBooking() {
-		return booking;
-	}
-
-	public void setBooking(Set<Booking> booking) {
-		this.booking = booking;
-	}
-
-	public Set<Address> getAddress() {
-		return address;
-	}
-
-	public void setAddress(Set<Address> address) {
-		this.address = address;
-	}	public Set<Wishlist> getWishlist() {
-		return wishlist;
-	}
-
-	public void setWishlist(Set<Wishlist> wishlist) {
-		this.wishlist = wishlist;
-	}
-
-	public Set<Hostuser> getHostuser() {
-		return hostuser;
-	}
-
-	public void setHostuser(Set<Hostuser> hostuser) {
-		this.hostuser = hostuser;
-	}
-
-	public Logincreds getLogincreds() {
-		return logincreds;
-	}
-
-	public void setLogincreds(Logincreds logincreds) {
-		this.logincreds = logincreds;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }

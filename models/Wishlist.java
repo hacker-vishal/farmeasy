@@ -95,27 +95,11 @@ public class Wishlist {
 		this.rent = rent;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
 	public String getManufacturer() {
 		return manufacturer;
 	}
 
 	public void setManufacturer(String manufacturer) {
 		this.manufacturer = manufacturer;
-	}
-
-	public Hostuser getHostuser() {
-		return hostuser;
-	}
-
-	public void setHostuser(Hostuser hostuser) {
-		this.hostuser = hostuser;
 	}
 }

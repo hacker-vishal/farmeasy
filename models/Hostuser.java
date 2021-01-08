@@ -112,12 +112,4 @@ public class Hostuser {
 	public void setImg(byte[] img) {
 		this.img = img;
 	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
 }

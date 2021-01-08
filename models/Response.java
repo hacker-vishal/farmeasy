@@ -10,7 +10,6 @@ public class Response {
 	}
 
 	public Response(int status, String message) {
-		super();
 		this.status = status;
 		this.message = message;
 	}

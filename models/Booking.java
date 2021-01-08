@@ -5,6 +5,8 @@ import java.sql.Timestamp;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
@@ -15,6 +17,7 @@ import javax.persistence.ManyToOne;
 public class Booking {
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer bookingid;
 	@Column(nullable = false,length=30)
 	private String email;
@@ -48,8 +51,7 @@ public class Booking {
 	}
 
 	public Booking(Integer bookingid, String email, String serviceprovider, String equipmenttype,String manufacturer, String servicetype,
-			Timestamp dateofbooking, Timestamp datefinish, Double rent, User user) {
-		super();
+			Timestamp dateofbooking, Timestamp datefinish, Double rent) {
 		this.bookingid = bookingid;
 		this.email = email;
 		this.serviceprovider = serviceprovider;
@@ -59,7 +61,6 @@ public class Booking {
 		this.dateofbooking = dateofbooking;
 		this.datefinish = datefinish;
 		this.rent = rent;
-		this.user = user;
 	}
 
 	public Integer getBookingid() {
@@ -132,21 +133,5 @@ public class Booking {
 
 	public void setRent(Double rent) {
 		this.rent = rent;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public Hostuser getHostuser() {
-		return hostuser;
-	}
-
-	public void setHostuser(Hostuser hostuser) {
-		this.hostuser = hostuser;
 	}
 }

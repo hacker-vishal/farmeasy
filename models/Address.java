@@ -32,7 +32,6 @@ public class Address {
 	}
 
 	public Address(String email, String location, String city, String state, int zipcode) {
-		super();
 		this.email = email;
 		this.location = location;
 		this.city = city;
@@ -77,18 +76,6 @@ public class Address {
 	}
 
 	public void setZipcode(int zipcode) {
-		this.zipcode = zipcode;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public void setZipcode(Integer zipcode) {
 		this.zipcode = zipcode;
 	}
 }

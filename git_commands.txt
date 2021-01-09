@@ -1,0 +1,18 @@
+git useful commands
+============================================================
+
+get name of current branch-
+git branch
+
+switch to branch-
+git checkout Software_docs
+
+add-
+git add filename or foldername
+
+commit-
+git commit -u origin branchname
+
+push-
+git push -u origin POC's
+

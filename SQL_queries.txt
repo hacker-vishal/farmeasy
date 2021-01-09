@@ -1,0 +1,83 @@
+create database farmease;
+
+use farmease;
+
+create table user (email varchar(30) not null, fname varchar(15) not null, 
+lname varchar(15) not null,mobileno varchar(15) not null, zipcode int,
+PRIMARY KEY (email)); 
+
+create table logincreds (email varchar(30) not null primary key, password 
+varchar(20) not null, otp int); //foreign key user.email
+
+create table address (email varchar(30) not null, location varchar(50), 
+city varchar(20), state varchar(20), zipcode int, Primary key(email,zipcode));
+//foreign key user.email
+
+create table wishlist (email varchar(30) not null, equipmenttype varchar(20) not 
+null, servicetype varchar(20) not null,serviceprovider varchar(30) not null, 
+rent int, primary key(email, equipmenttype, servicetype, serviceprovider));
+//foreign key user.email
+//foreign key hostuser.compositekey
+
+create table booking (bookingid int not null auto_increment, email varchar(30)not null, 
+serviceprovider varchar(30) not null, equipmenttype varchar(20) not null, 
+manufacturer varchar(20) not null, servicetype varchar(20), dateofbooking 
+datetime not null, datefinish datetime,rent double not null, primary key(bookingid));
+//foreign key user.email
+//foreign key hostuser.compositekey
+
+create table hostuser (email varchar(30) not null, equipmenttype varchar(20) not 
+null, manufacturer varchar(20) not null, servicetype varchar(20) not null, 
+location varchar(20) not null, rent int, img longblob, primary 
+key(email, equipmenttype, manufacturer, servicetype));
+//foreign key user.email
+
+============================================================================
+*********first create all tables then add foreign keys**********
+-alter table address add foreign key (email) references user(email);
+-alter table wishlist add foreign key (email) references user(email);
+-alter table hostuser add foreign key (email) references user(email);
+
+***error
+-alter table booking add constraint foreign key (serviceprovider, equipmenttype, 
+ manufacturer, servicetype) references hostuser (equipmenttype, hostemail, 
+ manufacturer, servicetype);
+-alter table wishlist add constraint foreign key (serviceprovider, equipmenttype, 
+ manufacturer, servicetype) references hostuser (equipmenttype, hostemail, 
+ manufacturer, servicetype);***
+
+***To add images-
+INSERT INTO xx_BLOB(ID,IMAGE) VALUES(1,LOAD_FILE('E:/Images/jack.jpg'));
+
+***To add composite primary key
+CONSTRAINT PK_Person PRIMARY KEY (ID,LastName)
+
+show create table address;
+
+alter table address add primary key(email,zipcode);
+
+alter table address add foreign key (email) references user(email);
+
+desc address;
+
+insert into user values('dfa','dfsf','dfs','dfa',1213);
+
+insert into logincreds values('ddsf','pass',12312);
+
+alter table logincreds drop primary key;
+
+alter table logincreds drop index email;
+
+alter table logincreds drop foreign key `logincreds_ibfk_1`;
+
+alter table hostuser drop zipcode;
+
+select * from hostuser join user where hostuser.email=user.email;
+
+alter table hostuser add location varchar(20) not null after servicetype;
+
+mysqldump -u root -p classicmodels > d:\db\classicmodels.sql
+
+mysql -u root -p classicmodels_backup < d:\db\classicmodels.sql
+
+drop table if exist table1,table2;

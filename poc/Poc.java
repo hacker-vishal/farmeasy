@@ -34,4 +34,8 @@ public class Poc {
 		//log.debug("autowired successfully");
 		r =y;
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 311e8924027887e40936dc959ec8722b7fd636ac

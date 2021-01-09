@@ -34,3 +34,18 @@ git fetch origin foo:foo
 Reset-
 git reset --merge
 
+Shows names and URLs of remotes
+git remote   git remote -v
+
+Destroy history blindfolded
+git rebase    git rebase -i	
+Lets you rewrite the upstream history of a branch, choosing which commits to keep, squash, or ditch.
+
+
+git reset foo	Unstages files	
+git reset –hard
+git reset –soft		Discards local modifications
+			Returns to another commit, but doesn’t touch working directory.
+
+Stores modifications to tracked files, then rolls them back
+git stash        git stash -u	Also does the same to untracked files

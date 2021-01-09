@@ -81,3 +81,17 @@ mysqldump -u root -p classicmodels > d:\db\classicmodels.sql
 mysql -u root -p classicmodels_backup < d:\db\classicmodels.sql
 
 drop table if exist table1,table2;
+
+To truncate tables that has FK constraints-
+SET FOREIGN_KEY_CHECKS = 0;
+SET FOREIGN_KEY_CHECKS = 1;
+
+Trigger---
+
+Delimiter /
+create trigger putinlogincreds after insert on user
+for each row
+Begin
+	insert into logincreds values (new.email, null, new.password);
+End  /
+Delimiter ;

@@ -30,3 +30,7 @@ git fetch . foo:master
 # Merge remote branch origin/foo into local branch foo,
 # without having to checkout foo first:
 git fetch origin foo:foo
+
+Reset-
+git reset --merge
+

@@ -32,16 +32,19 @@ public class HomeAndSearch {
 	{
 		l = new ArrayList<Hostuser>();
 		
-		Hostuser h1 = new Hostuser("vish@email","tractor", "kubota", "ploughing", "pune", 222, null);
-		Hostuser h2 = new Hostuser("vish@email","harvester", "kubota", "harvesting", "blr", 222, null);
-		Hostuser h3 = new Hostuser("vish@email","tractor", "kubota", "ploughing", "blr", 222, null);
+//		Hostuser h1 = new Hostuser("vish@email","tractor", "kubota", "ploughing", "pune", 222, null);
+//		Hostuser h2 = new Hostuser("vish@email","harvester", "kubota", "harvesting", "blr", 222, null);
+//		Hostuser h3 = new Hostuser("vish@email","tractor", "kubota", "ploughing", "blr", 222, null);
 		
 		//assume this result came from db
-		l.add(h1);
-		l.add(h2);
-		l.add(h3);
+//		l.add(h1);
+//		l.add(h2);
+//		l.add(h3);
+		
+		l = hostuserRepo.findmatchingservice(equipment,location);
 		
 		List<Hostuser> delete = new ArrayList<Hostuser>();
+		
 		for(Hostuser hostuser:l)
 		{
 			//log.debug(equipment+" "+location);

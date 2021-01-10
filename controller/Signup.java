@@ -24,15 +24,12 @@ public class Signup {
 	
 	Logger logger = LogManager.getLogger(Signup.class);
 	private UserRepo userRepo;
-	private LogincredsRepo logincredsRepo;
 	
 	@Autowired
 	public void hostuserwired(UserRepo userRepo, LogincredsRepo logincredsRepo)
 	{
 		//logger.debug("UserRepo autowired");
-		this.userRepo = userRepo;	
-		//logger.debug("logincredsRepo autowired");
-		this.logincredsRepo = logincredsRepo;
+		this.userRepo = userRepo;
 	}
 
 //	@PostMapping(value = "/signup", consumes=MediaType.APPLICATION_JSON_VALUE)
@@ -66,10 +63,7 @@ public class Signup {
 			//actual db logic
 			userRepo.save(user);
 		}		
-		//do create some trigger for inserting into logincreds
-//		//entry in logincreds
-//		Logincreds logincreds = new Logincreds(user.getEmail(), user.getPassword(), null);
-//		logincredsRepo.save(logincreds);
+		//did create some trigger for inserting into logincreds
 		//return user1;
 	    return response;
 	}

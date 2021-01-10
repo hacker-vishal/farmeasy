@@ -95,3 +95,23 @@ Begin
 	insert into logincreds values (new.email, null, new.password);
 End  /
 Delimiter ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

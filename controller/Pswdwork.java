@@ -45,7 +45,7 @@ public class Pswdwork {
 //		if(logincreds.getEmail().equals(id)) 
 		if(logincreds.isPresent() && logincreds.get().getEmail().equals(id))
 		{
-			logger.debug("got in");
+			//logger.debug("got in");
 			//6 digit random number generation in java
 			int random = new Random().nextInt(900000) + 100000;
 			//logger.debug(random);
@@ -84,21 +84,24 @@ public class Pswdwork {
 	public Response setnewpasswd(String id, String pswd) {
 		
 		response = new Response(0, "Password reset failed");
-		int a=0;
+		int isupdatesuccessful = 0;
 		//we are going to check this password in the db later on
 		//as of now we'll test it on dummy stuff
 //		Logincreds logincreds = new Logincreds("abc","pabc",null);
 		try {
-			logincredsRepo.resetpswd(id, pswd);
+			isupdatesuccessful = logincredsRepo.resetpswd(id, pswd);
+			//isupdatesuccessful++;
+			//logger.debug(isupdatesuccessful);
 		} catch (Exception e) {
 			//log errors to the file
 			logger.debug(e.getMessage(),e);
 		}
 		
-		logincreds = logincredsRepo.findById(id);
+		//logincreds = logincredsRepo.findById(id);
 		
 //		if(logincreds.getPassword().equals(pswrd))
-		if(logincreds.get().getEmail().equals(id) && logincreds.get().getPassword().equals(pswd))
+		//if(logincreds.get().getEmail().equals(id) && logincreds.get().getPassword().equals(pswd))
+		if (isupdatesuccessful!=0)
 		{
 			response.setStatus(1);
 			response.setMessage("Password reset successfully");

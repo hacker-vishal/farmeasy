@@ -22,6 +22,6 @@ public interface LogincredsRepo extends JpaRepository<Logincreds, String> {
 
 	@Modifying
 	@Transactional
-	@Query("update Logincreds set password=:pswd, otp=:null where email=:id")
-	void resetpswd(@Param("id") String id, @Param("pswd") String pswd);
+	@Query("update Logincreds set password=:pswd, otp=null where email=:id")
+	int resetpswd(@Param("id") String id, @Param("pswd") String pswd);
 }

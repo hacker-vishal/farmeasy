@@ -1,0 +1,38 @@
+
+
+
+<div class="txtalign">
+  <h1 class= "text-primary font-weight-bold">
+    To Rent out Farming Equipments!
+  </h1>
+
+
+
+<form class="example-form1">
+  <mat-form-field class="example-full-width">
+    <mat-label>Equipment Type</mat-label>
+    <input [ngModel]='equipmenttype' name="eqpt" matInput placeholder="Ex. tractor">
+
+  </mat-form-field>
+ </form>
+
+ <form class="example-form2">
+  <mat-form-field class="example-full-width">
+    <mat-label>Equipment Location</mat-label>
+    <input [ngModel]='location' name="loc" matInput placeholder="Ex. Bangalore">
+
+  </mat-form-field>
+ </form>
+
+ <div class="form-group">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)='listnow()'>List Now</button>
+  </div>
+
+  <h4 class="rc">{{msg}}</h4>
+
+  <div class="form-group w-75">
+  <button type="button" class="needbtn btn-lg btn-primary" (click)='needeqp()'>Need An Equipment?</button>
+  </div>
+
+
+</div>

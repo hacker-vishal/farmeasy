@@ -31,6 +31,9 @@ git fetch . foo:master
 # without having to checkout foo first:
 git fetch origin foo:foo
 
+<<<<<<< HEAD
+
+=======
 Reset-
 git reset --merge
 
@@ -49,3 +52,8 @@ git reset –soft		Discards local modifications
 
 Stores modifications to tracked files, then rolls them back
 git stash        git stash -u	Also does the same to untracked files
+>>>>>>> 3e0a44b2f835ab68b684af533c9ecce1ac0e426c
+
+
+git auto merge-
+git commit -am "your message"

@@ -11,7 +11,7 @@ add-
 git add filename or foldername
 
 commit-
-git commit -u origin branchname
+git commit -m "commit message"
 
 push-
 git push -u origin POC's

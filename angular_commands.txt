@@ -1,0 +1,56 @@
+#install
+npm install -g @angular/cli
+
+
+#Creates a new workspace and an initial Angular application.
+
+ng new <name> [options]
+ng n <name> [options]
+
+#application
+ng generate application <name> [options]
+ng g application <name> [options]
+
+
+#class
+ng generate class <name> [options]
+ng g class <name> [options]
+
+
+#module
+ng generate module <name> [options]
+ng g module <name> [options]
+
+
+#service
+ng generate service <name> [options]
+ng g service <name> [options]
+
+
+#component
+ng generate component <name> [options]
+ng g component<name> [options]
+
+#run
+ng serve
+
+# To install latest formal release 
+npm install angular-material
+
+# To install latest release and update package.json
+npm install angular-material --save
+
+# To install from HEAD of master
+npm install http://github.com/angular/bower-material/tarball/master
+
+# or use alternate syntax to install HEAD from master
+npm install http://github.com/angular/bower-material#master --save
+# note: ^^ creates the following package.json dependency
+#      "angular-material": "git+ssh://git@github.com/angular/bower-material.git#master"
+
+
+# To install the v1.2.1 version 
+npm install http://github.com/angular/bower-material/tarball/v1.2.1 --save
+
+# To view all installed package 
+npm list

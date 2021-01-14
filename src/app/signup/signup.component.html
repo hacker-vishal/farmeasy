@@ -1,0 +1,62 @@
+
+<div class="container">
+
+<div class="fb w-75">
+    <button type="button" class="fbbtn btn-lg " (click)='loginfb()'>Log in with Facebook</button>
+  </div>
+  
+  <div class="google w-75">
+    <button type="button" class="googlebtn btn-lg " (click)='logingmail()'>Log in with Google</button>
+  </div>
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Email Address</mat-label>
+      <input [(ngModel)]='email' type='email' matInput placeholder="Email Address"><span><h6 class='msg1'></h6></span>
+  
+    </mat-form-field>
+  </form>
+  
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>First Name</mat-label>
+      <input [(ngModel)]='fn' type="text" matInput placeholder="Your First Name"><span><h6 class='msg2'></h6></span>
+  
+    </mat-form-field>
+  </form>
+  
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Last Name</mat-label>
+      <input [(ngModel)]='ln' type='text' matInput placeholder="Your Last Name"><span><h6 class='msg3'></h6></span>
+  
+    </mat-form-field>
+  </form>
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Mobile Number</mat-label>
+      <input [(ngModel)]='mblno' type='text' matInput placeholder="Ex. +91-1234567890"><span><h6 class='msg4'></h6></span>
+  
+    </mat-form-field>
+  </form>
+  
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input [(ngModel)]='password' type="password" matInput placeholder="Create a Password"><span><h6 class='msg5'></h6></span>
+  
+    </mat-form-field>
+  </form>
+
+  <div class="signupbtn">
+    <button type="button" class="btn btn-outline-success">Sign Up</button>
+  </div>
+
+
+  
+  <div class="navtosignuppage">
+  <h6>Already have an account?<a class="lgn " routerLink="/login">Log in</a></h6>
+  </div>
+
+  </div>

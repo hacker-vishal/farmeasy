@@ -1,0 +1,30 @@
+
+.rc {color:red};
+
+.container
+{
+    max-width: 100%;
+
+}
+
+.heading
+{
+    padding-top: 70px;
+}
+
+.btn
+{
+    margin-left: 160px;
+}
+
+.needbtn
+{
+    
+    margin-left: 300px;
+}
+
+.example-form1
+{
+    
+    margin-top: 70px;
+}

@@ -1,0 +1,71 @@
+
+.container
+{
+    max-width: 100%;
+    background-color: blanchedalmond;
+    height:700px;
+}
+
+.fb
+{
+    padding-top: 50px;
+    margin-left: 170px;
+    
+}
+
+.fbbtn
+{
+    border-color: white;
+    padding:4px 10px 4px 10px;
+    background: #3B5998;
+    color: white;
+    height: 40px;
+    font-weight: bold;
+    
+}
+
+.fbbtn:hover
+{
+    opacity:0.7;
+}
+
+.google
+{
+    margin-left: 170px;
+    
+}
+
+.googlebtn
+{
+    border-color: white;
+    margin-top: 10px;
+    margin-bottom:50px;
+    padding:4px 10px 4px 10px;
+    background:#dd4b39;
+    color: white;
+    height: 40px;
+    font-weight: bold;
+    
+}
+
+.googlebtn:hover
+{
+    opacity:0.7;
+}
+
+.signupbtn
+{
+    margin-left: 150px;
+}
+
+.lgn
+{
+    color:red;
+    padding-bottom: 50px;
+}
+
+.lgn:hover
+{
+    color:darkmagenta;
+    opacity:0.7;
+}

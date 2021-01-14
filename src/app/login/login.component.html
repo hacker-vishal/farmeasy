@@ -1,0 +1,47 @@
+
+<div class="container">
+
+<h1 class="loginhead font-weight-bold">Login or SignUp to Register</h1>
+
+
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Email Address</mat-label>
+    <input [(ngModel)]='email' type='email' matInput placeholder="Enter your email" required><span><h6 class='msg1'></h6></span>
+
+  </mat-form-field>
+</form>
+
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Password</mat-label>
+    <input [(ngModel)]='password' type="password" matInput placeholder="Enter your password" required><span><h6 class='msg2'></h6></span>
+
+  </mat-form-field>
+</form>
+
+<div class="loginbtn">
+  <button type="button" class="btn btn-outline-warning">Log in</button>
+</div>
+
+<div class="forgotpswrd">
+  <a class="fgtpswd" routerLink="/forgotpassword">Forgot Password?</a>
+</div>
+
+<div class="or"><h5>OR</h5></div>
+
+
+<div class="fb w-75">
+  <button type="button" class="fbbtn btn-lg " (click)='loginfb()'>Log in with Facebook</button>
+</div>
+
+<div class="google w-75">
+  <button type="button" class="googlebtn btn-lg " (click)='logingmail()'>Log in with Google</button>
+</div>
+
+<div class="navtosignuppage">
+<h6>Don't have an account?<a class="sgnp " routerLink="/signup">SignUp Now</a></h6>
+</div>
+
+
+</div>

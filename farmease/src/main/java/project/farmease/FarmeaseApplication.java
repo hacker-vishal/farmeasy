@@ -25,8 +25,8 @@ public class FarmeaseApplication {
 		
 	    //logger.debug(1);
 		
-		Bcrypt b = new Bcrypt();
-		b.bcryptwork();
+		//Bcrypt b = new Bcrypt();
+		//b.bcryptwork();
 		
 	}	
 }

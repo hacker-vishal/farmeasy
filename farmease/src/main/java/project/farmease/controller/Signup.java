@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import project.farmease.dao.LogincredsRepo;
 import project.farmease.dao.UserRepo;
+import project.farmease.dto.Response;
 import project.farmease.dto.Userdto;
 import project.farmease.pojo.Logincreds;
-import project.farmease.pojo.Response;
 import project.farmease.pojo.User;
 
 @CrossOrigin(origins = "*")
@@ -48,7 +48,7 @@ public class Signup {
 //	    idexists = u.getEmail().equals(user.getEmail());
 		
 	    try {
-			idexists = userRepo.existsById(user.getEmail());
+			idexists = userRepo.existsByEmail(user.getEmail());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

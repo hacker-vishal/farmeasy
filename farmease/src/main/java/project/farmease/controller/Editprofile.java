@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import project.farmease.dao.AddressRepo;
 import project.farmease.dao.UserRepo;
+import project.farmease.dto.Response;
 import project.farmease.dto.UserProfile;
 import project.farmease.pojo.Address;
-import project.farmease.pojo.Response;
 import project.farmease.pojo.User;
 
-@CrossOrigin("*")
+@CrossOrigin(origins = "*")
 @RestController
 public class Editprofile {
 	
@@ -29,7 +29,7 @@ public class Editprofile {
 	{
 		this.userRepo = userRepo;
 		this.addressRepo = addressRepo;
-		logger.debug("autowired");
+		//logger.debug("autowired");
 	}
 
 	@PutMapping("/")

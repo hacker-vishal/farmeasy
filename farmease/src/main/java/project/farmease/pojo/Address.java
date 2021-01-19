@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 public class Address {
     @Id
     @Column(length=30)
-	private String email;
+	private Long Id;
     @Id
     private Integer zipcode;
     @Column(length=50)

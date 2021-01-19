@@ -1,10 +1,13 @@
 package project.farmease.pojo;
 
+import java.time.Instant;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -18,7 +21,9 @@ public class User {
 	}
 
 	@Id
-	@Column(nullable = false,length=30)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	@Column(nullable = false,length=30,unique=true)
 	private String email;
 	@Column(nullable = false,length=15)
 	private String fname;
@@ -28,6 +33,8 @@ public class User {
 	private String mobileno;
 	@Column(nullable = false,length=20)
 	private String password;
+	private Instant created;
+	private boolean enabled;
 	
 	@OneToMany(mappedBy = "user",cascade=CascadeType.ALL)
 	private Set<Booking> booking;
@@ -44,12 +51,25 @@ public class User {
 	@OneToOne(mappedBy = "user",cascade=CascadeType.ALL)
 	private Logincreds logincreds;
 
-	public User(String email, String fname, String lname, String mobileno, String password) {
+	public User(Long id, String email, String fname, String lname, String mobileno, String password, Instant created,
+			boolean enabled) {
+		super();
+		this.id = id;
 		this.email = email;
 		this.fname = fname;
 		this.lname = lname;
 		this.mobileno = mobileno;
 		this.password = password;
+		this.created = created;
+		this.enabled = enabled;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getEmail() {
@@ -90,5 +110,21 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public Instant getCreated() {
+		return created;
+	}
+
+	public void setCreated(Instant created) {
+		this.created = created;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 }

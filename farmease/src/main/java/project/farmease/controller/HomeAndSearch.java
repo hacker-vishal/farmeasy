@@ -15,7 +15,7 @@ import project.farmease.dao.HostuserRepo;
 import project.farmease.dto.Hostdto;
 import project.farmease.pojo.Hostuser;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin("*")
 @RestController
 public class HomeAndSearch {
 	
@@ -31,7 +31,7 @@ public class HomeAndSearch {
 	}
 
 	@PostMapping("/searchserv")
-	public List<Hostuser> searchforservice(@RequestBody Hostdto hostdto) 
+	public List<Hostuser> searchforservice(@RequestBody Hostuser hostuser) 
 	{
 		l = new ArrayList<Hostuser>();
 		
@@ -44,7 +44,7 @@ public class HomeAndSearch {
 //		l.add(h2);
 //		l.add(h3);
 		
-		l = hostuserRepo.findmatchingservice(hostdto.getEquipmenttype(),hostdto.getLocation());
+		l = hostuserRepo.findmatchingservice(hostuser.getEquipmenttype(),hostuser.getLocation());
 		//logger.debug(hostdto.getEquipmenttype(),hostdto.getLocation());
 		
 		List<Hostuser> delete = new ArrayList<Hostuser>();
@@ -52,7 +52,7 @@ public class HomeAndSearch {
 		for(Hostuser h:l)
 		{
 			//log.debug(equipment+" "+location);
-			if(!((h.getEquipmenttype().equalsIgnoreCase(hostdto.getEquipmenttype())) && (h.getLocation().equalsIgnoreCase(hostdto.getLocation()))))
+			if(!((h.getEquipmenttype().equalsIgnoreCase(hostuser.getEquipmenttype())) && (h.getLocation().equalsIgnoreCase(hostuser.getLocation()))))
 			{
 				//log.debug("condition satisfied got in");
 				delete.add(h);

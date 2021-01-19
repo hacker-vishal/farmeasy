@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import project.farmease.dao.LogincredsRepo;
+import project.farmease.dto.Response;
 import project.farmease.dto.Userdto;
 import project.farmease.pojo.Logincreds;
-import project.farmease.pojo.Response;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins="*")
 @RestController
 public class Login {
 	Logger logger = LogManager.getLogger(Login.class);

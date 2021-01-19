@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import project.farmease.dao.LogincredsRepo;
+import project.farmease.dto.Response;
 import project.farmease.pojo.Logincreds;
-import project.farmease.pojo.Response;
 
 @CrossOrigin(origins = "*")
 @RestController

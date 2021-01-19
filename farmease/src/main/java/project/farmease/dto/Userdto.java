@@ -5,8 +5,8 @@ public class Userdto {
 	private String email, password;
 
 	public Userdto() {
-		super();
-		// TODO Auto-generated constructor stub
+		
+		
 	}
 
 	public Userdto(String email, String password) {

@@ -45,9 +45,9 @@ public class SecConfig extends WebSecurityConfigurerAdapter {    // this class h
 	                .permitAll().antMatchers(HttpMethod.GET, "/api/auth") .permitAll()
 					.antMatchers(HttpMethod.GET, "/api/services/") .permitAll()     // these should be GET call so that spring will not authorize these everytime and guest can see these pages without login
 					.antMatchers(HttpMethod.GET, "/api/wishlist/**") .permitAll()
-//					.antMatchers("/v2/api-docs", "/configuration/ui", "/swagger-resources/**",     
-//					 "/configuration/security", "/swagger-ui.html", "/webjars/**")                
-//					.permitAll()
+					.antMatchers("/v2/api-docs", "/configuration/ui", "/swagger-resources/**",     
+					 "/configuration/security", "/swagger-ui.html", "/webjars/**")                
+					.permitAll()
 	                .anyRequest()
 	                .authenticated();
 	                httpSecurity.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);

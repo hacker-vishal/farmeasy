@@ -21,9 +21,7 @@ public class User {
 	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	@Column(nullable = false,length=30,unique=true)
+	@Column(nullable = false,length=30)
 	private String email;
 	@Column(nullable = false,length=15)
 	private String fname;
@@ -31,7 +29,7 @@ public class User {
 	private String lname;
 	@Column(nullable = false,length=15)
 	private String mobileno;
-	@Column(nullable = false,length=20)
+	@Column(nullable = false,length=70)
 	private String password;
 	private Instant created;
 	private boolean enabled;
@@ -51,10 +49,9 @@ public class User {
 	@OneToOne(mappedBy = "user",cascade=CascadeType.ALL)
 	private Logincreds logincreds;
 
-	public User(Long id, String email, String fname, String lname, String mobileno, String password, Instant created,
+	public User(String email, String fname, String lname, String mobileno, String password, Instant created,
 			boolean enabled) {
 		super();
-		this.id = id;
 		this.email = email;
 		this.fname = fname;
 		this.lname = lname;
@@ -62,14 +59,6 @@ public class User {
 		this.password = password;
 		this.created = created;
 		this.enabled = enabled;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getEmail() {

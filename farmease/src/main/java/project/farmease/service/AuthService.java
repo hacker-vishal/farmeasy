@@ -107,7 +107,7 @@ public class AuthService {
    @Transactional  
    private void fetchUserAndEnable(VerificationToken verificationToken) { // it will take the verificationToken and find by username, if found it will enable the user else throw exception... 
   	 String username = verificationToken.getUser().getEmail();
-       User user = userRepo.findByEmail(username).orElseThrow(() -> new  FarmeasyException("User not found with name - " + username));
+       User user = userRepo.findById(username).orElseThrow(() -> new  FarmeasyException("User not found with name - " + username));
            user.setEnabled(true); 
            userRepo.save(user);
            }

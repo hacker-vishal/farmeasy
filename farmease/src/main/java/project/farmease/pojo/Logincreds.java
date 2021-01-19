@@ -13,7 +13,7 @@ public class Logincreds {
 	@Id
 	@Column(nullable=false,length=30)
 	private String email;
-	@Column(nullable=false,length=20)
+	@Column(nullable=false,length=70)
 	private String password;
 	@Column(nullable=true,length=6)
 	private Integer otp;

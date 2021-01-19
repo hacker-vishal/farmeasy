@@ -3679,3 +3679,178 @@ Caused by: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'a
 [INFO ] 2021-01-18 17:23:26.995 [restartedMain] SecConfig - Password encrypting started 
 [INFO ] 2021-01-18 17:23:27.023 [restartedMain] SecConfig - Password is encrypted using BCrypt Hashing algorithm 
 [INFO ] 2021-01-18 17:23:30.038 [restartedMain] FarmeaseApplication - Started FarmeaseApplication in 5.631 seconds (JVM running for 6.437)
+[INFO ] 2021-01-18 22:39:14.757 [main] FarmeaseApplicationTests - Starting FarmeaseApplicationTests on DESKTOP-OQCCU49 with PID 11688 (started by ADMIN in E:\$AdvancedJava_codes\farmease)
+[DEBUG] 2021-01-18 22:39:14.761 [main] FarmeaseApplicationTests - Running with Spring Boot v2.3.5.RELEASE, Spring v5.2.10.RELEASE
+[INFO ] 2021-01-18 22:39:14.762 [main] FarmeaseApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2021-01-18 22:39:16.569 [main] JwtProvider - signing our JWT’s using farmeasy.jks Keystore
+[INFO ] 2021-01-18 22:39:16.614 [main] SecConfig - Password encrypting started 
+[INFO ] 2021-01-18 22:39:16.655 [main] SecConfig - Password is encrypted using BCrypt Hashing algorithm 
+[INFO ] 2021-01-18 22:39:37.426 [main] FarmeaseApplicationTests - Started FarmeaseApplicationTests in 22.937 seconds (JVM running for 24.522)
+[INFO ] 2021-01-18 22:40:27.029 [restartedMain] FarmeaseApplication - Starting FarmeaseApplication on DESKTOP-OQCCU49 with PID 9036 (E:\$AdvancedJava_codes\farmease\target\classes started by ADMIN in E:\$AdvancedJava_codes\farmease)
+[DEBUG] 2021-01-18 22:40:27.033 [restartedMain] FarmeaseApplication - Running with Spring Boot v2.3.5.RELEASE, Spring v5.2.10.RELEASE
+[INFO ] 2021-01-18 22:40:27.034 [restartedMain] FarmeaseApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2021-01-18 22:40:29.057 [restartedMain] JwtProvider - signing our JWT’s using farmeasy.jks Keystore
+[DEBUG] 2021-01-18 22:40:29.122 [restartedMain] JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+[INFO ] 2021-01-18 22:40:29.419 [restartedMain] SecConfig - Password encrypting started 
+[INFO ] 2021-01-18 22:40:29.459 [restartedMain] SecConfig - Password is encrypted using BCrypt Hashing algorithm 
+[INFO ] 2021-01-18 22:40:32.614 [restartedMain] FarmeaseApplication - Started FarmeaseApplication in 5.886 seconds (JVM running for 6.87)
+[INFO ] 2021-01-18 22:44:20.367 [http-nio-8080-exec-2] JwtAuthFilter - bearerToken got and start filtering it. 
+[INFO ] 2021-01-18 22:44:20.637 [http-nio-8080-exec-2] AuthController - 1. signup process started
+[DEBUG] 2021-01-18 22:44:20.679 [http-nio-8080-exec-2] AuthService - hi you are getting it wrong!
+[INFO ] 2021-01-18 22:44:20.679 [http-nio-8080-exec-2] AuthService - 2. Registration request got
+[INFO ] 2021-01-18 22:44:20.679 [http-nio-8080-exec-2] AuthService - 3. Fname a 
+[INFO ] 2021-01-18 22:44:20.679 [http-nio-8080-exec-2] AuthService - 4. Lname b 
+[INFO ] 2021-01-18 22:44:20.679 [http-nio-8080-exec-2] AuthService - 5. Email n@b.com 
+[INFO ] 2021-01-18 22:44:20.866 [http-nio-8080-exec-2] AuthService - 6. Encoded Password pab 
+[INFO ] 2021-01-18 22:44:20.866 [http-nio-8080-exec-2] AuthService - 7. Mobileno 23432 
+[INFO ] 2021-01-18 22:44:21.062 [http-nio-8080-exec-2] AuthService - 8. User credential Saved in Database
+[INFO ] 2021-01-18 22:44:21.063 [http-nio-8080-exec-2] AuthService - 9. verification token generated and it is a random token, token c21ef5dd-715a-4cd7-b8c5-04dbafd37d6f 
+[INFO ] 2021-01-18 22:51:20.819 [restartedMain] FarmeaseApplication - Starting FarmeaseApplication on DESKTOP-OQCCU49 with PID 16140 (E:\$AdvancedJava_codes\farmease\target\classes started by ADMIN in E:\$AdvancedJava_codes\farmease)
+[DEBUG] 2021-01-18 22:51:20.830 [restartedMain] FarmeaseApplication - Running with Spring Boot v2.3.5.RELEASE, Spring v5.2.10.RELEASE
+[INFO ] 2021-01-18 22:51:20.831 [restartedMain] FarmeaseApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2021-01-18 22:51:25.035 [restartedMain] JwtProvider - signing our JWT’s using farmeasy.jks Keystore
+[DEBUG] 2021-01-18 22:51:25.165 [restartedMain] JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+[INFO ] 2021-01-18 22:51:25.844 [restartedMain] SecConfig - Password encrypting started 
+[INFO ] 2021-01-18 22:51:25.897 [restartedMain] SecConfig - Password is encrypted using BCrypt Hashing algorithm 
+[INFO ] 2021-01-18 22:51:31.965 [restartedMain] FarmeaseApplication - Started FarmeaseApplication in 11.626 seconds (JVM running for 12.757)
+[INFO ] 2021-01-18 22:53:16.125 [restartedMain] FarmeaseApplication - Starting FarmeaseApplication on DESKTOP-OQCCU49 with PID 16140 (E:\$AdvancedJava_codes\farmease\target\classes started by ADMIN in E:\$AdvancedJava_codes\farmease)
+[DEBUG] 2021-01-18 22:53:16.125 [restartedMain] FarmeaseApplication - Running with Spring Boot v2.3.5.RELEASE, Spring v5.2.10.RELEASE
+[INFO ] 2021-01-18 22:53:16.126 [restartedMain] FarmeaseApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2021-01-18 22:53:16.603 [restartedMain] JwtProvider - signing our JWT’s using farmeasy.jks Keystore
+[DEBUG] 2021-01-18 22:53:16.617 [restartedMain] JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+[INFO ] 2021-01-18 22:53:16.716 [restartedMain] SecConfig - Password encrypting started 
+[INFO ] 2021-01-18 22:53:16.724 [restartedMain] SecConfig - Password is encrypted using BCrypt Hashing algorithm 
+[INFO ] 2021-01-18 22:53:53.725 [restartedMain] FarmeaseApplication - Started FarmeaseApplication in 37.635 seconds (JVM running for 154.518)
+[INFO ] 2021-01-18 22:55:16.876 [http-nio-8080-exec-1] JwtAuthFilter - bearerToken got and start filtering it. 
+[INFO ] 2021-01-18 22:55:17.096 [http-nio-8080-exec-1] AuthController - 1. signup process started
+[DEBUG] 2021-01-18 22:55:17.129 [http-nio-8080-exec-1] AuthService - hi you are getting it wrong!
+[INFO ] 2021-01-18 22:55:17.129 [http-nio-8080-exec-1] AuthService - 2. Registration request got
+[INFO ] 2021-01-18 22:55:17.129 [http-nio-8080-exec-1] AuthService - 3. Fname a 
+[INFO ] 2021-01-18 22:55:17.129 [http-nio-8080-exec-1] AuthService - 4. Lname b 
+[INFO ] 2021-01-18 22:55:17.129 [http-nio-8080-exec-1] AuthService - 5. Email n@b.com 
+[INFO ] 2021-01-18 22:55:17.301 [http-nio-8080-exec-1] AuthService - 6. Encoded Password pab 
+[INFO ] 2021-01-18 22:55:17.303 [http-nio-8080-exec-1] AuthService - 7. Mobileno 23432 
+[INFO ] 2021-01-18 22:55:17.559 [http-nio-8080-exec-1] AuthService - 8. User credential Saved in Database
+[INFO ] 2021-01-18 22:55:17.559 [http-nio-8080-exec-1] AuthService - 9. verification token generated and it is a random token, token 6fcf0936-8408-48c7-9f09-906c6d716c52 
+[INFO ] 2021-01-18 22:55:17.986 [http-nio-8080-exec-1] AuthController - signup process completed
+[INFO ] 2021-01-18 23:02:48.999 [restartedMain] FarmeaseApplication - Starting FarmeaseApplication on DESKTOP-OQCCU49 with PID 10180 (E:\$AdvancedJava_codes\farmease\target\classes started by ADMIN in E:\$AdvancedJava_codes\farmease)
+[DEBUG] 2021-01-18 23:02:49.005 [restartedMain] FarmeaseApplication - Running with Spring Boot v2.3.5.RELEASE, Spring v5.2.10.RELEASE
+[INFO ] 2021-01-18 23:02:49.006 [restartedMain] FarmeaseApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2021-01-18 23:02:51.439 [restartedMain] JwtProvider - signing our JWT’s using farmeasy.jks Keystore
+[DEBUG] 2021-01-18 23:02:51.507 [restartedMain] JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+[INFO ] 2021-01-18 23:02:51.824 [restartedMain] SecConfig - Password encrypting started 
+[INFO ] 2021-01-18 23:02:51.854 [restartedMain] SecConfig - Password is encrypted using BCrypt Hashing algorithm 
+[INFO ] 2021-01-18 23:02:55.320 [restartedMain] FarmeaseApplication - Started FarmeaseApplication in 6.67 seconds (JVM running for 7.525)
+[INFO ] 2021-01-18 23:06:22.766 [http-nio-8080-exec-2] JwtAuthFilter - bearerToken got and start filtering it. 
+[INFO ] 2021-01-18 23:06:22.977 [http-nio-8080-exec-2] AuthController - Login request started for user n@b.com: 
+[INFO ] 2021-01-18 23:13:17.254 [restartedMain] FarmeaseApplication - Starting FarmeaseApplication on DESKTOP-OQCCU49 with PID 10180 (E:\$AdvancedJava_codes\farmease\target\classes started by ADMIN in E:\$AdvancedJava_codes\farmease)
+[DEBUG] 2021-01-18 23:13:17.255 [restartedMain] FarmeaseApplication - Running with Spring Boot v2.3.5.RELEASE, Spring v5.2.10.RELEASE
+[INFO ] 2021-01-18 23:13:17.255 [restartedMain] FarmeaseApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2021-01-18 23:13:17.710 [restartedMain] JwtProvider - signing our JWT’s using farmeasy.jks Keystore
+[DEBUG] 2021-01-18 23:13:17.731 [restartedMain] JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+[INFO ] 2021-01-18 23:13:17.818 [restartedMain] SecConfig - Password encrypting started 
+[INFO ] 2021-01-18 23:13:17.822 [restartedMain] SecConfig - Password is encrypted using BCrypt Hashing algorithm 
+[INFO ] 2021-01-18 23:13:18.292 [restartedMain] FarmeaseApplication - Started FarmeaseApplication in 1.069 seconds (JVM running for 630.497)
+[INFO ] 2021-01-18 23:13:33.349 [http-nio-8080-exec-4] JwtAuthFilter - bearerToken got and start filtering it. 
+[INFO ] 2021-01-18 23:13:33.354 [http-nio-8080-exec-4] AuthController - Login request started for user n@b.com: 
+[INFO ] 2021-01-18 23:17:11.200 [http-nio-8080-exec-8] JwtAuthFilter - bearerToken got and start filtering it. 
+[INFO ] 2021-01-18 23:17:11.202 [http-nio-8080-exec-8] AuthController - Login request started for user n@b.com: 
+[INFO ] 2021-01-18 23:18:30.303 [restartedMain] FarmeaseApplication - Starting FarmeaseApplication on DESKTOP-OQCCU49 with PID 10180 (E:\$AdvancedJava_codes\farmease\target\classes started by ADMIN in E:\$AdvancedJava_codes\farmease)
+[DEBUG] 2021-01-18 23:18:30.304 [restartedMain] FarmeaseApplication - Running with Spring Boot v2.3.5.RELEASE, Spring v5.2.10.RELEASE
+[INFO ] 2021-01-18 23:18:30.304 [restartedMain] FarmeaseApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2021-01-18 23:18:30.683 [restartedMain] JwtProvider - signing our JWT’s using farmeasy.jks Keystore
+[DEBUG] 2021-01-18 23:18:30.703 [restartedMain] JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+[INFO ] 2021-01-18 23:18:30.780 [restartedMain] SecConfig - Password encrypting started 
+[INFO ] 2021-01-18 23:18:30.785 [restartedMain] SecConfig - Password is encrypted using BCrypt Hashing algorithm 
+[INFO ] 2021-01-18 23:18:38.920 [restartedMain] FarmeaseApplication - Starting FarmeaseApplication on DESKTOP-OQCCU49 with PID 13568 (E:\$AdvancedJava_codes\farmease\target\classes started by ADMIN in E:\$AdvancedJava_codes\farmease)
+[DEBUG] 2021-01-18 23:18:38.926 [restartedMain] FarmeaseApplication - Running with Spring Boot v2.3.5.RELEASE, Spring v5.2.10.RELEASE
+[INFO ] 2021-01-18 23:18:38.927 [restartedMain] FarmeaseApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2021-01-18 23:18:40.719 [restartedMain] JwtProvider - signing our JWT’s using farmeasy.jks Keystore
+[DEBUG] 2021-01-18 23:18:40.785 [restartedMain] JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+[INFO ] 2021-01-18 23:18:41.103 [restartedMain] SecConfig - Password encrypting started 
+[INFO ] 2021-01-18 23:18:41.135 [restartedMain] SecConfig - Password is encrypted using BCrypt Hashing algorithm 
+[INFO ] 2021-01-18 23:18:45.821 [restartedMain] FarmeaseApplication - Started FarmeaseApplication in 7.176 seconds (JVM running for 7.947)
+[INFO ] 2021-01-18 23:19:33.089 [http-nio-8080-exec-2] JwtAuthFilter - bearerToken got and start filtering it. 
+[INFO ] 2021-01-18 23:19:33.205 [http-nio-8080-exec-2] AuthController - 1. signup process started
+[DEBUG] 2021-01-18 23:19:33.221 [http-nio-8080-exec-2] AuthService - hi you are getting it wrong!
+[INFO ] 2021-01-18 23:19:33.221 [http-nio-8080-exec-2] AuthService - 2. Registration request got
+[INFO ] 2021-01-18 23:19:33.221 [http-nio-8080-exec-2] AuthService - 3. Fname a 
+[INFO ] 2021-01-18 23:19:33.221 [http-nio-8080-exec-2] AuthService - 4. Lname b 
+[INFO ] 2021-01-18 23:19:33.221 [http-nio-8080-exec-2] AuthService - 5. Email n@b.com 
+[INFO ] 2021-01-18 23:19:33.306 [http-nio-8080-exec-2] AuthService - 6. Encoded Password pab 
+[INFO ] 2021-01-18 23:19:33.306 [http-nio-8080-exec-2] AuthService - 7. Mobileno 23432 
+[INFO ] 2021-01-18 23:19:33.470 [http-nio-8080-exec-2] AuthService - 8. User credential Saved in Database
+[INFO ] 2021-01-18 23:19:33.470 [http-nio-8080-exec-2] AuthService - 9. verification token generated and it is a random token, token 579fa239-6ec8-4d56-a9ed-c094b7ccfbd3 
+[INFO ] 2021-01-18 23:19:33.805 [http-nio-8080-exec-2] AuthController - signup process completed
+[INFO ] 2021-01-18 23:19:51.110 [http-nio-8080-exec-3] JwtAuthFilter - bearerToken got and start filtering it. 
+[INFO ] 2021-01-18 23:19:51.113 [http-nio-8080-exec-3] AuthController - 1. signup process started
+[DEBUG] 2021-01-18 23:19:51.114 [http-nio-8080-exec-3] AuthService - hi you are getting it wrong!
+[INFO ] 2021-01-18 23:19:51.114 [http-nio-8080-exec-3] AuthService - 2. Registration request got
+[INFO ] 2021-01-18 23:19:51.114 [http-nio-8080-exec-3] AuthService - 3. Fname a 
+[INFO ] 2021-01-18 23:19:51.114 [http-nio-8080-exec-3] AuthService - 4. Lname b 
+[INFO ] 2021-01-18 23:19:51.114 [http-nio-8080-exec-3] AuthService - 5. Email n@b.com 
+[INFO ] 2021-01-18 23:19:51.239 [http-nio-8080-exec-3] AuthService - 6. Encoded Password pab 
+[INFO ] 2021-01-18 23:19:51.240 [http-nio-8080-exec-3] AuthService - 7. Mobileno 23432 
+[INFO ] 2021-01-18 23:19:51.249 [http-nio-8080-exec-3] AuthService - 8. User credential Saved in Database
+[INFO ] 2021-01-18 23:19:51.249 [http-nio-8080-exec-3] AuthService - 9. verification token generated and it is a random token, token c14826fe-4426-4e75-8ee5-9c6d2e331539 
+[INFO ] 2021-01-18 23:19:51.337 [http-nio-8080-exec-3] AuthController - signup process completed
+[INFO ] 2021-01-18 23:22:47.699 [restartedMain] FarmeaseApplication - Starting FarmeaseApplication on DESKTOP-OQCCU49 with PID 7712 (E:\$AdvancedJava_codes\farmease\target\classes started by ADMIN in E:\$AdvancedJava_codes\farmease)
+[DEBUG] 2021-01-18 23:22:47.704 [restartedMain] FarmeaseApplication - Running with Spring Boot v2.3.5.RELEASE, Spring v5.2.10.RELEASE
+[INFO ] 2021-01-18 23:22:47.705 [restartedMain] FarmeaseApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2021-01-18 23:22:49.474 [restartedMain] JwtProvider - signing our JWT’s using farmeasy.jks Keystore
+[DEBUG] 2021-01-18 23:22:49.534 [restartedMain] JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+[INFO ] 2021-01-18 23:22:49.841 [restartedMain] SecConfig - Password encrypting started 
+[INFO ] 2021-01-18 23:22:49.868 [restartedMain] SecConfig - Password is encrypted using BCrypt Hashing algorithm 
+[INFO ] 2021-01-18 23:23:28.537 [restartedMain] FarmeaseApplication - Started FarmeaseApplication in 41.12 seconds (JVM running for 41.88)
+[INFO ] 2021-01-18 23:23:42.059 [restartedMain] FarmeaseApplication - Starting FarmeaseApplication on DESKTOP-OQCCU49 with PID 7712 (E:\$AdvancedJava_codes\farmease\target\classes started by ADMIN in E:\$AdvancedJava_codes\farmease)
+[DEBUG] 2021-01-18 23:23:42.059 [restartedMain] FarmeaseApplication - Running with Spring Boot v2.3.5.RELEASE, Spring v5.2.10.RELEASE
+[INFO ] 2021-01-18 23:23:42.060 [restartedMain] FarmeaseApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2021-01-18 23:23:42.483 [restartedMain] JwtProvider - signing our JWT’s using farmeasy.jks Keystore
+[DEBUG] 2021-01-18 23:23:42.497 [restartedMain] JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+[INFO ] 2021-01-18 23:23:42.599 [restartedMain] SecConfig - Password encrypting started 
+[INFO ] 2021-01-18 23:23:42.605 [restartedMain] SecConfig - Password is encrypted using BCrypt Hashing algorithm 
+[INFO ] 2021-01-18 23:23:43.257 [restartedMain] FarmeaseApplication - Started FarmeaseApplication in 1.234 seconds (JVM running for 56.6)
+[INFO ] 2021-01-18 23:24:28.748 [http-nio-8080-exec-1] JwtAuthFilter - bearerToken got and start filtering it. 
+[INFO ] 2021-01-18 23:24:28.867 [http-nio-8080-exec-1] AuthController - 1. signup process started
+[DEBUG] 2021-01-18 23:24:28.881 [http-nio-8080-exec-1] AuthService - hi you are getting it wrong!
+[INFO ] 2021-01-18 23:24:28.881 [http-nio-8080-exec-1] AuthService - 2. Registration request got
+[INFO ] 2021-01-18 23:24:28.881 [http-nio-8080-exec-1] AuthService - 3. Fname a 
+[INFO ] 2021-01-18 23:24:28.881 [http-nio-8080-exec-1] AuthService - 4. Lname b 
+[INFO ] 2021-01-18 23:24:28.881 [http-nio-8080-exec-1] AuthService - 5. Email n@b.com 
+[INFO ] 2021-01-18 23:24:28.969 [http-nio-8080-exec-1] AuthService - 6. Encoded Password pab 
+[INFO ] 2021-01-18 23:24:28.969 [http-nio-8080-exec-1] AuthService - 7. Mobileno 23432 
+[INFO ] 2021-01-18 23:24:29.090 [http-nio-8080-exec-1] AuthService - 8. User credential Saved in Database
+[INFO ] 2021-01-18 23:24:29.091 [http-nio-8080-exec-1] AuthService - 9. verification token generated and it is a random token, token a5b6383d-e2dc-446a-8a04-b0d669cd5150 
+[INFO ] 2021-01-18 23:24:29.275 [http-nio-8080-exec-1] AuthController - signup process completed
+[INFO ] 2021-01-18 23:24:56.126 [http-nio-8080-exec-3] JwtAuthFilter - bearerToken got and start filtering it. 
+[INFO ] 2021-01-18 23:24:56.128 [http-nio-8080-exec-3] AuthController - Login request started for user n@b.com: 
+[INFO ] 2021-01-18 23:27:49.031 [restartedMain] FarmeaseApplication - Starting FarmeaseApplication on DESKTOP-OQCCU49 with PID 5824 (E:\$AdvancedJava_codes\farmease\target\classes started by ADMIN in E:\$AdvancedJava_codes\farmease)
+[DEBUG] 2021-01-18 23:27:49.034 [restartedMain] FarmeaseApplication - Running with Spring Boot v2.3.5.RELEASE, Spring v5.2.10.RELEASE
+[INFO ] 2021-01-18 23:27:49.035 [restartedMain] FarmeaseApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2021-01-18 23:27:50.838 [restartedMain] JwtProvider - signing our JWT’s using farmeasy.jks Keystore
+[DEBUG] 2021-01-18 23:27:50.910 [restartedMain] JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+[INFO ] 2021-01-18 23:27:51.199 [restartedMain] SecConfig - Password encrypting started 
+[INFO ] 2021-01-18 23:27:51.224 [restartedMain] SecConfig - Password is encrypted using BCrypt Hashing algorithm 
+[INFO ] 2021-01-18 23:27:54.114 [restartedMain] FarmeaseApplication - Started FarmeaseApplication in 5.366 seconds (JVM running for 6.123)
+[INFO ] 2021-01-18 23:28:00.712 [http-nio-8080-exec-2] JwtAuthFilter - bearerToken got and start filtering it. 
+[INFO ] 2021-01-18 23:28:00.849 [http-nio-8080-exec-2] AuthController - Login request started for user n@b.com: 
+[INFO ] 2021-01-18 23:36:28.507 [restartedMain] FarmeaseApplication - Starting FarmeaseApplication on DESKTOP-OQCCU49 with PID 7516 (E:\$AdvancedJava_codes\farmease\target\classes started by ADMIN in E:\$AdvancedJava_codes\farmease)
+[DEBUG] 2021-01-18 23:36:28.512 [restartedMain] FarmeaseApplication - Running with Spring Boot v2.3.5.RELEASE, Spring v5.2.10.RELEASE
+[INFO ] 2021-01-18 23:36:28.512 [restartedMain] FarmeaseApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2021-01-18 23:36:30.295 [restartedMain] JwtProvider - signing our JWT’s using farmeasy.jks Keystore
+[DEBUG] 2021-01-18 23:36:30.354 [restartedMain] JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+[INFO ] 2021-01-18 23:36:30.651 [restartedMain] SecConfig - Password encrypting started 
+[INFO ] 2021-01-18 23:36:30.679 [restartedMain] SecConfig - Password is encrypted using BCrypt Hashing algorithm 
+[INFO ] 2021-01-18 23:36:33.581 [restartedMain] FarmeaseApplication - Started FarmeaseApplication in 5.353 seconds (JVM running for 6.106)
+[INFO ] 2021-01-18 23:36:51.792 [http-nio-8080-exec-1] JwtAuthFilter - bearerToken got and start filtering it. 
+[INFO ] 2021-01-18 23:36:51.902 [http-nio-8080-exec-1] AuthController - 1. signup process started
+[DEBUG] 2021-01-18 23:36:51.917 [http-nio-8080-exec-1] AuthService - hi you are getting it wrong!
+[INFO ] 2021-01-18 23:36:51.917 [http-nio-8080-exec-1] AuthService - 2. Registration request got
+[INFO ] 2021-01-18 23:36:51.917 [http-nio-8080-exec-1] AuthService - 3. Fname a 
+[INFO ] 2021-01-18 23:36:51.918 [http-nio-8080-exec-1] AuthService - 4. Lname b 
+[INFO ] 2021-01-18 23:36:51.918 [http-nio-8080-exec-1] AuthService - 5. Email n@b.com 
+[INFO ] 2021-01-18 23:36:52.008 [http-nio-8080-exec-1] AuthService - 6. Encoded Password pab 
+[INFO ] 2021-01-18 23:36:52.009 [http-nio-8080-exec-1] AuthService - 7. Mobileno 23432 
+[INFO ] 2021-01-18 23:36:52.091 [http-nio-8080-exec-1] AuthService - 8. User credential Saved in Database
+[INFO ] 2021-01-18 23:36:52.091 [http-nio-8080-exec-1] AuthService - 9. verification token generated and it is a random token, token c8db6cc4-4610-4f67-af7a-ca44ec9b009a 
+[INFO ] 2021-01-18 23:36:52.294 [http-nio-8080-exec-1] AuthController - signup process completed

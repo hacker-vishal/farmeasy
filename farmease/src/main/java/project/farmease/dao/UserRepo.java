@@ -14,7 +14,7 @@ import project.farmease.pojo.VerificationToken;
 
 
 @Repository 
-public interface UserRepo extends JpaRepository<User, Long>{
+public interface UserRepo extends JpaRepository<User, String>{
 
 	@Modifying
 	@Transactional

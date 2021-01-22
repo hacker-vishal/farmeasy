@@ -1,0 +1,59 @@
+
+.rc 
+{
+   color:red;
+   float: left;
+}
+
+.container
+{
+    background: url(farming.jpg);
+    background-size: cover;
+    margin-top: 20px;
+    max-width: 100%;
+    height:700px;
+    
+
+}
+
+.heading
+{
+    font-size: 35px;
+    padding-top: 120px;
+    
+}
+
+.btn
+{
+    background-color: teal;
+    color:snow;
+    margin-left: 150px;
+    
+}
+
+.btn:hover
+{
+    background-color:green;
+    color:white;
+    
+}
+
+.needbtn
+{
+    
+    margin-left: 300px;
+}
+
+.example-form1
+{
+    
+    margin-top: 60px;
+}
+.typeContainer {
+    border: 2px solid red;
+    width: 120px;
+    height: 60px;
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column;
+}

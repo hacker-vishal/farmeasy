@@ -42,6 +42,10 @@ npm install angular-material --save
 
 ng add @angular/material
 
+npm update @angular/material @angular/cdk
+
+ng update @angular/material
+
 # To install from HEAD of master
 npm install http://github.com/angular/bower-material/tarball/master
 

@@ -55,18 +55,16 @@ class PswdworkTest {
 	@Test
 	void testsetnewpasswd()
 	{
-		String id = "abc";
-		String pswd = "pabc";
-		response = pswdwork.setnewpasswd(id, pswd);
+		userdto = new Userdto("xyz","");
+		response = pswdwork.setnewpasswd(userdto);
 		assertEquals(1, response.getStatus());
 	}
 	
 	@Test
 	void testsetnewpasswdfailcase()
 	{
-		String id = "abc";
-		String pswd = "pppp";
-		response = pswdwork.setnewpasswd(id, pswd);
+		userdto = new Userdto("xyz","");
+		response = pswdwork.setnewpasswd(userdto);
 		assertEquals(0, response.getStatus());
 	}
 }

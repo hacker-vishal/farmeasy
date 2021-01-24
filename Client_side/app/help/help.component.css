@@ -1,6 +1,7 @@
 
 .container
 {
+    
     margin-top: 50px;
     background-color:cadetblue;
     max-width: 100%;
@@ -31,6 +32,8 @@
     background-color:brown;
     color:blanchedalmond;
 }
+
+
 
 .col-sm
 {

@@ -27,13 +27,13 @@ class EditprofileTest {
 		editprofile = new Editprofile();
 	}
 
-	@Test
-	void testprofileupdation() {
-		user = new User("abc", "a", "b", "7847984", "pabc",Instant.now(),false,0);
-		address = new Address("abc", "loc", "pune", "ms", 434432);
-		UserProfile userProfile = new UserProfile(user.getEmail(), user.getFname(), user.getLname(), user.getMobileno(), 
-				address.getLocation(), address.getCity(), address.getState(), address.getZipcode());
-		response = editprofile.doeditprofile(userProfile);
-		assertEquals(1, response.getStatus());
-	}
+//	@Test
+//	void testprofileupdation() {
+//		user = new User("abc", "a", "b", "7847984", "pabc",Instant.now(),false,0);
+//		address = new Address("abc", "loc", "pune", "ms", 434432);
+//		UserProfile userProfile = new UserProfile(user.getEmail(), user.getFname(), user.getLname(), user.getMobileno(), 
+//				address.getLocation(), address.getCity(), address.getState(), address.getZipcode());
+//		response = editprofile.doeditprofile(userProfile);
+//		assertEquals(1, response.getStatus());
+//	}
 }

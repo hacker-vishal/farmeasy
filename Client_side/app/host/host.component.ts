@@ -27,7 +27,8 @@ export class HostComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.h.email = this.loginService.getUserName();
+    this.h.email = this.loginService.getUserName();
+    console.log(this.h.email);
   }
 
   onFileChanged(event) {

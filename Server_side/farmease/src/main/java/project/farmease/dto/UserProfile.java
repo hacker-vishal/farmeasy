@@ -10,21 +10,13 @@ public class UserProfile {
 	private String fname;
 	private String lname;
 	private String mobileno;
-	private String location;
-	private String city;
-	private String state;
-	private int zipcode;
 	
-	public UserProfile(String email, String fname, String lname, String mobileno, String location, String city,
-			String state, int zipcode) {
+	public UserProfile(String email, String fname, String lname, String mobileno) {
 		this.email = email;
 		this.fname = fname;
 		this.lname = lname;
 		this.mobileno = mobileno;
-		this.location = location;
-		this.city = city;
-		this.state = state;
-		this.zipcode = zipcode;
+		
 	}
 	public String getEmail() {
 		return email;
@@ -50,28 +42,6 @@ public class UserProfile {
 	public void setMobileno(String mobileno) {
 		this.mobileno = mobileno;
 	}
-	public String getLocation() {
-		return location;
-	}
-	public void setLocation(String location) {
-		this.location = location;
-	}
-	public String getCity() {
-		return city;
-	}
-	public void setCity(String city) {
-		this.city = city;
-	}
-	public String getState() {
-		return state;
-	}
-	public void setState(String state) {
-		this.state = state;
-	}
-	public int getZipcode() {
-		return zipcode;
-	}
-	public void setZipcode(int zipcode) {
-		this.zipcode = zipcode;
-	}
+	
+
 }

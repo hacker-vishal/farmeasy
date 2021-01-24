@@ -1,5 +1,5 @@
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Hostuser } from '../Models/hostuser';
 import { HomeService } from '../Services/home.service';
@@ -9,11 +9,9 @@ import { HomeService } from '../Services/home.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent{
+export class HomeComponent implements OnInit{
 
   h:Hostuser;
-
-  //servicelist:any=[];
   showlist:any=[];
   msg:any=[];
   
@@ -23,6 +21,8 @@ export class HomeComponent{
     this.h = new Hostuser("","");
     
   }
+  ngOnInit(): void {
+  }
 
   getnow()
   {
@@ -31,9 +31,9 @@ export class HomeComponent{
         
         //console.log(this.h.equipmenttype);
         this.msg="No service found matching to your request!";
-        console.log(list.length,this.h.equipmenttype,this.h.location,JSON.stringify(this.h));
+        //console.log(list.length,this.h.equipmenttype,this.h.location,JSON.stringify(this.h));
         if(list.length>0){
-          console.log(list.length,this.h.equipmenttype,this.h.location);
+          //console.log(list.length,this.h.equipmenttype,this.h.location);
         list.forEach(element => {
           if(element.equipmenttype!=null){
         //this.msg="Here is the list of your required services!"
@@ -43,8 +43,8 @@ export class HomeComponent{
 
         //this.msg=this.showlist;
       }});
-      localStorage.setItem('data', JSON.stringify(this.showlist));
-      this.r.navigate(['/showlist', {type: this.showlist}]);
+      //localStorage.setItem('data', JSON.stringify(this.showlist));
+      this.r.navigate(['/showlist'],{ state: { list: this.showlist } });
         //sendlist = JSON.stringify(this.showlist);
         
       }
@@ -55,7 +55,7 @@ export class HomeComponent{
       });
   }
 
-  needeqp()
+  registerhost()
   {
     this.r.navigate(['/host']);
   }

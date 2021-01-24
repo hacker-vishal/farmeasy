@@ -19,6 +19,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { TokenInterceptor } from './Models/token-interceptor';
 //import { FontAwesomeModule } from '@fortawesome/fontawesome-free';
 import { RouterModule, Routes } from '@angular/router';
+import {MatCardModule} from '@angular/material/card';
 
 const routes: Routes = [
 ]
@@ -31,7 +32,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,AppRoutingModule,NgbModule,FormsModule,HttpClientModule, 
     BrowserAnimationsModule,MatToolbarModule,MatInputModule,MatButtonModule,MatIconModule,ReactiveFormsModule,
-    RouterModule.forRoot(routes),NgxWebstorageModule.forRoot(),ToastrModule.forRoot() //,FontAwesomeModule
+    RouterModule.forRoot(routes),NgxWebstorageModule.forRoot(),ToastrModule.forRoot(), MatCardModule
   ],
   providers: [ { provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,

@@ -45,6 +45,7 @@ public class SecConfig extends WebSecurityConfigurerAdapter {    // this class h
 	                .permitAll().antMatchers(HttpMethod.GET, "/auth") .permitAll()
 					.antMatchers("/services/**") .permitAll()     // these should be GET call so that spring will not authorize these everytime and guest can see these pages without login
 					.antMatchers("/password/**") .permitAll()
+					.antMatchers("/update/**") .permitAll()
 					.antMatchers(HttpMethod.GET, "/wishlist/**") .permitAll()
 					.antMatchers("/configuration/ui", "/configuration/security")                
 					.permitAll()

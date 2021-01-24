@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Hostuser } from './Models/hostuser';
 import { LoginService } from './Services/login.service';
+import { GlobalConstants } from './common/global-constants'
+import { ResponsiveService } from './Services/responsive.service'
 
 
 @Component({
@@ -11,8 +12,12 @@ import { LoginService } from './Services/login.service';
 })
 export class AppComponent {
 
-    constructor(private r:Router, private loginService: LoginService) 
-    { }
+  title = GlobalConstants.siteTitle;
+
+    constructor(private r:Router, private loginService: LoginService, private resp:ResponsiveService) 
+    {
+      console.log(GlobalConstants.apiURL);
+     }
 
     equipmenttype:string;
     location:string;
@@ -26,7 +31,22 @@ export class AppComponent {
       this.isLoggedIn = this.loginService.isLoggedIn();
       //console.log(this.isLoggedIn);
       this.username = this.loginService.getUserName();
+      console.log(this.title);
+      this.resp.getMobileStatus().subscribe( isMobile =>{
+        if(isMobile){
+          console.log('Mobile device detected')
+        }
+        else{
+          console.log('Desktop detected')
+        }
+      });
+      this.onResize();    
     }
+  
+    onResize(){
+      this.resp.checkWidth();
+    }
+    
 
     login()
     {

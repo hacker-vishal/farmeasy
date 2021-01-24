@@ -3,7 +3,8 @@ export class User {
     email:string="";
     fname:string="";
     lname:string="";
-    mobileno:number=0;
-    zipcode:number=0;
+    mobileno:number;
+    password:any;
+    otp:number;
 
 }

@@ -1,42 +1,48 @@
-
-
-
-
+<link rel="stylesheet" href="farming.jpg">
   
-<div class="txtalign">
+<div style="text-align:center" class="container">
   
-  <h1 class= "text-primary font-weight-bold">
-    To Rent out Farming Equipments!
+  <h1 class= "heading text-primary font-weight-bold">
+    Get Farming Equipments Near You On Rent!
   </h1>
 
-
-
-<form class="example-form1">
-  <mat-form-field class="example-full-width">
-    <mat-label>Equipment Type</mat-label>
-    <input [ngModel]='equipmenttype' name="eqpt" matInput placeholder="Ex. tractor">
-
-  </mat-form-field>
- </form>
+  <form class="example-form1">
+    <mat-form-field class="example-full-width">
+      <mat-label>Equipment Type</mat-label>
+      <input [(ngModel)]='h.equipmenttype' type='text' name="eqptyp" matInput placeholder="Ex. tractor" required />
+  
+    </mat-form-field>
+  </form>
 
  <form class="example-form2">
   <mat-form-field class="example-full-width">
     <mat-label>Equipment Location</mat-label>
-    <input [ngModel]='location' name="loc" matInput placeholder="Ex. Bangalore">
+    <input [(ngModel)]='h.location' type='text' name="loc" matInput placeholder="Ex. Bangalore" required />
 
   </mat-form-field>
  </form>
 
  <div class="form-group">
-  <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)='listnow()'>List Now</button>
+  <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)='getnow()'>Get It Now</button>
+ </div>
+
+ <h6>{{msg}}</h6>
+
+ 
+  <div *ngFor='let msg1 of showlist' class="rc">
+    <div class="typeContainer">
+      <img src="farming.jpg" alt="image" />
+      <span>{{msg1.eqtype}}</span>
+      <span>{{msg1.loc}}</span>
+    </div>
   </div>
 
-  <h4 class="rc">{{msg}}</h4>
+
 
   <div class="form-group w-75">
-  <button type="button" class="needbtn btn-lg btn-primary" (click)='needeqp()'>Need An Equipment?</button>
+  <button type="button" class="needbtn btn-lg btn-primary" (click)='needeqp()'>Have An Equipment? List Here!</button>
   </div>
 
 
-</div>
+  </div>
 

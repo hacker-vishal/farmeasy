@@ -6,6 +6,14 @@ export class Hostuser {
     servicetype:string="";
     location:string=""; 
     rent:number=0;
+    img:any;
+
+
+constructor(equipmenttype, location)
+{
+    this.equipmenttype=equipmenttype;
+    this.location=location;  
+}
 
 
 }

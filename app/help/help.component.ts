@@ -10,6 +10,8 @@ export class HelpComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(JSON.parse(localStorage.getItem('data')));
+    // JSON.parse(localStorage.getItem('data'))
   }
 
 }

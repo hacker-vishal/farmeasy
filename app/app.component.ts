@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Hostuser } from './Models/hostuser';
+import { LoginService } from './Services/login.service';
+import { GlobalConstants } from './common/global-constants'
+import { ResponsiveService } from './Services/responsive.service'
 
 
 @Component({
@@ -9,44 +11,57 @@ import { Hostuser } from './Models/hostuser';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'To Rent out Farming Equipments';
 
-    constructor(private r:Router) 
-    { }
+  title = GlobalConstants.siteTitle;
+
+    constructor(private r:Router, private loginService: LoginService, private resp:ResponsiveService) 
+    {
+      console.log(GlobalConstants.apiURL);
+     }
 
     equipmenttype:string;
     location:string;
     msg:any;
+    isLoggedIn: boolean;
+    username: string;
   
     ngOnInit() {
+      this.loginService.loggedIn.subscribe((data: boolean) => this.isLoggedIn = data);
+      this.loginService.username.subscribe((data: string) => this.username = data);
+      this.isLoggedIn = this.loginService.isLoggedIn();
+      //console.log(this.isLoggedIn);
+      this.username = this.loginService.getUserName();
+      console.log(this.title);
+      this.resp.getMobileStatus().subscribe( isMobile =>{
+        if(isMobile){
+          console.log('Mobile device detected')
+        }
+        else{
+          console.log('Desktop detected')
+        }
+      });
+      this.onResize();    
     }
+  
+    onResize(){
+      this.resp.checkWidth();
+    }
+    
 
     login()
     {
-      
       this.r.navigate['/login'];
     }
-  
-    listnow()
-    {
-      if(this.equipmenttype!= null && this.location!=null )
-      {
-        if(this.equipmenttype==Hostuser.toString() && this.location==Hostuser.toString())
-        {
-          
-        }
-        else
-        {
-          this.msg = "No Such Result Found";
-        }
-      }
-      else
-      {
-        this.msg = "To see equipments at a particular location you need to type location and equipment type";
-      }
+
+    goToUserProfile() {
+      this.r.navigateByUrl('/profile/' + this.username);
     }
   
-
+    logout() {
+      this.loginService.logout();
+      this.isLoggedIn = false;
+      this.r.navigateByUrl('');
+    }
 }
 
 

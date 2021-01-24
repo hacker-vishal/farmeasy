@@ -1,11 +1,20 @@
 
+<link rel="stylesheet" href="farming.jpg">
+
+<div class="container">
+
+  <div class="loginContainer">
+
+    
+
 <h1 class="loginhead font-weight-bold">Login or SignUp to Register</h1>
 
+<h6 class="ms">{{msg}}</h6>
 
 <form class="example-form">
   <mat-form-field class="example-full-width">
     <mat-label>Email Address</mat-label>
-    <input [(ngModel)]='email' type='email' matInput placeholder="Enter your email" required><span><h6 class='msg1'></h6></span>
+    <input class="abc" [(ngModel)]='userdto.username' type='email' name="email" matInput placeholder="Enter your email" required><span><h6 class='msg1'></h6></span>
 
   </mat-form-field>
 </form>
@@ -13,13 +22,15 @@
 <form class="example-form">
   <mat-form-field class="example-full-width">
     <mat-label>Password</mat-label>
-    <input [(ngModel)]='password' type="password" matInput placeholder="Enter your password" required><span><h6 class='msg2'></h6></span>
+    <input class="abc" [(ngModel)]='userdto.password' type='password' name="password" matInput placeholder="Enter your password" required><span><h6 class='msg2'></h6></span>
 
   </mat-form-field>
 </form>
 
+
+
 <div class="loginbtn">
-  <button type="button" class="btn btn-outline-warning">Log in</button>
+  <button type="button" class="btn btn-outline-success" (click)='login()'>Log in</button>
 </div>
 
 <div class="forgotpswrd">
@@ -38,7 +49,8 @@
 </div>
 
 <div class="navtosignuppage">
-<h6>Don't have an account?<a class="sgnp " routerLink="/signup">SignUp Now</a></h6>
+<h4>Don't have an account?<a class="sgnp " routerLink="/signup">SignUp Now</a></h4>
 </div>
 
-<nav><a routerLink="/"></a></nav>
+</div>
+</div>

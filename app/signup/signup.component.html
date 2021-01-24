@@ -1,5 +1,9 @@
 
+<link rel="stylesheet" href="farming.jpg">
 
+<div style="text-align:center" class="container">
+
+  <div class="signupContainer">
 
 <div class="fb w-75">
     <button type="button" class="fbbtn btn-lg " (click)='loginfb()'>Log in with Facebook</button>
@@ -12,7 +16,31 @@
   <form class="example-form">
     <mat-form-field class="example-full-width">
       <mat-label>Email Address</mat-label>
-      <input [(ngModel)]='email' type='email' matInput placeholder="Email Address"><span><h6 class='msg1'></h6></span>
+      <input [(ngModel)]='user.email' type='email' name='email' matInput placeholder="Email Address"><span><h6 class='msg1'></h6></span>
+  
+    </mat-form-field>
+  </form>
+  
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>First Name</mat-label>
+      <input [(ngModel)]='user.fname' type="text" name='fname' matInput placeholder="Your First Name"><span><h6 class='msg2'></h6></span>
+  
+    </mat-form-field>
+  </form>
+  
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Last Name</mat-label>
+      <input [(ngModel)]='user.lname' type='text' name='lname' matInput placeholder="Your Last Name"><span><h6 class='msg3'></h6></span>
+  
+    </mat-form-field>
+  </form>
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Mobile Number</mat-label>
+      <input [(ngModel)]='user.mobileno' type='text' name='mobileno' matInput placeholder="Ex. +91-1234567890"><span><h6 class='msg4'></h6></span>
   
     </mat-form-field>
   </form>
@@ -20,33 +48,21 @@
   <form class="example-form">
     <mat-form-field class="example-full-width">
       <mat-label>Password</mat-label>
-      <input [(ngModel)]='password' type="password" matInput placeholder="Name"><span><h6 class='msg2'></h6></span>
-  
-    </mat-form-field>
-  </form>
-  
-  <form class="example-form">
-    <mat-form-field class="example-full-width">
-      <mat-label>Email Address</mat-label>
-      <input [(ngModel)]='email' type='email' matInput placeholder="Mobile no."><span><h6 class='msg1'></h6></span>
-  
-    </mat-form-field>
-  </form>
-  
-  <form class="example-form">
-    <mat-form-field class="example-full-width">
-      <mat-label>Password</mat-label>
-      <input [(ngModel)]='password' type="password" matInput placeholder="Create a Password"><span><h6 class='msg2'></h6></span>
+      <input [(ngModel)]='user.password' type="password" name='password' matInput placeholder="Create a Password"><span><h6 class='msg5'></h6></span>
   
     </mat-form-field>
   </form>
 
   <div class="signupbtn">
-    <button type="button" class="btn btn-outline-success">Sign Up</button>
+    <button type="button" class="btn btn-outline-primary" (click)='signup()'>Sign Up</button>
   </div>
 
 
   
   <div class="navtosignuppage">
-  <h6>Already have an account?<a class="lgn " routerLink="/login">Log in</a></h6>
+  <h4>Already have an account?<a class="lgn " routerLink="/login">Log in</a></h4>
+  </div>
+
+  </div>
+
   </div>

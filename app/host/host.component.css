@@ -1,0 +1,49 @@
+
+.container
+{
+    margin-right:200px;
+    align-content:center;
+    
+}
+
+.listhead
+{
+    
+    margin-right: 300px;
+    padding-top: 120px;
+    padding-right:150px;
+}
+
+.le
+{
+    padding-right:238px;
+}
+
+.lee
+{
+    color:grey;
+}
+
+.lec
+{
+    border-left: 4px solid #0079d3;
+    margin-left: 180px;
+}
+
+.img
+{
+    padding-top: 15px;
+    padding-right: 75px;
+}
+
+.form-group
+{
+    margin-left: 500px;
+    margin-top: 50px;
+}
+
+.btn
+{
+    background-color: #0079d3;
+    color:white;
+}

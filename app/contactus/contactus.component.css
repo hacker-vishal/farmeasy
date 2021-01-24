@@ -1,17 +1,26 @@
 
+.container
+{
+    background-color:cadetblue;
+    max-width: 100%;
+    height:450px;
+}
+
 .contact
 {
+
     font-weight: bold;
-    margin-top: 50px;
+    padding-top: 100px;
 }
 .em
 {
+
     color:red;
 }
 
 .mn
 {
-    margin-top: 10px;
+    padding-top: 10px;
     color:red;
 }
 

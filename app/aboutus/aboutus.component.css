@@ -1,6 +1,7 @@
 
 .container
 {
+    margin-top: 60px;
     background-color:#000000;
     max-width: 100%;
     height:280px;
@@ -9,25 +10,30 @@
 
 .abt
 {
-    padding-top: 30px;
+    font-weight: bold;
+    font-size: 40px;
+    padding-top: 40px;
     color:white;
     
 }
 
 .fmp
 {
+    font-size: 40px;
     padding-top: 30px;
     color:white;
 }
 
 .jec
 {
+    font-size: 25px;
     padding-top: 15px;
     color:wheat;
 }
 
 .hws
 {
+    font-size: 25px;
     padding-top: 15px;
 }
 
@@ -38,7 +44,7 @@ mat-icon
 
 .para1
 {
-    
+    font-size: 16px;
     padding-left: 400px;
     width: 1000px;
 
@@ -46,7 +52,7 @@ mat-icon
 
 .para2
 {
-    
+    font-size: 16px;   
     padding-left: 400px;
     width: 1000px;
 
@@ -61,6 +67,7 @@ mat-icon
 
 .col-sm
 {
+    
     padding-top:15px;
     color:wheat;
 

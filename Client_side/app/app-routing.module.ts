@@ -11,8 +11,10 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { HelpComponent } from './help/help.component';
 import { BlogComponent } from './blog/blog.component';
-
-
+import { ProfileComponent } from './profile/profile.component';
+import { ShowlistComponent } from './showlist/showlist.component';
+import { HostComponent } from './host/host.component';
+import { AuthGuard } from './Services/auth.guard'
 
 const routes: Routes = [
       { path:'', redirectTo:'home', pathMatch: 'full' },
@@ -26,7 +28,9 @@ const routes: Routes = [
       { path:'contactus', component: ContactusComponent },
       { path:'help', component: HelpComponent },
       { path:'blog', component: BlogComponent },
-
+      { path:'host', component: HostComponent },
+      { path:'showlist', component: ShowlistComponent },
+      { path:'profile/: name', component: ProfileComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
@@ -36,4 +40,5 @@ const routes: Routes = [
 export class AppRoutingModule { }
 export const routingComponents = [AppComponent,LoginComponent,SignupComponent,
   HomeComponent,ForgotpasswordComponent,OtpverificationComponent,SetnewpasswordComponent,
-  AboutusComponent,ContactusComponent,HelpComponent,BlogComponent]
+  AboutusComponent,ContactusComponent,HelpComponent,BlogComponent,ProfileComponent,ShowlistComponent,
+  HostComponent]

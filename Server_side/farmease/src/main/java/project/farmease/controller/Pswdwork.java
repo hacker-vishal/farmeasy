@@ -5,17 +5,20 @@ import java.util.Random;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import project.farmease.dao.UserRepo;
 import project.farmease.dto.Response;
+import project.farmease.dto.Userdto;
 import project.farmease.pojo.User;
 
-@CrossOrigin(origins = "*")
 @RestController
+@RequestMapping("/password")
 public class Pswdwork {
 	Logger logger = LogManager.getLogger(Pswdwork.class);
 	private Optional<User> user;
@@ -23,17 +26,20 @@ public class Pswdwork {
 	
 	@Autowired
     private UserRepo userRepo;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	
+	@CrossOrigin
 	@GetMapping("/pswdreset")
 //	public Optional<User> passwdreset(String id) {
 	public Response passwdreset(String id) {
 		//id will be checked with entries in db for match
 //		user = new User("abc","",0);
-//		try {
-//			user = userRepo.findById(id);
-//		} catch (Exception e) {
-//			logger.debug(e.getMessage(),e);
-//		}
+		try {
+			user = userRepo.findById(id);
+		} catch (Exception e) {
+			logger.debug(e.getMessage(),e);
+		}
 		
 		response = new Response(0, "User not found");
 		
@@ -47,7 +53,7 @@ public class Pswdwork {
 			
 			//create trigger to set otp to null
 			//db logic to add random number into table
-//			userRepo.createotp(random,id);
+			userRepo.createotp(random,id);
 			
 			//return the response
 			response.setStatus(1);
@@ -55,8 +61,17 @@ public class Pswdwork {
 		}
 		return response;
 	}
+	
+	@CrossOrigin
+	@GetMapping("/getotp")
+	public Integer getotp(String id) 
+	{
+		user=userRepo.findById(id);
+		return user.get().getOtp();
+	}
 
-	@GetMapping("/")
+	@CrossOrigin
+	@GetMapping("/checkotp")
 	public Response checkotp(int otp) { 
 		response = new Response(0, "OTP verification failed");
 		
@@ -74,22 +89,23 @@ public class Pswdwork {
 		return response;
 	}
 
-	@PutMapping("/pswdreset")
-	public Response setnewpasswd(String id, String pswd) {
+	@CrossOrigin
+	@PostMapping("/setnewpass")
+	public Response setnewpasswd(Userdto userdto) {
 		
 		response = new Response(0, "Password reset failed");
 		int isupdatesuccessful = 0;
 		//we are going to check this password in the db later on
 		//as of now we'll test it on dummy stuff
 //		User user = new User("abc","pabc",null);
-//		try {
-//			isupdatesuccessful = userRepo.resetpswd(id, pswd);
-//			//isupdatesuccessful++;
-//			//logger.debug(isupdatesuccessful);
-//		} catch (Exception e) {
-//			//log errors to the file
-//			logger.debug(e.getMessage(),e);
-//		}
+		try {
+			isupdatesuccessful=userRepo.resetpswd(userdto.getUsername(),passwordEncoder.encode(userdto.getPassword()));
+			//isupdatesuccessful++;
+			//logger.debug(isupdatesuccessful);
+		} catch (Exception e) {
+			//log errors to the file
+			logger.debug(e.getMessage(),e);
+		}
 		
 		//user = userRepo.findById(id);
 		

@@ -60,7 +60,7 @@ public class JwtProvider {
         User principal = (User) authentication.getPrincipal();
         logger.info("4. token generated and send to login method ");
         
-        return Jwts.builder().setSubject(principal.getUsername()).setIssuedAt(from(Instant.now()))/*.signWith(getPrivateKey())*/.setExpiration(Date.from(Instant.now().plusMillis(jwtExpirationInMillis))).compact();
+        return Jwts.builder().setSubject(principal.getUsername()).setIssuedAt(from(Instant.now())).signWith(getPrivateKey()).setExpiration(Date.from(Instant.now().plusMillis(jwtExpirationInMillis))).compact();
              
     }
 
@@ -69,12 +69,12 @@ public class JwtProvider {
         return Jwts.builder()
                 .setSubject(username)
                 .setIssuedAt(from(Instant.now()))
-               /* .signWith(getPrivateKey())*/
+                .signWith(getPrivateKey())
                 .setExpiration(Date.from(Instant.now().plusMillis(jwtExpirationInMillis)))
                 .compact();
     }
 
-   /* private PrivateKey getPrivateKey() {
+    private PrivateKey getPrivateKey() {
         try {
         	    PrivateKey privatekey=(PrivateKey) keyStore.getKey("farmeasy","farmeasy".toCharArray());
         	    logger.debug(privatekey);
@@ -82,7 +82,7 @@ public class JwtProvider {
         } catch (KeyStoreException | NoSuchAlgorithmException | UnrecoverableKeyException e) {
             throw new FarmeasyException("Exception occured while retrieving public key from keystore",e);
         }
-    }*/
+    }
 
     public boolean validateToken(String jwt) {
     	logger.info("token validation happens in jwtProvider class");

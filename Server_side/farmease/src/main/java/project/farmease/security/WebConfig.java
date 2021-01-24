@@ -13,7 +13,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry corsRegistry) {        // Spring CORS operation allowed from here
         corsRegistry.addMapping("/**")
-                .allowedOriginPatterns("*")                               //  .allowedOriginPatterns("*") 
+                .allowedOrigins("http://localhost:4200")        //.allowedOriginPatterns("*")   //  .allowedOriginPatterns("*") 
                 .allowedMethods("*")
                 .maxAge(3600L)
                 .allowedHeaders("*")

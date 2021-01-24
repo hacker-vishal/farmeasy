@@ -25,19 +25,20 @@ export class LoginService {
    private localStorage: LocalStorageService) {
   }
 
+  //test logic
   getUserEmailPswd(u:Userdto):Observable<Response>
   {
     let url = "http://localhost:8080/login";
     return this.httpClient.post<Response>(url,u);
   }
 
-  signup(signupRequestPayload: User): Observable<any> {
-    return this.httpClient.post('http://localhost:8080/auth/signup', signupRequestPayload, { responseType: 'text' });
+  signup(user: User): Observable<any> {
+    return this.httpClient.post('http://localhost:8080/auth/signup', user, { responseType: 'text' });
   }
 
-  login(loginRequestPayload: Userdto): Observable<boolean> {
+  login(userdto: Userdto): Observable<boolean> {
     return this.httpClient.post<LoginResponse>('http://localhost:8080/auth/login',
-      loginRequestPayload).pipe(map(data => {
+      userdto).pipe(map(data => {
         this.localStorage.store('authenticationToken', data.authenticationToken);
         this.localStorage.store('username', data.username);
         this.localStorage.store('refreshToken', data.refreshToken);

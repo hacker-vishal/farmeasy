@@ -12,13 +12,26 @@
   
   
   <a mat-button routerLink="/home" >Home</a>
-  
-  <a mat-button routerLink="/login">Login</a>
+  <div *ngIf="!isLoggedIn">
+  <a mat-button routerLink="/login">Login</a></div>
   <a mat-button routerLink="/aboutus">About Us</a>
   <a mat-button routerLink="/blog">Blog</a>
   <a mat-button routerLink="/contactus">Contact</a>
   <a mat-button routerLink="/help">Help</a>
-  <a mat-raised-button color="accent"  routerLink="/signup">SignUp</a>
+  <div *ngIf="!isLoggedIn">
+  <a mat-raised-button color="accent"  routerLink="/signup">SignUp</a></div>
+  <div class="lgb">
+  <div *ngIf="isLoggedIn" ngbDropdown class="float-right">
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button (click)="goToUserProfile()" ngbDropdownItem>Profile</button>
+        <button (click)="logout()" ngbDropdownItem>Logout</button>
+    </div>
+    <button class="userdetails" id="dropdownBasic1" ngbDropdownToggle>
+      <img class="account-icon" src="assets/accicon.png" alt="">
+      {{username}}
+    </button>
+    </div>
+</div>
   
 
   

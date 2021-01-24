@@ -43,7 +43,8 @@ public class SecConfig extends WebSecurityConfigurerAdapter {    // this class h
 	                .authorizeRequests()
 	                .antMatchers("/auth/**")       // authencticate all the request which doen't match this pattern
 	                .permitAll().antMatchers(HttpMethod.GET, "/auth") .permitAll()
-					.antMatchers(HttpMethod.GET, "/services/") .permitAll()     // these should be GET call so that spring will not authorize these everytime and guest can see these pages without login
+					.antMatchers("/services/**") .permitAll()     // these should be GET call so that spring will not authorize these everytime and guest can see these pages without login
+					.antMatchers("/password/**") .permitAll()
 					.antMatchers(HttpMethod.GET, "/wishlist/**") .permitAll()
 					.antMatchers("/configuration/ui", "/configuration/security")                
 					.permitAll()

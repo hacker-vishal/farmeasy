@@ -44,14 +44,20 @@ export class HomeComponent{
         //this.msg=this.showlist;
       }});
       localStorage.setItem('data', JSON.stringify(this.showlist));
-      this.r.navigate(['/help', {type: this.showlist}]);
+      this.r.navigate(['/showlist', {type: this.showlist}]);
         //sendlist = JSON.stringify(this.showlist);
         
       }
       },
-      (err)=>{this.msg=JSON.stringify(err);
-        //this.msg="you got some error"
+      (err)=>{console.log(JSON.stringify(err));
+        this.msg="you got some error"
+
       });
+  }
+
+  needeqp()
+  {
+    this.r.navigate(['/host']);
   }
 
 }

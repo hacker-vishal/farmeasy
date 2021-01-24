@@ -39,7 +39,7 @@ public class AuthController {
 	@Autowired
 	private RefreshTokenService refreshTokenService;
 	
-	@CrossOrigin("http://localhost:4200") 
+	@CrossOrigin//("http://localhost:4200") 
     @PostMapping("/signup")
     public ResponseEntity<String> signup(@RequestBody RegisterRequest registerRequest) {
 		    logger.info("1. signup process started");

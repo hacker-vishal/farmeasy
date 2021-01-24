@@ -12,7 +12,7 @@ export class HomeService {
 
   getServiceOnEqAndLoc(e:Hostuser):Observable<any>
   {
-    let url="http://localhost:8080/searchserv";  
+    let url="http://localhost:8080/services/searchserv";  
     return this.h.post<any>(url,e);
   }
 

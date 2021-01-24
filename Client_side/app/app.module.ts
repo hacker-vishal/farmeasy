@@ -19,31 +19,13 @@ import { ToastrModule } from 'ngx-toastr';
 import { TokenInterceptor } from './Models/token-interceptor';
 //import { FontAwesomeModule } from '@fortawesome/fontawesome-free';
 import { RouterModule, Routes } from '@angular/router';
-/*
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-import { HomeComponent } from './home/home.component';
-import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
-import { OtpverificationComponent } from './otpverification/otpverification.component';
-import { SetnewpasswordComponent } from './setnewpassword/setnewpassword.component';
-import { AboutusComponent } from './aboutus/aboutus.component';
-import { ContactusComponent } from './contactus/contactus.component';
-import { HelpComponent } from './help/help.component';
-import { BlogComponent } from './blog/blog.component';
-*/
 
 const routes: Routes = [
-  
-  
 ]
 
 @NgModule({
   declarations: [
-      routingComponents,
-    /*AppComponent,LoginComponent,SignupComponent,
-  HomeComponent,ForgotpasswordComponent,OtpverificationComponent,SetnewpasswordComponent,
-  AboutusComponent,ContactusComponent,HelpComponent,BlogComponent
-  */
+      routingComponents
   ],
   
   imports: [

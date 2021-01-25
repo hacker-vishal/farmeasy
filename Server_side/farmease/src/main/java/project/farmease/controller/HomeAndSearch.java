@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import project.farmease.dao.HostuserRepo;
 import project.farmease.dto.Hostdto;
+import project.farmease.dto.Response;
 import project.farmease.pojo.Hostuser;
 
  
@@ -66,8 +67,30 @@ public class HomeAndSearch {
 		//log.debug("list members got "+l.size());
 		return l;
 	}
-
 	
+	@PostMapping("/insert")
+	public Response registerhost(@RequestBody Hostuser hostuser) {
+		
+		Response resp = new Response(0,"User Already Exists!");
+		//db data assume
+//		Hostuser host = new Hostuser("a@b","tractor", "kubota", "ploughing", "pune", 222, null);
+		
+		int isUserPresent = 0;
+		
+		isUserPresent=hostuserRepo.existsByHostemail(hostuser.getHostemail());
+		
+		//if(!(host.getHostemail().equals(hostuser.getHostemail())))
+		if(isUserPresent==0)
+		{
+			resp.setStatus(1);
+			resp.setMessage("Inserted successfully!");
+			//db.save
+			hostuserRepo.save(hostuser);
+		}
+		
+		return resp;
+	}
+
 	//poc on test case
 	public int sum(int i, int j) 
 	{

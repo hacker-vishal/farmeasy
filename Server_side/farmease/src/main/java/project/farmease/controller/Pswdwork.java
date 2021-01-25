@@ -9,6 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -91,14 +92,17 @@ public class Pswdwork {
 
 	@CrossOrigin
 	@PostMapping("/setnewpass")
-	public Response setnewpasswd(Userdto userdto) {
-		
+	public Response setnewpasswd(@RequestBody Userdto userdto) {
+		//logger.debug(userdto.getPassword());
 		response = new Response(0, "Password reset failed");
 		int isupdatesuccessful = 0;
 		//we are going to check this password in the db later on
 		//as of now we'll test it on dummy stuff
 //		User user = new User("abc","pabc",null);
 		try {
+//			userdto.setUsername("s@n.com");
+//			userdto.setPassword("aaa");
+			logger.debug(userdto.getPassword());
 			isupdatesuccessful=userRepo.resetpswd(userdto.getUsername(),passwordEncoder.encode(userdto.getPassword()));
 			//isupdatesuccessful++;
 			//logger.debug(isupdatesuccessful);

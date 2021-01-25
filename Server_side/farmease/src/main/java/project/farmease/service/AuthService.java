@@ -112,6 +112,7 @@ public class AuthService {
    // ---------------------------- Login Service code ----------------------------------- 
    
   public AuthenticationResponse login(Userdto userdto) {
+	       logger.debug(userdto.getPassword());
            Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userdto.getUsername(),userdto.getPassword()));
               logger.info("2. we get username : {} and password : {} ",userdto.getUsername(),userdto.getPassword() );
            

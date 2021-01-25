@@ -12,7 +12,7 @@ export class PassresetService {
   constructor(private h:HttpClient) { }
 
   setNewPassword(u:Userdto): Observable<Response> {
-    console.log(456);
+    console.log(JSON.stringify(u));
     let url = "http://localhost:8080/password/setnewpass";
     return this.h.post<Response>(url,u);
   }

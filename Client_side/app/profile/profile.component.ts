@@ -35,7 +35,7 @@ export class ProfileComponent implements OnInit {
       (u:User)=>{
         if(u.email!==null && u.email===this.username)
         {
-          console.log(JSON.stringify(u));
+          //console.log(JSON.stringify(u));
           this.user = u;
         }
       },
@@ -52,7 +52,6 @@ updateProfile()
       {
         //this.msg=rsp.message;
         //console.log(rsp.status);
-        //this.r.navigate(['/profile']);
       }
     },
     (err)=>{console.log(JSON.stringify(err));

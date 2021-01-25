@@ -17,7 +17,7 @@
  <form class="example-form2">
   <mat-form-field class="example-full-width">
     <mat-label>Equipment Location</mat-label>
-    <input [(ngModel)]='h.location' type='text' name="loc" matInput placeholder="Ex. Bangalore" required />
+    <input [(ngModel)]='h.location' type='text' name="loc" (keyup.enter)="getnow()" matInput placeholder="Ex. Bangalore" required />
 
   </mat-form-field>
  </form>

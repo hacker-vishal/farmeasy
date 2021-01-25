@@ -1,43 +1,36 @@
 
 <div class="container">
 
-    
-
-        <div class="imgUpload">
-
-            <div class="small-12 medium-2 large-2 columns">
-                <div class="circle">
-                  <!-- User Profile Image -->
-                  <img class="profile-pic" src="assets/accicon.png">
-           
-                  <!-- Default Image -->
-                  <!-- <i class="fa fa-user fa-5x"></i> -->
-                
-                  <div class="abc">
-                    <input style="display: none" type="file" accept="image/*" (change)="onFileChanged($event)" #fileInput>
-                    <mat-icon type="button" (click)="fileInput.click()">add_a_photo</mat-icon>
-                    <br>{{msg}}
-                  </div>
-                </div>
-
+  <div class="imgUpload">
+    <div class="small-12 medium-2 large-2 columns">
+      <div class="circle">
+        <!-- User Profile Image -->
+        <img class="profile-pic" src="assets/accicon.png">
+          <!-- Default Image -->
+          <!-- <i class="fa fa-user fa-5x"></i> -->
+            <div class="abc">
+              <input style="display: none" type="file" accept="image/*" (change)="onFileChanged($event)" #fileInput>
+              <mat-icon type="button" (click)="fileInput.click()">add_a_photo</mat-icon>
+              <br>{{msg}}
             </div>
-    
-        </div>
+      </div>
+    </div>
+  </div>
 
 
-    <div class="profileContainer">
-      <h2>Edit Profile</h2>
-    <div class="row">
-      <div class="col-sm">
-        <form class="example-form1">
+  <div class="profileContainer">
+    <h2>Edit Profile</h2>
+      <div class="row">
+        <div class="col-sm">
+          <form class="example-form1">
             <mat-form-field class="example-full-width">
               <mat-label>First Name</mat-label>
               <input [(ngModel)]='user.fname' type='text' name="fname" matInput placeholder="Sachin"/>
-            </mat-form-field>
+              </mat-form-field>
           </form>
-      </div>
-      <div class="col-sm">
-        <form class="example-form2">
+        </div>
+        <div class="col-sm">
+          <form class="example-form2">
             <mat-form-field class="example-full-width">
               <mat-label>Last Name</mat-label>
               <input [(ngModel)]='user.lname' type='text' name="lname" matInput placeholder="Ex. Tendulkar"/>
@@ -52,7 +45,7 @@
         <form class="example-form1">
             <mat-form-field class="example-full-width">
               <mat-label>Email Address</mat-label>
-              <input [(ngModel)]='user.email' type='text' name="email" matInput placeholder="Ex. st@gmail.com"/>
+              <input [(ngModel)]='user.email' type='text' readonly=true name="email" matInput placeholder="Ex. st@gmail.com"/>
             </mat-form-field>
           </form>
       </div>
@@ -66,8 +59,9 @@
       </div>
     </div>
 
+    
 
-<!-- 
+ <!-- 
     <div class="row">
       <div class="col-sm">
         <form class="example-form1">
@@ -88,10 +82,13 @@
     </div> -->
 
 
-</div>
+ </div>
 
-<div class="form-group">
-  <button class="btn  my-2 my-sm-0" type="button" (click)='updateProfile()'>Submit</button>
+
+
+
+ <div class="form-group">
+  <button class="btn  my-2 my-sm-0" type="button" (click)='updateProfile()'>Edit</button>
  </div>
 
 

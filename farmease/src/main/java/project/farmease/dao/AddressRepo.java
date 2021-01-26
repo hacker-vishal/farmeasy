@@ -12,10 +12,4 @@ import project.farmease.pojo.AddressId;
 
 @Repository
 public interface AddressRepo extends JpaRepository<Address, AddressId>{
-	
-	@Modifying
-	@Transactional
-	@Query("update Address set location=:location, city=:city, state=:state, zipcode=:zipcode where email=:email")
-	int updateforaddress(@Param("email") String email, @Param("location") String location, @Param("city") String city, 
-			@Param("state") String state, @Param("zipcode") int zipcode);
 	}

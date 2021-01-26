@@ -12,12 +12,11 @@ import org.springframework.transaction.annotation.Transactional;
 import project.farmease.pojo.User;
 import project.farmease.pojo.VerificationToken;
 
-
+@Transactional
 @Repository 
 public interface UserRepo extends JpaRepository<User, String>{
 
 	@Modifying
-	@Transactional
 	@Query("update User set fname=:fname, lname=:lname, mobileno=:mobileno where email=:email")
 	int updateforuser(@Param("email") String email, @Param("fname") String fname, @Param("lname") String lname, @Param
 			("mobileno") String mobileno);
@@ -25,4 +24,15 @@ public interface UserRepo extends JpaRepository<User, String>{
 	Optional<User> findByEmail(String username);
 
 	boolean existsByEmail(String email);
+	
+	@Modifying
+	@Query("update User set otp=:random where email=:id")
+	void createotp(@Param("random") int random, @Param("id") String id);
+	
+	@Query("from User where otp=:otp")
+	Optional<User> checkotp(@Param("otp") int otp);
+	
+	@Modifying
+	@Query("update User set password=:pswd, otp=null where email=:id")
+	int resetpswd(@Param("id") String id, @Param("pswd") String pswd);
 	}

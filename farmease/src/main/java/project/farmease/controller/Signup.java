@@ -12,11 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import project.farmease.dao.LogincredsRepo;
 import project.farmease.dao.UserRepo;
 import project.farmease.dto.Response;
 import project.farmease.dto.Userdto;
-import project.farmease.pojo.Logincreds;
 import project.farmease.pojo.User;
 
 @CrossOrigin(origins = "*")
@@ -24,18 +22,10 @@ import project.farmease.pojo.User;
 public class Signup {
 	
 	Logger logger = LogManager.getLogger(Signup.class);
-	private UserRepo userRepo;
-	
 	@Autowired
-	public void hostuserwired(UserRepo userRepo, LogincredsRepo logincredsRepo)
-	{
-		//logger.debug("UserRepo autowired");
-		this.userRepo = userRepo;
-	}
+	private UserRepo userRepo;
 
-//	@PostMapping(value = "/signup", consumes=MediaType.APPLICATION_JSON_VALUE)
-//	@RequestMapping(method = RequestMethod.PUT, value = "/signup", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	@PutMapping("/signup")
+    @PutMapping("/signup")
 	public Response dosignup(@RequestBody User user) {
 	//public User dosignup() {
 		//logger.debug(user.getEmail());
@@ -51,7 +41,8 @@ public class Signup {
 			idexists = userRepo.existsByEmail(user.getEmail());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			logger.debug(e.getMessage(),e);
 		}
 		
 		if(idexists)

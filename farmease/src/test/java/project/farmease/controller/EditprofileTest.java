@@ -2,6 +2,8 @@ package project.farmease.controller;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.time.Instant;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.BeforeAll;
@@ -27,7 +29,7 @@ class EditprofileTest {
 
 //	@Test
 //	void testprofileupdation() {
-//		user = new User("abc", "a", "b", "7847984", "pabc");
+//		user = new User("abc", "a", "b", "7847984", "pabc",Instant.now(),false,0);
 //		address = new Address("abc", "loc", "pune", "ms", 434432);
 //		UserProfile userProfile = new UserProfile(user.getEmail(), user.getFname(), user.getLname(), user.getMobileno(), 
 //				address.getLocation(), address.getCity(), address.getState(), address.getZipcode());

@@ -41,12 +41,13 @@ public class SecConfig extends WebSecurityConfigurerAdapter {    // this class h
 	        httpSecurity.cors().and()
 	                .csrf().disable()        
 	                .authorizeRequests()
-	                .antMatchers("/api/auth/**")       // authencticate all the request which doen't match this pattern
-	                .permitAll().antMatchers(HttpMethod.GET, "/api/auth") .permitAll()
-					.antMatchers(HttpMethod.GET, "/api/services/") .permitAll()     // these should be GET call so that spring will not authorize these everytime and guest can see these pages without login
-					.antMatchers(HttpMethod.GET, "/api/wishlist/**") .permitAll()
-					.antMatchers("/v2/api-docs", "/configuration/ui", "/swagger-resources/**",     
-					 "/configuration/security", "/swagger-ui.html", "/webjars/**")                
+	                .antMatchers("/auth/**")       // authencticate all the request which doen't match this pattern
+	                .permitAll().antMatchers(HttpMethod.GET, "/auth") .permitAll()
+					.antMatchers("/services/**") .permitAll()     // these should be GET call so that spring will not authorize these everytime and guest can see these pages without login
+					.antMatchers("/password/**") .permitAll()
+					.antMatchers("/update/**") .permitAll()
+					.antMatchers(HttpMethod.GET, "/wishlist/**") .permitAll()
+					.antMatchers("/configuration/ui", "/configuration/security")                
 					.permitAll()
 	                .anyRequest()
 	                .authenticated();

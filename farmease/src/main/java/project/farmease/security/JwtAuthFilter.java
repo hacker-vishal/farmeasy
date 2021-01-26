@@ -29,8 +29,9 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
+    	logger.info(request.toString());
         String jwt = getJwtFromRequest(request);
-        logger.info("bearerToken got and start filtering it. ");
+        logger.info("bearerToken got and start filtering it. "+jwt);
 
         if (StringUtils.hasText(jwt) && jwtProvider.validateToken(jwt)) {
             String username = jwtProvider.getUsernameFromJwt(jwt);
@@ -47,9 +48,9 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     }
 
     private String getJwtFromRequest(HttpServletRequest request) {
-    	
+    	logger.info(request);
         String bearerToken = request.getHeader("Authorization");
-
+        logger.info(bearerToken);
         if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")) {
         	logger.info("Extracting JWT token from Request i.e bearerToken");
             return bearerToken.substring(7);

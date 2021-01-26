@@ -15,7 +15,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import project.farmease.dao.UserRepo;
 import project.farmease.dao.VerificationTokenRepo;
 import project.farmease.dto.AuthenticationResponse;
@@ -64,21 +63,17 @@ public class AuthService {
         user.setMobileno(registerRequest.getMobileno());
             logger.info("7. Mobileno {} ",registerRequest.getMobileno());
         user.setCreated(Instant.now());
-        user.setEnabled(false);
+        user.setEnabled(true);  //set it to false and it will be set to true only when user verifies his/her email
         
 		userRepo.save(user);
 		    logger.info("8. User credential Saved in Database");
 		 
-		 String token = generateVerificationToken(user);
-		// mailService.sendMail(new NotificationEmail("Please Activate your Account", user.getEmail(),
-//		 "Thank you for signing up to Agribay, " +
-//		 "please click on the below url to activate your account : " +
-//		 "http://localhost:8080/api/auth/accountVerification/" + token));
-//		    logger.info("7. mail sent to email  {} ",registerRequest.getEmail());
+		 String token = generateVerificationToken(user);    
+		 //it will be sent to email of user and verified by him through verification link
 
 }
 
-	
+
 	// ---------------------------- Generating verification token code ----------------------------------- 
   
   private String generateVerificationToken(User user) {  
@@ -117,8 +112,8 @@ public class AuthService {
    // ---------------------------- Login Service code ----------------------------------- 
    
   public AuthenticationResponse login(Userdto userdto) {
-           Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userdto.getEmail(),userdto.getPassword()));
-              logger.info("2. we get username : {} and password : {} ",userdto.getEmail(),userdto.getPassword() );
+           Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userdto.getUsername(),userdto.getPassword()));
+              logger.info("2. we get username : {} and password : {} ",userdto.getUsername(),userdto.getPassword() );
            
            SecurityContextHolder.getContext().setAuthentication(authenticate);  // we are checking whether user is logged in or not
               logger.info("3. Authenticated object {} :", authenticate);
@@ -128,7 +123,7 @@ public class AuthService {
               logger.info("5. token generated {} and return to AuthResponse", token);
               logger.info("6. refresh token passed as empty string so if we performed login , we get one Json web token , one refresh token and expiry date" );
            
-           return AuthenticationResponse.builder().authenticationToken(token).refreshToken(refreshTokenService.generateRefreshToken().getToken()).expiresAt(Instant.now().plusMillis(jwtProvider.getJwtExpirationInMillis())).username(userdto.getEmail()).build(); 
+           return AuthenticationResponse.builder().authenticationToken(token).refreshToken(refreshTokenService.generateRefreshToken().getToken()).expiresAt(Instant.now().plusMillis(jwtProvider.getJwtExpirationInMillis())).username(userdto.getUsername()).build(); 
            }
   
 	

@@ -12,25 +12,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import project.farmease.dao.LogincredsRepo;
+import project.farmease.dao.UserRepo;
 import project.farmease.dto.Response;
 import project.farmease.dto.Userdto;
-import project.farmease.pojo.Logincreds;
+import project.farmease.pojo.User;
 
 @CrossOrigin(origins="*")
 @RestController
 public class Login {
 	Logger logger = LogManager.getLogger(Login.class);
-	private LogincredsRepo logincredsRepo;
 	private Response response;
-	private Optional<Logincreds> logincreds;
+	private Optional<User> user;
 	
 	@Autowired
-	public void loginwired(LogincredsRepo logincredsRepo)
-	{
-		//log.debug("logincredsrepo autowired");
-		this.logincredsRepo = logincredsRepo;
-	}
+	private UserRepo userRepo;
 
 	@PostMapping("/login")
 	public Response dologin(@RequestBody Userdto userdto) {
@@ -38,12 +33,12 @@ public class Login {
 		response = new Response(0,"Check id and password!");
 		
 		//assume checked with db records
-//		Logincreds logincreds = new Logincreds("abc", "pabc", null);
+//		User user = new User("abc", "pabc", null);
 		
-		logincreds = logincredsRepo.findById(userdto.getEmail());
+		user = userRepo.findById(userdto.getUsername());
 		
-//		if (logincreds.getEmail().equals(userdto.getId()) && logincreds.getPassword().equals(userdto.getPassword())) {
-		if (logincreds.get().getEmail().equals(userdto.getEmail()) && logincreds.get().getPassword().equals(userdto.getPassword())) {
+//		if (user.getEmail().equals(userdto.getUsername()) && user.getPassword().equals(userdto.getPassword())) {
+		if (user.get().getEmail().equals(userdto.getUsername()) && user.get().getPassword().equals(userdto.getPassword())) {
 			response.setStatus(1);
 			response.setMessage("Logged in successfully!");
 		}		

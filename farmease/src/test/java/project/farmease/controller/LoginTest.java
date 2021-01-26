@@ -20,22 +20,22 @@ class LoginTest {
 	static void setUpBeforeClass() throws Exception {
 		login = new Login();
 	}
-//
-//	@Test
-//	void testlogincreds() {
-//		Userdto userdto = new Userdto();
-//		userdto.setEmail("abc");
-//		userdto.setPassword("pabc");
-//		response = login.dologin(userdto);
-//		assertEquals(1, response.getStatus());
-//	}
-//	
-//	@Test
-//	void testlogincredsfailcase() {
-//		Userdto userdto = new Userdto();
-//		userdto.setEmail("ab");
-//		userdto.setPassword("pab");
-//		response = login.dologin(userdto);
-//		assertEquals(0, response.getStatus());
-//	}
+
+	@Test
+	void testlogincreds() {
+		Userdto userdto = new Userdto();
+		userdto.setUsername("abc");
+		userdto.setPassword("pabc");
+		response = login.dologin(userdto);
+		assertEquals(1, response.getStatus());
+	}
+	
+	@Test
+	void testlogincredsfailcase() {
+		Userdto userdto = new Userdto();
+		userdto.setUsername("ab");
+		userdto.setPassword("pab");
+		response = login.dologin(userdto);
+		assertEquals(0, response.getStatus());
+	}
 }

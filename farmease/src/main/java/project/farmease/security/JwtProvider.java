@@ -46,7 +46,7 @@ public class JwtProvider {
         try {
             keyStore = KeyStore.getInstance("JKS");
             InputStream resourceAsStream = getClass().getResourceAsStream("/farmeasy.jks");
-            keyStore.load(resourceAsStream, "changeit".toCharArray());
+            keyStore.load(resourceAsStream, "farmeasy".toCharArray());
             logger.info("signing our JWT’s using farmeasy.jks Keystore");
         } catch (KeyStoreException | CertificateException | NoSuchAlgorithmException | IOException e) {
             throw new FarmeasyException("Exception occurred while loading keystore",e);
@@ -76,8 +76,9 @@ public class JwtProvider {
 
     private PrivateKey getPrivateKey() {
         try {
-        	    
-            return (PrivateKey) keyStore.getKey("farmeasy","changeit".toCharArray());  // here "farmeasy" is the alias, and "changeit" is the password for this alias.
+        	    PrivateKey privatekey=(PrivateKey) keyStore.getKey("farmeasy","farmeasy".toCharArray());
+        	    logger.debug(privatekey);
+            return privatekey;// here "farmeasy" is the alias, and "farmeasy" is the password for this alias.
         } catch (KeyStoreException | NoSuchAlgorithmException | UnrecoverableKeyException e) {
             throw new FarmeasyException("Exception occured while retrieving public key from keystore",e);
         }

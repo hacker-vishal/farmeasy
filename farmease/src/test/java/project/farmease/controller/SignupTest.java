@@ -2,6 +2,8 @@ package project.farmease.controller;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.time.Instant;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.BeforeAll;
@@ -22,17 +24,17 @@ class SignupTest {
 		signup = new Signup();
 	}
 
-//	@Test
-//	void testsignup() {
-//		user = new User("jklm", "a", "b", "23232","");
-//		response = signup.dosignup(user);
-//		assertEquals(0, response.getStatus());
-//	}
-//
-//	@Test
-//	void testsignupfailcase() {
-//		user = new User("abc", "a", "b", "23232","");
-//		response = signup.dosignup(user);
-//		assertEquals(1, response.getStatus());
-//	}
+	@Test
+	void testsignup() {
+		user = new User("jklm", "a", "b", "23232","",Instant.now(),false,0);
+		response = signup.dosignup(user);
+		assertEquals(0, response.getStatus());
+	}
+
+	@Test
+	void testsignupfailcase() {
+		user = new User("abc", "a", "b", "23232","",Instant.now(),false,0);
+		response = signup.dosignup(user);
+		assertEquals(1, response.getStatus());
+	}
 }

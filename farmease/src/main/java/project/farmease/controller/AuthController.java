@@ -29,7 +29,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 
 @RestController
-@RequestMapping("/api/auth")            // authentication request should come in this format
+@RequestMapping("/auth")            // authentication request should come in this format
 public class AuthController {
 
 	Logger logger = LogManager.getLogger(AuthController.class);
@@ -39,7 +39,7 @@ public class AuthController {
 	@Autowired
 	private RefreshTokenService refreshTokenService;
 	
-	@CrossOrigin( origins = "*")//"http://localhost:4200") 
+	@CrossOrigin//("http://localhost:4200") 
     @PostMapping("/signup")
     public ResponseEntity<String> signup(@RequestBody RegisterRequest registerRequest) {
 		    logger.info("1. signup process started");
@@ -60,7 +60,7 @@ public class AuthController {
 	 
 	@PostMapping("/login") 
 	public AuthenticationResponse login(@RequestBody Userdto userdto) {
-		    logger.info("Login request started for user {}: ",userdto.getEmail());
+		    logger.info("Login request started for user {}: ",userdto.getUsername());
 		return authService.login(userdto);
 		}
 	 

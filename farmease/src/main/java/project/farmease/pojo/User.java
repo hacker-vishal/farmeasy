@@ -31,6 +31,8 @@ public class User {
 	private String mobileno;
 	@Column(nullable = false,length=70)
 	private String password;
+	@Column(length = 6)
+	private Integer otp;
 	private Instant created;
 	private boolean enabled;
 	
@@ -46,11 +48,11 @@ public class User {
 	@OneToMany(mappedBy = "user",cascade=CascadeType.ALL)
 	private Set<Hostuser> hostuser;
 	
-	@OneToOne(mappedBy = "user",cascade=CascadeType.ALL)
-	private Logincreds logincreds;
+//	@OneToOne(mappedBy = "user",cascade=CascadeType.ALL)
+//	private Logincreds logincreds;
 
 	public User(String email, String fname, String lname, String mobileno, String password, Instant created,
-			boolean enabled) {
+			boolean enabled, int otp) {
 		super();
 		this.email = email;
 		this.fname = fname;
@@ -59,6 +61,7 @@ public class User {
 		this.password = password;
 		this.created = created;
 		this.enabled = enabled;
+		this.otp = otp;
 	}
 
 	public String getEmail() {
@@ -115,5 +118,13 @@ public class User {
 
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
+	}
+
+	public Integer getOtp() {
+		return otp;
+	}
+
+	public void setOtp(Integer otp) {
+		this.otp = otp;
 	}
 }

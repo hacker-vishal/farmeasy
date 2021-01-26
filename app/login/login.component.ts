@@ -17,8 +17,9 @@ export class LoginComponent implements OnInit {
 
     loginForm: FormGroup;
     userdto: Userdto;
-   registerSuccessMessage: string;
-   isError: boolean;
+    registerSuccessMessage: string;
+    isError: boolean;
+    isLoggedIn=false;
  
     constructor(private loginService: LoginService, private activatedRoute: ActivatedRoute,
      private router: Router, private toastr: ToastrService) {
@@ -53,6 +54,8 @@ export class LoginComponent implements OnInit {
             this.isError = false;
         this.router.navigateByUrl('/');
         this.toastr.success('Login Successful');
+        this.msg ="Login Successful!";
+        this.isLoggedIn=true; console.log(this.isLoggedIn);
       }, error => {
         this.isError = true;
         throwError(error);

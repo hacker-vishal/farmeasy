@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-showlist',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowlistComponent implements OnInit {
 
-  constructor() { }
+  showlist:any;
 
   ngOnInit(): void {
+    this.showlist=history.state.list;
+    // this.showlist = [{equipmenttype:'tractor',servicetype:'fertilizing',rent:333,manufacturer:'farmtrac'},
+    // {equipmenttype:'tractor',servicetype:'fertilizing',rent:333,manufacturer:'farmtrac'},
+    // {equipmenttype:'tractor',servicetype:'fertilizing',rent:333,manufacturer:'farmtrac'}];
+    console.log(this.showlist);     
   }
 
+  constructor(private r:Router) { }
+
+book()
+{
+  this.r.navigate(['/booking'],);
+}  
+
 }
+

@@ -32,7 +32,7 @@
         <form class="example-form1">
             <mat-form-field class="example-full-width">
               <mat-label>First Name</mat-label>
-              <input [(ngModel)]='fname' type='text' name="fname" matInput placeholder="Sachin"/>
+              <input [(ngModel)]='user.fname' type='text' name="fname" matInput placeholder="Sachin"/>
             </mat-form-field>
           </form>
       </div>
@@ -40,7 +40,7 @@
         <form class="example-form2">
             <mat-form-field class="example-full-width">
               <mat-label>Last Name</mat-label>
-              <input [(ngModel)]='lname' type='text' name="location" matInput placeholder="Ex. Tendulkar"/>
+              <input [(ngModel)]='user.lname' type='text' name="lname" matInput placeholder="Ex. Tendulkar"/>
             </mat-form-field>
           </form>
       </div>
@@ -52,7 +52,7 @@
         <form class="example-form1">
             <mat-form-field class="example-full-width">
               <mat-label>Email Address</mat-label>
-              <input [(ngModel)]='email' type='text' name="email" matInput placeholder="Ex. Sachin"/>
+              <input [(ngModel)]='user.email' type='text' name="email" readonly=true matInput placeholder="Ex. st@gmail.com"/>
             </mat-form-field>
           </form>
       </div>
@@ -60,20 +60,20 @@
         <form class="example-form2">
             <mat-form-field class="example-full-width">
               <mat-label>Mobile no.</mat-label>
-              <input [(ngModel)]='lname' type='text' name="location" matInput placeholder="Ex. Tendulkar"/>
+              <input [(ngModel)]='user.mobileno' type='text' name="mobileno" matInput placeholder="Ex. +91 8877556622"/>
             </mat-form-field>
           </form>
       </div>
     </div>
 
 
-
+<!-- 
     <div class="row">
       <div class="col-sm">
         <form class="example-form1">
             <mat-form-field class="example-full-width">
               <mat-label>Date Of Birth</mat-label>
-              <input [(ngModel)]='dob' type='date' name="dob" matInput placeholder="Ex. 01/01/1111"/>
+              <input [(ngModel)]='dob' type='date' name="dob" matInput placeholder="Ex. 01/01/2021"/>
             </mat-form-field>
           </form>
       </div>
@@ -85,13 +85,13 @@
             </mat-form-field>
           </form>
       </div>
-    </div>
+    </div> -->
 
 
 </div>
 
 <div class="form-group">
-  <button class="btn  my-2 my-sm-0" type="button" (click)='registerhost()'>Submit</button>
+  <button class="btn  my-2 my-sm-0" type="button" (click)='updateProfile()'>Submit</button>
  </div>
 
 

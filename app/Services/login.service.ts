@@ -7,11 +7,14 @@ import { Observable, throwError } from 'rxjs';
 import { LocalStorageService } from 'ngx-webstorage';
  import { LoginResponse } from '../Models/login-response';
 import { map, tap } from 'rxjs/operators';
+import { Hostuser } from '../Models/hostuser';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
+  
+  
 
   @Output() loggedIn: EventEmitter<boolean> = new EventEmitter();
   @Output() username: EventEmitter<string> = new EventEmitter();

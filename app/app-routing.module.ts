@@ -15,6 +15,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ShowlistComponent } from './showlist/showlist.component';
 import { HostComponent } from './host/host.component';
 import { AuthGuard } from './Services/auth.guard'
+import { BookingComponent } from './booking/booking.component';
 
 const routes: Routes = [
       { path:'', redirectTo:'home', pathMatch: 'full' },
@@ -30,7 +31,8 @@ const routes: Routes = [
       { path:'blog', component: BlogComponent },
       { path:'host', component: HostComponent },
       { path:'showlist', component: ShowlistComponent },
-      { path:'profile/: name', component: ProfileComponent, canActivate: [AuthGuard] }
+      { path:'profile/: name', component: ProfileComponent, canActivate: [AuthGuard] },
+      { path:'booking', component: BookingComponent },
 ];
 
 @NgModule({

@@ -62,7 +62,6 @@ public class HomeAndSearchTest {
 		assertEquals(0, l.size());
 	}
 	
-	
 	@Test
 	void registerhosttest()
 	{
@@ -76,14 +75,13 @@ public class HomeAndSearchTest {
 	@Test
 	void registerhosttestfailcase()
 	{
-
+        //this dummy hostuser will be passed to check our function
 		Hostuser hostuser = new Hostuser("a@b","tractor", "a", "ploughing", "pune", 222, null);
 		response= homeAndSearch.registerhost(hostuser);
 		
 		assertEquals(0, response.getStatus());
 		
 	}
-	
 	
 	//@Test
 	void sum()

@@ -25,6 +25,9 @@ public class Wishlist {
 	@Id
 	@Column(nullable = false,length=20)
 	private String serviceprovider;
+	@Id
+	@Column(nullable = false,length=50)
+	private String location;
 	@Column(nullable = false,length=30)
 	private String manufacturer;
 	private Integer rent;
@@ -38,19 +41,21 @@ public class Wishlist {
 	@JoinColumn(name="equipmenttype",referencedColumnName = "equipmenttype",insertable=false, updatable=false),
 	@JoinColumn(name="serviceprovider",referencedColumnName = "hostemail",insertable=false, updatable=false),
 	@JoinColumn(name="manufacturer",referencedColumnName = "manufacturer",insertable=false, updatable=false),
-	@JoinColumn(name="servicetype",referencedColumnName = "servicetype",insertable=false, updatable=false)})
+	@JoinColumn(name="servicetype",referencedColumnName = "servicetype",insertable=false, updatable=false),
+	@JoinColumn(name="location",referencedColumnName = "location",insertable=false, updatable=false)})
 	private Hostuser hostuser;
 	
 	public Wishlist() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Wishlist(String email, String equipmenttype,String manufacturer, String servicetype, String serviceprovider, Integer rent) {
+	public Wishlist(String email, String equipmenttype,String manufacturer, String servicetype, String serviceprovider, String location,Integer rent) {
 		super();
 		this.email = email;
 		this.equipmenttype = equipmenttype;
 		this.manufacturer = manufacturer;
 		this.servicetype = servicetype;
+		this.location = location;
 		this.serviceprovider = serviceprovider;
 		this.rent = rent;
 	}
@@ -101,5 +106,13 @@ public class Wishlist {
 
 	public void setManufacturer(String manufacturer) {
 		this.manufacturer = manufacturer;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
 	}
 }

@@ -77,7 +77,7 @@ public class JwtProvider {
     private PrivateKey getPrivateKey() {
         try {
         	    PrivateKey privatekey=(PrivateKey) keyStore.getKey("farmeasy","farmeasy".toCharArray());
-        	    logger.debug(privatekey);
+        	    //logger.debug(privatekey);
             return privatekey;// here "farmeasy" is the alias, and "farmeasy" is the password for this alias.
         } catch (KeyStoreException | NoSuchAlgorithmException | UnrecoverableKeyException e) {
             throw new FarmeasyException("Exception occured while retrieving public key from keystore",e);

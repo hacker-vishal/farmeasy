@@ -29,6 +29,8 @@ public class Booking {
 	private String manufacturer;
 	@Column(nullable = false,length=20)
 	private String servicetype;
+	@Column(nullable = false,length=50)
+	private String location;
 	@Column(nullable = false)
 	private Timestamp dateofbooking;
 	private Timestamp datefinish;
@@ -43,20 +45,22 @@ public class Booking {
 	@JoinColumn(name="equipmenttype",referencedColumnName = "equipmenttype",insertable=false, updatable=false),
 	@JoinColumn(name="serviceprovider",referencedColumnName = "hostemail",insertable=false, updatable=false),
 	@JoinColumn(name="manufacturer",referencedColumnName = "manufacturer",insertable=false, updatable=false),
-	@JoinColumn(name="servicetype",referencedColumnName = "servicetype",insertable=false, updatable=false)})
+	@JoinColumn(name="servicetype",referencedColumnName = "servicetype",insertable=false, updatable=false),
+	@JoinColumn(name="location",referencedColumnName = "location",insertable=false, updatable=false)})
 	private Hostuser hostuser;
 	
 	public Booking() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Booking(Integer bookingid, String email, String serviceprovider, String equipmenttype,String manufacturer, String servicetype,
+	public Booking(Integer bookingid, String email, String serviceprovider, String equipmenttype,String manufacturer, String location, String servicetype,
 			Timestamp dateofbooking, Timestamp datefinish, Double rent) {
 		this.bookingid = bookingid;
 		this.email = email;
 		this.serviceprovider = serviceprovider;
 		this.equipmenttype = equipmenttype;
 		this.manufacturer = manufacturer;
+		this.location = location;
 		this.servicetype = servicetype;
 		this.dateofbooking = dateofbooking;
 		this.datefinish = datefinish;
@@ -133,5 +137,13 @@ public class Booking {
 
 	public void setRent(Double rent) {
 		this.rent = rent;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
 	}
 }

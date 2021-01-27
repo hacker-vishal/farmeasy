@@ -11,9 +11,8 @@ export class HostService {
 
   constructor(private h:HttpClient) { }
 
-  gethost(hu: Hostuser): Observable<Response> {
-
-    console.log(123);
+  gethostdetails(hu: Hostuser): Observable<Response> {
+    console.log(hu);
     let url ="http://localhost:8080/services/insert";
     return this.h.post<Response>(url,hu);
     

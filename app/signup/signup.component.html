@@ -16,7 +16,7 @@
   <form class="example-form">
     <mat-form-field class="example-full-width">
       <mat-label>Email Address</mat-label>
-      <input [(ngModel)]='user.email' type='email' name='email' matInput placeholder="Email Address"><span><h6 class='msg1'></h6></span>
+      <input [(ngModel)]='user.email' type='email' name='email' (blur)='checkmail()' matInput placeholder="Email Address"><span><h6 class='msg1'></h6></span>
   
     </mat-form-field>
   </form>
@@ -48,13 +48,13 @@
   <form class="example-form">
     <mat-form-field class="example-full-width">
       <mat-label>Password</mat-label>
-      <input [(ngModel)]='user.password' type="password" name='password' matInput placeholder="Create a Password"><span><h6 class='msg5'></h6></span>
+      <input [(ngModel)]='user.password' type="password" name='password' (keyup.enter)="signup()" matInput placeholder="Create a Password"><span><h6 class='msg5'></h6></span>
   
     </mat-form-field>
   </form>
 
   <div class="signupbtn">
-    <button type="button" class="btn btn-outline-primary" (click)='signup()'>Sign Up</button>
+    <button type="button" class="btn btn-outline-primary" [disabled]="userAlreadyExists" (click)='signup()'>Sign Up</button>
   </div>
 
 

@@ -17,7 +17,7 @@
  <form class="example-form2">
   <mat-form-field class="example-full-width">
     <mat-label>Equipment Location</mat-label>
-    <input [(ngModel)]='h.location' type='text' name="loc" matInput placeholder="Ex. Bangalore" required />
+    <input [(ngModel)]='h.location' type='text' name="loc" (keyup.enter)="getnow()" matInput placeholder="Ex. Bangalore" required />
 
   </mat-form-field>
  </form>
@@ -29,7 +29,7 @@
  <h6>{{msg}}</h6>
 
  
-  <div *ngFor='let msg1 of showlist' class="rc">
+  <div  *ngFor='let msg1 of showlist' class="rc">
     <div class="typeContainer">
       <img src="farming.jpg" alt="image" />
       <span>{{msg1.eqtype}}</span>
@@ -40,9 +40,8 @@
 
 
   <div class="form-group w-75">
-  <button type="button" class="needbtn btn-lg btn-primary" routerLink="/host" (click)='registerhost()'>Have An Equipment? List Here!</button>
+    <div >
+      <button type="button" class="needbtn btn-lg btn-primary" [disabled]="!isLoggedIn" (click)='navigatetohost()'>Have An Equipment? List Here!</button>
+    </div>
   </div>
-
-
-  </div>
-
+</div>

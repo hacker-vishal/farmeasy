@@ -5,6 +5,8 @@ import { LoginService } from '../Services/login.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { PassresetService } from '../Services/passreset.service';
+import { Response } from '../Models/response';
 
 @Component({
   selector: 'app-signup',
@@ -15,20 +17,37 @@ export class SignupComponent implements OnInit {
 
   user: User;
   signupForm: FormGroup;
+  userAlreadyExists: boolean;
 
   constructor(private loginService: LoginService, private router: Router,
-    private toastr: ToastrService) {
+    private toastr: ToastrService, private pr:PassresetService, private r:Router) {
     this.user = {
       email: '', password: '', fname:'', lname:'', otp:null, mobileno:null
     };
   }
 
   ngOnInit() {
+    this.userAlreadyExists=false;
     // this.signupForm = new FormGroup({
     //   username: new FormControl('', Validators.required),
     //   email: new FormControl('', [Validators.required, Validators.email]),
     //   password: new FormControl('', Validators.required),
     // });
+  }
+
+  checkmail()
+  { //console.log("checkmail works!");
+    this.pr.isEmailExists(this.user.email).subscribe(
+      (rsp:Response)=>{
+        if(rsp.status===1)
+          this.userAlreadyExists = true;
+        else
+          this.userAlreadyExists = false;
+      },
+      (err)=>{console.log(JSON.stringify(err));
+        console.log("you got some error");
+
+      });
   }
 
   signup() {

@@ -20,15 +20,13 @@ import { TokenInterceptor } from './Models/token-interceptor';
 //import { FontAwesomeModule } from '@fortawesome/fontawesome-free';
 import { RouterModule, Routes } from '@angular/router';
 import {MatCardModule} from '@angular/material/card';
-import { BookingComponent } from './booking/booking.component';
 
 const routes: Routes = [
 ]
 
 @NgModule({
   declarations: [
-      routingComponents,
-      BookingComponent
+      routingComponents
   ],
   
   imports: [

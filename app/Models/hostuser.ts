@@ -1,6 +1,6 @@
 export class Hostuser {
 
-    email:string="";
+    hostemail:string="";
     equipmenttype:string="";
     manufacturer:string="";
     servicetype:string="";

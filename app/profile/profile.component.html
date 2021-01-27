@@ -1,101 +1,135 @@
-
 <div class="container">
 
-    
+  <div class="row">
+
+    <div class="menubar">
+      <div class="col-sm">
+        <br>
+        
+        <h4 class="ep1" type="button" routerLink="/profile">Edit Profile</h4>
+
+        <h4 class="ep" type="button" routerLink="/host">Add An Equipment</h4>
+        
+        <h4 class="ep" type="button" routerLink="/booking">Bookings</h4>
+
+        <h4 class="ep" type="button" routerLink="Wishlist">My Wishlist</h4>
+
+        
+        <h4 class="lg" type="button"  *ngIf="isLoggedIn" (click)="logout()">Log Out</h4>
+
+      </div>
+    </div>
+    <div class="col-sm">
+
+      <div class="editProfilecontainer">
 
         <div class="imgUpload">
-
-            <div class="small-12 medium-2 large-2 columns">
-                <div class="circle">
-                  <!-- User Profile Image -->
-                  <img class="profile-pic" src="assets/accicon.png">
-           
-                  <!-- Default Image -->
-                  <!-- <i class="fa fa-user fa-5x"></i> -->
-                
+          <div class="small-12 medium-2 large-2 columns">
+            <div class="circle">
+              <!-- User Profile Image -->
+              <img class="profile-pic" src="assets/accicon.png">
+                <!-- Default Image -->
+                <!-- <i class="fa fa-user fa-5x"></i> -->
                   <div class="abc">
                     <input style="display: none" type="file" accept="image/*" (change)="onFileChanged($event)" #fileInput>
                     <mat-icon type="button" (click)="fileInput.click()">add_a_photo</mat-icon>
-                    <br>{{msg}}
+                    
                   </div>
-                </div>
-
             </div>
-    
+          </div>
+        </div>
+      
+      
+        <div class="profileContainer">
+      
+          <h2>Edit Profile</h2>
+          <!-- <h4>{{msg}}</h4> -->
+          
+          
+
+        <div *ngIf="isUpdated">
+          <h4 class="alert alert-success" role="alert">
+            {{msg}}
+          </h4>
         </div>
 
 
-    <div class="profileContainer">
-      <h2>Edit Profile</h2>
-    <div class="row">
-      <div class="col-sm">
-        <form class="example-form1">
-            <mat-form-field class="example-full-width">
-              <mat-label>First Name</mat-label>
-              <input [(ngModel)]='user.fname' type='text' name="fname" matInput placeholder="Sachin"/>
-            </mat-form-field>
-          </form>
+            <div class="row">
+              <div class="col-sm">
+                <form class="example-form1">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>First Name</mat-label>
+                    <input [(ngModel)]='user.fname' type='text' name="fname" matInput placeholder="Sachin"/>
+                    </mat-form-field>
+                </form>
+              </div>
+              <div class="col-sm">
+                <form class="example-form2">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Last Name</mat-label>
+                    <input [(ngModel)]='user.lname' type='text' name="lname" matInput placeholder="Ex. Tendulkar"/>
+                  </mat-form-field>
+                </form>
+            </div>
+          </div>
+      
+      
+          <div class="row">
+            <div class="col-sm">
+              <form class="example-form1">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Email Address</mat-label>
+                    <input [(ngModel)]='user.email' type='text' readonly=true name="email" matInput placeholder="Ex. st@gmail.com"/>
+                  </mat-form-field>
+                </form>
+            </div>
+            <div class="col-sm">
+              <form class="example-form2">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Mobile no.</mat-label>
+                    <input [(ngModel)]='user.mobileno' type='text' name="mobileno" matInput placeholder="Ex. +91 8877556622"/>
+                  </mat-form-field>
+                </form>
+            </div>
+          </div>
+      
+          
+      
+       <!-- 
+          <div class="row">
+            <div class="col-sm">
+              <form class="example-form1">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Date Of Birth</mat-label>
+                    <input [(ngModel)]='dob' type='date' name="dob" matInput placeholder="Ex. 01/01/2021"/>
+                  </mat-form-field>
+                </form>
+            </div>
+            <div class="col-sm">
+              <form class="example-form2">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Place</mat-label>
+                    <input [(ngModel)]='place' type='text' name="place" matInput placeholder="Ex. Bangalore"/>
+                  </mat-form-field>
+                </form>
+            </div>
+          </div> -->
+      
+      
+       </div>
+      
+      
+      
+      
+       <div class="form-group">
+        <button class="btn  my-2 my-sm-0" type="button" (click)='updateProfile()'>Update</button>
+       </div>
+      
+      
       </div>
-      <div class="col-sm">
-        <form class="example-form2">
-            <mat-form-field class="example-full-width">
-              <mat-label>Last Name</mat-label>
-              <input [(ngModel)]='user.lname' type='text' name="lname" matInput placeholder="Ex. Tendulkar"/>
-            </mat-form-field>
-          </form>
-      </div>
+
+      
     </div>
+  </div>
 
-
-    <div class="row">
-      <div class="col-sm">
-        <form class="example-form1">
-            <mat-form-field class="example-full-width">
-              <mat-label>Email Address</mat-label>
-              <input [(ngModel)]='user.email' type='text' name="email" readonly=true matInput placeholder="Ex. st@gmail.com"/>
-            </mat-form-field>
-          </form>
-      </div>
-      <div class="col-sm">
-        <form class="example-form2">
-            <mat-form-field class="example-full-width">
-              <mat-label>Mobile no.</mat-label>
-              <input [(ngModel)]='user.mobileno' type='text' name="mobileno" matInput placeholder="Ex. +91 8877556622"/>
-            </mat-form-field>
-          </form>
-      </div>
-    </div>
-
-
-<!-- 
-    <div class="row">
-      <div class="col-sm">
-        <form class="example-form1">
-            <mat-form-field class="example-full-width">
-              <mat-label>Date Of Birth</mat-label>
-              <input [(ngModel)]='dob' type='date' name="dob" matInput placeholder="Ex. 01/01/2021"/>
-            </mat-form-field>
-          </form>
-      </div>
-      <div class="col-sm">
-        <form class="example-form2">
-            <mat-form-field class="example-full-width">
-              <mat-label>Place</mat-label>
-              <input [(ngModel)]='place' type='text' name="place" matInput placeholder="Ex. Bangalore"/>
-            </mat-form-field>
-          </form>
-      </div>
-    </div> -->
-
-
-</div>
-
-<div class="form-group">
-  <button class="btn  my-2 my-sm-0" type="button" (click)='updateProfile()'>Submit</button>
- </div>
-
-
-</div>
-
-
-
+  </div>

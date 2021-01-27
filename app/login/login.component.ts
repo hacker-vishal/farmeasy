@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl('/');
         this.toastr.success('Login Successful');
         this.msg ="Login Successful!";
-        this.isLoggedIn=true; console.log(this.isLoggedIn);
+        this.isLoggedIn=true; //console.log(this.isLoggedIn);
       }, error => {
         this.isError = true;
         throwError(error);

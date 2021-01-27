@@ -4,6 +4,8 @@ import { User } from '../Models/user';
 import { Response } from '../Models/response';
 import { Router } from '@angular/router';
 import { LoginService } from '../Services/login.service';
+import { GlobalConstants } from '../common/global-constants';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-profile',
@@ -15,13 +17,23 @@ export class ProfileComponent implements OnInit {
   msg:String;
   user:User;
   username:string;
+  isLoggedIn:boolean;
+  isUpdated:boolean;
 
-  constructor(private e:EditService, private r: Router, private ls:LoginService) 
+  constructor(private e:EditService, private r: Router, private ls:LoginService, private apc:AppComponent) 
   { 
     this.user = {email: '', password: '', fname:'', lname:'', otp:null, mobileno:null};
+    
   }
 
   ngOnInit(): void {
+    //this.isUpdated=null;
+
+    this.ls.loggedIn.subscribe((data: boolean) => this.isLoggedIn = data);
+      this.ls.username.subscribe((data: string) => this.username = data);
+      this.isLoggedIn = this.ls.isLoggedIn();
+
+
     this.username = this.ls.getUserName();
     //console.log(this.username);
 
@@ -35,7 +47,7 @@ export class ProfileComponent implements OnInit {
       (u:User)=>{
         if(u.email!==null && u.email===this.username)
         {
-          console.log(JSON.stringify(u));
+          //console.log(JSON.stringify(u));
           this.user = u;
         }
       },
@@ -51,14 +63,26 @@ updateProfile()
       if(rsp.status===1)
       {
         //this.msg=rsp.message;
-        //console.log(rsp.status);
-        //this.r.navigate(['/profile']);
+        console.log(rsp.status);
+        this.isUpdated=true;
+
+        this.msg="updated successfully";
+        
       }
     },
     (err)=>{console.log(JSON.stringify(err));
-      this.msg="you got some error";
-
+      //this.msg="you got some error";
+      this.isUpdated=false;
+      this.msg="some error occured";
+      console.log(this.msg+" "+this.isUpdated);
     });
+}
+
+logout() {
+  this.apc.logout();
+  // this.ls.logout();
+  // this.isLoggedIn = false;
+  // this.r.navigateByUrl('');
 }
 
 }

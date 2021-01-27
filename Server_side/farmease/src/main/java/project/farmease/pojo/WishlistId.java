@@ -12,17 +12,19 @@ public class WishlistId implements Serializable{
 	private String equipmenttype;
 	private String serviceprovider;
 	private String servicetype;
+	private String location;
 	
 	
 	public WishlistId() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public WishlistId(String email, String equipmenttype, String servicetype, String serviceprovider) {
+	public WishlistId(String email, String equipmenttype, String servicetype, String serviceprovider, String location) {
 		this.email = email;
 		this.equipmenttype = equipmenttype;
 		this.servicetype = servicetype;
 		this.serviceprovider = serviceprovider;
+		this.location = location;
 	}
 
 	@Override
@@ -34,12 +36,13 @@ public class WishlistId implements Serializable{
         return email.equals(wishlistId.email) &&
                 equipmenttype.equals(wishlistId.equipmenttype) &&
                 servicetype.equals(wishlistId.servicetype) &&
-                serviceprovider.equals(wishlistId.serviceprovider);
+                serviceprovider.equals(wishlistId.serviceprovider) &&
+                location.equals(wishlistId.location);
 	}
 
 	@Override
 	public int hashCode() {
 		// TODO Auto-generated method stub
-		return Objects.hash(email,equipmenttype,servicetype,serviceprovider);
+		return Objects.hash(email,equipmenttype,servicetype,serviceprovider,location);
 	}
 }

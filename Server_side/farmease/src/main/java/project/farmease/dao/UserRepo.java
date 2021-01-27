@@ -20,10 +20,6 @@ public interface UserRepo extends JpaRepository<User, String>{
 	@Query("update User set fname=:fname, lname=:lname, mobileno=:mobileno where email=:email")
 	int updateforuser(@Param("email") String email, @Param("fname") String fname, @Param("lname") String lname, @Param
 			("mobileno") String mobileno);
-
-	Optional<User> findByEmail(String username);
-
-	boolean existsByEmail(String email);
 	
 	@Modifying
 	@Query("update User set otp=:random where email=:id")

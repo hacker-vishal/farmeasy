@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import project.farmease.dao.HostuserRepo;
+import project.farmease.dao.UserRepo;
 import project.farmease.dto.Hostdto;
 import project.farmease.dto.Response;
 import project.farmease.pojo.Hostuser;
+import project.farmease.pojo.HostuserId;
 
  
 @RestController
@@ -23,6 +25,8 @@ import project.farmease.pojo.Hostuser;
 public class HomeAndSearch {
 	
 	Logger logger = LogManager.getLogger(HomeAndSearch.class);
+	@Autowired
+	private UserRepo userRepo;
 	private HostuserRepo hostuserRepo;
 	List<Hostuser> l;
 	
@@ -33,7 +37,7 @@ public class HomeAndSearch {
 		//logger.debug("HostuserRepo autowired");
 	}
 
-	@CrossOrigin("http://localhost:4200")
+	@CrossOrigin//("http://localhost:4200")
 	@PostMapping("/searchserv")
 	public List<Hostuser> searchforservice(@RequestBody Hostuser hostuser) 
 	{
@@ -68,6 +72,7 @@ public class HomeAndSearch {
 		return l;
 	}
 	
+	@CrossOrigin//("http://localhost:4200")
 	@PostMapping("/insert")
 	public Response registerhost(@RequestBody Hostuser hostuser) {
 		
@@ -75,17 +80,46 @@ public class HomeAndSearch {
 		//db data assume
 //		Hostuser host = new Hostuser("a@b","tractor", "kubota", "ploughing", "pune", 222, null);
 		
-		int isUserPresent = 0;
+		Boolean isUserPresent = false;
+		Boolean isHostUserPresent = false;
 		
-		isUserPresent=hostuserRepo.existsByHostemail(hostuser.getHostemail());
+		try {
+			logger.debug(hostuser.getHostemail());
+			isUserPresent=userRepo.existsById(hostuser.getHostemail());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			logger.error("Invalid Operation!");
+		}
 		
 		//if(!(host.getHostemail().equals(hostuser.getHostemail())))
-		if(isUserPresent==0)
+		if(isUserPresent)
 		{
-			resp.setStatus(1);
-			resp.setMessage("Inserted successfully!");
-			//db.save
-			hostuserRepo.save(hostuser);
+			isHostUserPresent=hostuserRepo.existsByHostemail(hostuser.getHostemail());
+			
+			if(isHostUserPresent)
+			{
+				HostuserId id = new HostuserId(hostuser.getHostemail(), hostuser.getEquipmenttype(), hostuser.getManufacturer(), hostuser.getServicetype(), hostuser.getLocation());
+				
+				Boolean isHostpresent=false;
+				
+				isHostpresent = hostuserRepo.existsById(id);
+				
+				if (!isHostpresent) {
+					hostuserRepo.save(hostuser);
+					resp.setStatus(1);
+					resp.setMessage("Inserted successfully!");
+				}
+			}
+			else
+			{
+				hostuserRepo.save(hostuser);
+				resp.setStatus(1);
+				resp.setMessage("Inserted successfully!");
+			}
+		}
+		else
+		{
+			resp.setMessage("You need to signup first!!!");
 		}
 		
 		return resp;

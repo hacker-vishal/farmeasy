@@ -10,17 +10,19 @@ public class HostuserId implements Serializable {
 	private String equipmenttype;
 	private String manufacturer;
 	private String servicetype;
+	private String location;
 
 	public HostuserId() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public HostuserId(String hostemail, String equipmenttype, String manufacturer, String servicetype) {
+	public HostuserId(String hostemail, String equipmenttype, String manufacturer, String servicetype, String location) {
 		super();
 		this.hostemail = hostemail;
 		this.equipmenttype = equipmenttype;
 		this.manufacturer = manufacturer;
 		this.servicetype = servicetype;
+		this.location = location;
 	}
 
 	@Override
@@ -32,11 +34,12 @@ public class HostuserId implements Serializable {
         return hostemail.equals(hostuserId.hostemail) &&
                 equipmenttype.equals(hostuserId.equipmenttype) &&
                 manufacturer.equals(hostuserId.manufacturer) &&
-                servicetype.equals(hostuserId.servicetype);
+                servicetype.equals(hostuserId.servicetype) &&
+                location.equals(hostuserId.location);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(hostemail,equipmenttype,manufacturer,servicetype);
+		return Objects.hash(hostemail,equipmenttype,manufacturer,servicetype,location);
 	}
 }

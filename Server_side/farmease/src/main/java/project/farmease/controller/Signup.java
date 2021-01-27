@@ -38,7 +38,7 @@ public class Signup {
 //	    idexists = u.getEmail().equals(user.getEmail());
 		
 	    try {
-			idexists = userRepo.existsByEmail(user.getEmail());
+			idexists = userRepo.existsById(user.getEmail());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();

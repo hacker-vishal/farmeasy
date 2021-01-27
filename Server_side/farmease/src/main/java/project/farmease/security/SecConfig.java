@@ -37,7 +37,7 @@ public class SecConfig extends WebSecurityConfigurerAdapter {    // this class h
 	    }
 	 
 	 @Override
-	    public void configure(HttpSecurity httpSecurity) throws Exception {    //we are configuring Spring to allow all the requests which match the endpoint “/api/auth/**” , as these endpoints are used for authentication and registration we don’t expect the user to be authenticated at that point of time.
+	    public void configure(HttpSecurity httpSecurity) throws Exception {    //we are configuring Spring to allow all the requests which match the endpoint â€œ/api/auth/**â€� , as these endpoints are used for authentication and registration we donâ€™t expect the user to be authenticated at that point of time.
 	        httpSecurity.cors().and()
 	                .csrf().disable()        
 	                .authorizeRequests()
@@ -46,6 +46,8 @@ public class SecConfig extends WebSecurityConfigurerAdapter {    // this class h
 					.antMatchers("/services/**") .permitAll()     // these should be GET call so that spring will not authorize these everytime and guest can see these pages without login
 					.antMatchers("/password/**") .permitAll()
 					.antMatchers("/update/**") .permitAll()
+					//.antMatchers("/insert") .permitAll()
+					.antMatchers("/booking/**") .permitAll()
 					.antMatchers(HttpMethod.GET, "/wishlist/**") .permitAll()
 					.antMatchers("/configuration/ui", "/configuration/security")                
 					.permitAll()

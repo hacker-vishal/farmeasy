@@ -27,11 +27,32 @@ class BookingControlTest {
 
 	@Test
 	void bookingavailabilitytest() {
-		//Booking booking = new Booking(1, "s@n.com", "vj.com", "tractor", "swaraj", "cultivating",Timestamp.valueOf(""),Timestamp.valueOf(""), 1000d);
-		String dob = "2021-03-01";
-		String dof = "2000-03-04";
-		response=bookingControl.checkavailability("vj.com",Timestamp.valueOf(dob),Timestamp.valueOf(dof));
+		String dob = "2021-03-07 09:01:15";
+		String dof = "2021-03-08 10:01:15";
+		Booking booking = new Booking(1, "s@n.com", "vj.com", "tractor", "swaraj", "pune", "cultivating",Timestamp.valueOf(dob),Timestamp.valueOf(dof), 1000d, false);
+		//logger.debug(Timestamp.valueOf(dob));
+		response=bookingControl.checkavailability(booking);
 		assertEquals(1, response.getStatus());
+	}
+	
+	
+	@Test
+	void bookingavailabilitytestfailcase() {
+		String dob = "2021-03-03 10:01:15";
+		String dof = "2021-03-05 10:01:15";
+		Booking booking = new Booking(1, "s@n.com", "vj.com", "tractor", "swaraj", "pune", "cultivating",Timestamp.valueOf(dob),Timestamp.valueOf(dof), 1000d, false);
+		response=bookingControl.checkavailability(booking);
+		assertEquals(0, response.getStatus());
+	}
+	
+	@Test
+	void dobookingtest()
+	{
+		String dob = "2021-03-03 10:01:15";
+		String dof = "2021-03-05 10:01:15";
+		Booking booking = new Booking(1, "s@n.com", "vj.com", "tractor", "swaraj", "pune", "cultivating",Timestamp.valueOf(dob),Timestamp.valueOf(dof), 1000d, false);
+        response = bookingControl.dobooking(booking);
+        assertEquals(1, response.getStatus());
 	}
 
 }

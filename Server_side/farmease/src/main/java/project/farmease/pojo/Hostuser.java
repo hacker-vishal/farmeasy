@@ -30,6 +30,7 @@ public class Hostuser {
 	@Id
 	@Column(length=20)
 	private String servicetype;
+	@Id
 	@Column(nullable = false,length=50)
 	private String location;
 	private Integer rent;

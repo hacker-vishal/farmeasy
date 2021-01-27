@@ -75,7 +75,7 @@ public class HomeAndSearchTest {
 	@Test
 	void registerhosttestfailcase()
 	{
-
+        //this dummy hostuser will be passed to check our function
 		Hostuser hostuser = new Hostuser("a@b","tractor", "a", "ploughing", "pune", 222, null);
 		response= homeAndSearch.registerhost(hostuser);
 		

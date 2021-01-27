@@ -19,6 +19,8 @@ import project.farmease.pojo.Hostuser;
 public class FarmeaseApplication {
 
 	public static void main(String[] args) {
+		System.setProperty("spring.devtools.restart.enabled", "false");
+		
 		SpringApplication.run(FarmeaseApplication.class, args);
 		
 //		Logger logger = LogManager.getLogger(FarmeaseApplication.class);

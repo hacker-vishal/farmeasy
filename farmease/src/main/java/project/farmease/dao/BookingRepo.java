@@ -1,7 +1,17 @@
 package project.farmease.dao;
 
+import java.sql.Timestamp;
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import project.farmease.pojo.Booking;
 
-public interface BookingRepo extends JpaRepository<Booking, Integer>{}
+public interface BookingRepo extends JpaRepository<Booking, Integer>{
+
+	@Query("from Booking where email=:email and isInvalid=:isInvalid")
+	List<Booking> findbooking(@Param("email") String email, @Param("isInvalid") Boolean isInvalid);
+	
+}

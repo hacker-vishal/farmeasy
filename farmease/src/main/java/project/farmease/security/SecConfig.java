@@ -47,6 +47,7 @@ public class SecConfig extends WebSecurityConfigurerAdapter {    // this class h
 					.antMatchers("/password/**") .permitAll()
 					.antMatchers("/update/**") .permitAll()
 					.antMatchers("/insert") .permitAll()
+					.antMatchers("/booking/**") .permitAll()
 					.antMatchers(HttpMethod.GET, "/wishlist/**") .permitAll()
 					.antMatchers("/configuration/ui", "/configuration/security")                
 					.permitAll()

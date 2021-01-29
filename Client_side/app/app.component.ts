@@ -1,41 +1,71 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from './auth/shared/auth.service';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { LoginService } from './Services/login.service';
+import { GlobalConstants } from './common/global-constants';
+import { ResponsiveService } from './Services/responsive.service';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent {
 
-  title = 'agribay-app';
+  title = GlobalConstants.siteTitle;
 
-  // header related changes for logged in user ----------------------------
-  constructor(private authService: AuthService, private router: Router) { }
+    constructor(private r:Router, private loginService: LoginService, private resp:ResponsiveService,
+      private t:ToastrService) 
+    {
+      console.log(GlobalConstants.apiURL);
+     }
 
-  faUser = faUser;
-  isLoggedIn: boolean;
-  username: string;
+    equipmenttype:string;
+    location:string;
+    msg:any;
+    isLoggedIn: boolean;
+    username: string;
+  
+    ngOnInit() {
+      this.loginService.loggedIn.subscribe((data: boolean) => this.isLoggedIn = data);
+      this.loginService.username.subscribe((data: string) => this.username = data);
+      this.isLoggedIn = this.loginService.isLoggedIn();
+      //console.log(this.isLoggedIn);
+      this.username = this.loginService.getUserName();
+      //console.log(this.title);
+      this.resp.getMobileStatus().subscribe( isMobile =>{
+        if(isMobile){
+          console.log('Mobile device detected')
+        }
+        else{
+          console.log('Desktop detected')
+        }
+      });
+      this.onResize();    
+    }
+  
+    onResize(){
+      this.resp.checkWidth();
+    }
+    
 
-  ngOnInit() {
-    this.authService.loggedIn.subscribe((data: boolean) => this.isLoggedIn = data);
-    this.authService.username.subscribe((data: string) => this.username = data);
-    this.isLoggedIn = this.authService.isLoggedIn();
-    this.username = this.authService.getUserName();
-  }
+    login()
+    {
+      this.r.navigate['/login'];
+    }
 
-  goToUserProfile() {
-    this.router.navigateByUrl('/user-profile/' + this.username);
-  }
-
-  logout() {
-    this.authService.logout();
-    this.isLoggedIn = false;
-    this.router.navigateByUrl('');
-  }
-   // header related changes for logged in user ends ------------------------
+    goToUserProfile() {
+      this.r.navigateByUrl('/profile/' + this.username);
+    }
+  
+    logout() {
+      this.loginService.logout();
+      this.isLoggedIn = false;
+      this.r.navigateByUrl('');
+      this.t.info("Logged out! Thank you!")
+    }
 }
+
 
 

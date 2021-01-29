@@ -1,65 +1,41 @@
-<div class="page-wrapper">
+<!--The content below is only a placeholder and can be replaced.-->
+<!--<div class="app-body" (window:resize)="onResize($event)">-->
+ 
 
-  <!-- MENU SIDEBAR-->
-  <aside class="menu-sidebar d-none d-lg-block">
-    <div class="logo">
-      <a routerLink="/products">
-        <img src="assets/images/agribaylogo.png" alt="agribay" class="img-responsive">
-      </a>
-      <nav>
-        
-      </nav>
+
+<div style="text-align:center">
+  <!-- Image and text -->
+    
+<mat-toolbar class="navbar navbar-light navbar-expand-lg fixed-top" style="background-color: #e3f2fd;">
+  <a class="navbar-brand text-primary font-weight-bold font-italic"><span><mat-icon>eco</mat-icon>Farmeasy</span></a>
+
+  
+  <div class="spacer"></div>
+  
+  
+  <a mat-button routerLink="/home" >Home</a>
+  <div *ngIf="!isLoggedIn">
+  <a mat-button routerLink="/login">Login</a></div>
+  <a mat-button routerLink="/aboutus">About Us</a>
+  <a mat-button routerLink="/blog">Blog</a>
+  <a mat-button routerLink="/contactus">Contact</a>
+  <a mat-button routerLink="/help">Help</a>
+  <div *ngIf="!isLoggedIn">
+  <a mat-raised-button color="accent"  routerLink="/signup">SignUp</a></div>
+  <div class="lgb">
+  <div *ngIf="isLoggedIn" ngbDropdown class="float-right">
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button (click)="goToUserProfile()" ngbDropdownItem>Profile</button>
+        <button (click)="logout()" ngbDropdownItem>Logout</button>
     </div>
- <app-product-category-menu></app-product-category-menu> 
-  </aside>
-  <!-- END MENU SIDEBAR-->
-
-  <!-- PAGE CONTAINER-->
-  <div class="page-container">
-    <!-- HEADER DESKTOP-->
-    <header class="header-desktop">
-      <div class="section-content section-content-p30">
-        <div class="container-fluid">
-          <div class="header-wrap">
-            <app-product-search></app-product-search>
-            <!-- <div *ngIf="!isLoggedIn"> -->
-              <div class="flex-grow-1 float-right">
-                <div *ngIf="isLoggedIn" ngbDropdown class="float-right">
-                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                        <button (click)="goToUserProfile()" ngbDropdownItem>Profile</button>
-                        <button (click)="logout()" ngbDropdownItem>Logout</button>
-                    </div>
-                    <button class="userdetails" id="dropdownBasic1" ngbDropdownToggle>
-                        <img class="account-icon" src="https://www.redditstatic.com/avatars/avatar_default_08_D4E815.png">
-                        {{username}}
-                    </button>
-                </div>            
-                <div *ngIf="!isLoggedIn">
-                    <a routerLink="/signup" class="float-right sign-up mr-2">Sign up</a>
-                    <a routerLink="/login" class="float-right login mr-2">Login</a>
-                </div>
-            </div>
-            <app-cart-status></app-cart-status>
-
-          </div>
-          <div class="account-wrap"></div>
-        </div>
-      </div>
-    </header>
-    <!-- END HEADER DESKTOP-->
-    <!-- MAIN CONTENT-->
-    <router-outlet></router-outlet>
-
+    <button class="userdetails" id="dropdownBasic1" ngbDropdownToggle>
+      <img class="account-icon" src="assets/accicon.png" alt="">
+      {{username}}
+    </button>
     </div>
-
 </div>
+   
+</mat-toolbar>
 
-<footer>
-  <ul>
-    <li><a href="#">About Us</a></li>
-    <li><a routerLink="/signup">signup</a></li>
-      <li><a routerLink="/login">Login</a></li>
-    <li><a href="#">Contact Us</a></li>
-    <li><a href="#">Help</a></li>
-  </ul>
-</footer>
+
+<router-outlet></router-outlet>

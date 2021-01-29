@@ -4,6 +4,7 @@ export class Wishlist {
     equipmenttype:string="";
     servicetype:string="";
     serviceprovider:string="";
+    location:string="";
     rent:number=0;
 
 }

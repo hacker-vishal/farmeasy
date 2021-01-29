@@ -1,0 +1,48 @@
+ <!--<div class="container">  
+    <h1>Angular Material Date Range Picker Demo</h1>  
+    <form [formGroup]="rangeFormGroup">  
+      <div>  
+        <mat-form-field appearance="fill">  
+          <mat-label>Enter a date range</mat-label>  
+          //<mat-date-range-input [rangePicker]="picker">   
+            <input matStartDate placeholder="Start date" formControlName="start">  
+            <input matEndDate placeholder="End date" formControlName="end">  
+          </mat-date-range-input>//
+          <mat-date-range-input [rangePicker]="picker" separator="to" required [min]="today" [dateFilter]="dateFilterFn">   
+            <input matStartDate placeholder="Start date" formControlName="start">  
+            <input matEndDate placeholder="End date" formControlName="end">  
+          </mat-date-range-input>  
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>  
+          <mat-date-range-picker #picker></mat-date-range-picker>  
+          <mat-error>Date Range is mandatory</mat-error>  
+        </mat-form-field>  
+      </div>  
+    </form>  
+    <div class="json">  
+      <h2>Integrated Form JSON</h2>  
+      <code><pre>{{rangeFormGroup.value | json}}</pre></code>  
+    </div>  
+  </div>  -->
+<div class="cal">
+    <h4>From:</h4>
+  <mat-form-field>
+    <input matInput [ngxMatDatetimePicker]="picker" placeholder="Choose a date & time" [(ngModel)]="b.dateofbooking">
+    
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+
+    <ngx-mat-datetime-picker #picker></ngx-mat-datetime-picker>
+</mat-form-field>
+</div>
+<div>
+    <h4>To:</h4>
+    <mat-form-field>
+      <input matInput [ngxMatDatetimePicker]="picker1" placeholder="Choose a date & time" [(ngModel)]="b.datefinish">
+      
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+  
+      <ngx-mat-datetime-picker #picker1></ngx-mat-datetime-picker>
+  </mat-form-field>
+  </div>
+  <div>
+    <button mat-button (click)='check()'>Check</button>
+</div>

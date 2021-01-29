@@ -53,8 +53,8 @@
     </mat-form-field>
   </form>
 
-  <div class="signupbtn" *ngIf='!userAlreadyExists'>
-    <button type="button" class="btn btn-outline-primary" (click)='signup()'>Sign Up</button>
+  <div class="signupbtn">
+    <button type="button" class="btn btn-outline-primary" [disabled]="userAlreadyExists" (click)='signup()'>Sign Up</button>
   </div>
 
 

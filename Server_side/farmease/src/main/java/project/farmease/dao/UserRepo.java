@@ -25,8 +25,7 @@ public interface UserRepo extends JpaRepository<User, String>{
 	@Query("update User set otp=:random where email=:id")
 	void createotp(@Param("random") int random, @Param("id") String id);
 	
-	@Query("from User where otp=:otp")
-	Optional<User> checkotp(@Param("otp") int otp);
+	Optional<User> findByOtp(int otp);
 	
 	@Modifying
 	@Query("update User set password=:pswd, otp=null where email=:id")

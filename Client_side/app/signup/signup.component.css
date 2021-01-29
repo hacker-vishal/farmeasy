@@ -11,8 +11,8 @@
 .signupContainer
 {
     background-color:whitesmoke;
-    width: 700px;
-    margin-left: 300px;
+    width: 50%;
+    margin-left: 25%;
     height: 750px;
     opacity: 0.8;
 }
@@ -20,7 +20,7 @@
 .fb
 {
     padding-top: 100px;
-    margin-left: 80px;
+    margin-left: 13%;
     
 }
 
@@ -42,7 +42,7 @@
 
 .google
 {
-    margin-left: 80px;
+    margin-left: 13%;
     
 }
 
@@ -66,7 +66,7 @@
 
 .signupbtn
 {
-    margin-left: 150px;
+    margin-left: 20%;
 }
 
 .lgn

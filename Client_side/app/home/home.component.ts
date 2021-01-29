@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Hostuser } from '../Models/hostuser';
 import { HomeService } from '../Services/home.service';
+import { LoginService } from '../Services/login.service';
 
 @Component({
   selector: 'app-home',
@@ -14,14 +15,15 @@ export class HomeComponent implements OnInit{
   h:Hostuser;
   showlist:any=[];
   msg:any=[];
-  
+  isLoggedIn:boolean=false;
 
-  constructor(private hs:HomeService,private r:Router) 
+  constructor(private hs:HomeService, private r:Router, private loginService:LoginService) 
   { 
     this.h = new Hostuser("","");
     
   }
   ngOnInit(): void {
+    this.isLoggedIn = this.loginService.isLoggedIn();
   }
 
   getnow()
@@ -55,9 +57,12 @@ export class HomeComponent implements OnInit{
       });
   }
 
-  registerhost()
+  navigatetohost()
   {
+    if(this.isLoggedIn)
+    {
     this.r.navigate(['/host']);
+    }
   }
 
 }

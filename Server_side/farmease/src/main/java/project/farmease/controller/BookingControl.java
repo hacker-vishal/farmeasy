@@ -39,6 +39,8 @@ public class BookingControl {
 	@PostMapping("/checkavail")
 	public Response checkavailability(@RequestBody Booking booking) {
 	
+		logger.debug(booking.getServiceprovider()+" "+booking.getDatefinish()+" "+booking.getDateofbooking());
+		
 		Response resp = new Response(0,"booking cannot be done in this slot!!!");
 		int c=0;
 		int x=0;
@@ -58,6 +60,7 @@ public class BookingControl {
 		{	
 			try {
 				l= bookingRepo.findByServiceprovider(booking.getServiceprovider());
+				logger.debug(l);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				logger.error(e);
@@ -67,21 +70,28 @@ public class BookingControl {
 			//logger.debug(l.size());
 			
 			if(l.size()!=0 && l!=null)
+			{
 			for(Booking b:l)
 			{
 				if((booking.getDateofbooking().before(b.getDateofbooking()) || booking.getDateofbooking().after(b.getDatefinish()))) 
 				{  
+					logger.debug("1st condition");
 					for(Booking book:l) 
 					{
 						if((booking.getDatefinish().before(book.getDateofbooking()) || booking.getDatefinish().after(book.getDatefinish())))
 						{
+							logger.debug("2nd condition");
 							c++;
 							logger.debug(c);
 						}
-						if(c==3)
+						if(c==l.size())
 						{
-							x++;
-							c=0;
+							if(!(booking.getDateofbooking().before(b.getDateofbooking()) && booking.getDatefinish().after(b.getDatefinish())))
+							{
+								logger.debug("3rd condition");
+								x++;
+								c=0;
+							}
 						}
 					}
 				}
@@ -95,8 +105,18 @@ public class BookingControl {
 				resp.setStatus(1);
 				resp.setMessage("You can book now!");
 			}
+			}
+			else
+			{
+				resp.setStatus(1);
+				resp.setMessage("You can book now!");
+			}
 //			
 //			logger.debug(resp.getStatus());
+		}
+		else
+		{
+			resp.setMessage("Serviceprovider does not exist!");
 		}
 		
 		return resp;

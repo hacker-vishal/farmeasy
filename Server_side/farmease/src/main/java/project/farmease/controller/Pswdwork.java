@@ -44,7 +44,7 @@ public class Pswdwork {
 		
 		response = new Response(0, "User not found");
 		
-//		if(logincreds.getEmail().equals(id)) 
+//		if(user.getEmail().equals(id)) 
 		if(user.isPresent() && user.get().getEmail().equals(id))
 		{
 			//logger.debug("got in");
@@ -67,8 +67,10 @@ public class Pswdwork {
 	@GetMapping("/getotp")
 	public Integer getotp(String id) 
 	{
-		user=userRepo.findById(id);
-		return user.get().getOtp();
+		Optional<User> u;
+		u=userRepo.findById(id);
+		//logger.debug(user.get().getOtp());
+		return u.get().getOtp();
 	}
 
 	@CrossOrigin
@@ -77,11 +79,11 @@ public class Pswdwork {
 		response = new Response(0, "OTP verification failed");
 		
 		//assume it came from db
-//		Logincreds logincreds = new Logincreds("abc","",123456);
+//		User user = new User("abc","",123456,"","");
 		//write query to select row where otp obtained to client matches with db data
-//		logincreds = logincredsRepo.checkotp(otp);
+		user = userRepo.findByOtp(otp);
 		
-		//if(logincreds.getOtp().equals(otp))
+		//if(user.getOtp().equals(otp))
 		if(user.get().getOtp().equals(otp))
 		{
 			response.setStatus(1);

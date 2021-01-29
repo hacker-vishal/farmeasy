@@ -1,5 +1,5 @@
 #install
-npm install -g @angular/cli
+npm install -g @angular/cli@8.1.3 
 
 
 #Creates a new workspace and an initial Angular application.
@@ -40,6 +40,12 @@ npm install angular-material
 # To install latest release and update package.json
 npm install angular-material --save
 
+ng add @angular/material
+
+npm update @angular/material @angular/cdk
+
+ng update @angular/material
+
 # To install from HEAD of master
 npm install http://github.com/angular/bower-material/tarball/master
 
@@ -55,6 +61,34 @@ npm install http://github.com/angular/bower-material/tarball/v1.2.1 --save
 # To view all installed package 
 npm list
 
+<<<<<<< HEAD
 
 #bootstrap
 npm install @ng-bootstrap/ng-bootstrap
+=======
+==============================================
+npm i @angular-devkit/build-angular
+
+npm i ngx-toastr@12.0.1
+
+npm install --save ngx-webstorage
+
+npm i @fortawesome/fontawesome-free
+
+==============================================
+npm uninstall -g angular-cli  
+
+npm cache clean --force
+
+npm cache verify 
+
+npm install -g @angular/cli@10.0.7  
+
+npm install --save-dev @angular/cli@10.0.7 
+==============================================
+
+ng add @angular/localize
+
+
+
+>>>>>>> 65a6c08d4ae224e9949bc0175e950bb93559fa69

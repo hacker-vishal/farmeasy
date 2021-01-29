@@ -54,3 +54,7 @@ npm install http://github.com/angular/bower-material/tarball/v1.2.1 --save
 
 # To view all installed package 
 npm list
+
+
+#bootstrap
+npm install @ng-bootstrap/ng-bootstrap

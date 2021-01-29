@@ -61,6 +61,11 @@ npm install http://github.com/angular/bower-material/tarball/v1.2.1 --save
 # To view all installed package 
 npm list
 
+<<<<<<< HEAD
+
+#bootstrap
+npm install @ng-bootstrap/ng-bootstrap
+=======
 ==============================================
 npm i @angular-devkit/build-angular
 
@@ -90,3 +95,4 @@ npm install @angular-material-components/datetime-picker
 
 
 
+>>>>>>> 65a6c08d4ae224e9949bc0175e950bb93559fa69

@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
     registerSuccessMessage: string;
     isError: boolean;
     isLoggedIn=false;
+    //hideSuccessMessage:boolean=false;
  
     constructor(private loginService: LoginService, private activatedRoute: ActivatedRoute,
      private router: Router, private toastr: ToastrService) {
@@ -80,4 +81,10 @@ export class LoginComponent implements OnInit {
       (err)=>{this.msg= JSON.stringify(err);
       });
   }
+
+  // FadeOutSuccessMsg() {
+  //   setTimeout( () => {
+  //       this.hideSuccessMessage = true;
+  //    }, 4000);
+  //   }
 }

@@ -31,7 +31,7 @@ export class AppComponent {
       this.isLoggedIn = this.loginService.isLoggedIn();
       //console.log(this.isLoggedIn);
       this.username = this.loginService.getUserName();
-      console.log(this.title);
+      //console.log(this.title);
       this.resp.getMobileStatus().subscribe( isMobile =>{
         if(isMobile){
           console.log('Mobile device detected')

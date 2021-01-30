@@ -4,18 +4,8 @@
 
     <div class="menubar">
       <div class="col-sm">
-        <br>
         
-        <h4 class="ep1" type="button" routerLink="/profile">Edit Profile</h4>
-
-        <h4 class="ep" type="button" routerLink="/host">Add An Equipment</h4>
-        
-        <h4 class="ep" type="button" routerLink="/booking">Bookings</h4>
-
-        <h4 class="ep" type="button" routerLink="Wishlist">My Wishlist</h4>
-
-        
-        <h4 class="lg" type="button"  *ngIf="isLoggedIn" (click)="logout()">Log Out</h4>
+        <app-user-menu></app-user-menu>
 
       </div>
     </div>
@@ -43,14 +33,21 @@
         <div class="profileContainer">
       
           <h2>Edit Profile</h2>
-          <!-- <h4>{{msg}}</h4> -->
-          
-          
 
-        <div *ngIf="isUpdated">
-          <h4 class="alert alert-success" role="alert">
-            {{msg}}
-          </h4>
+        <div  *ngIf="!hideSuccessMessage">
+          <div class="col-12" *ngIf="isUpdated">
+            <p class="alert alert-success">
+                <strong [ngClass] ="FadeOutSuccessMsg()" >{{msg}}</strong>                 
+            </p>
+          </div>
+        </div>
+
+        <div  *ngIf="!hideSuccessMessage">
+          <div class="col-12" *ngIf="isFailed">
+            <p class="alert alert-danger">
+                <strong [ngClass] ="FadeOutSuccessMsg()" >{{msg}}</strong>                 
+            </p>
+          </div>
         </div>
 
 

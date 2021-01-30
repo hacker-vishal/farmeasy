@@ -27,3 +27,14 @@
     transition: all 0.2s ease-in-out;
     line-height: 24px;
   }
+
+  .btnn
+  {
+    color:red;
+  }
+
+  .btnn:hover
+  {
+    background-color: tomato;
+    color:white;
+  }

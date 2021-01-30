@@ -4,7 +4,6 @@ import { User } from '../Models/user';
 import { Response } from '../Models/response';
 import { Router } from '@angular/router';
 import { LoginService } from '../Services/login.service';
-import { GlobalConstants } from '../common/global-constants';
 import { AppComponent } from '../app.component';
 
 @Component({
@@ -19,19 +18,17 @@ export class ProfileComponent implements OnInit {
   username:string;
   isLoggedIn:boolean;
   isUpdated:boolean;
+  isFailed:boolean;
+  hideSuccessMessage:boolean=false;
 
-  constructor(private e:EditService, private r: Router, private ls:LoginService, private apc:AppComponent) 
+  constructor(private e:EditService, private r: Router, private ls:LoginService) 
   { 
     this.user = {email: '', password: '', fname:'', lname:'', otp:null, mobileno:null};
     
   }
 
   ngOnInit(): void {
-    //this.isUpdated=null;
-
-    this.ls.loggedIn.subscribe((data: boolean) => this.isLoggedIn = data);
-      this.ls.username.subscribe((data: string) => this.username = data);
-      this.isLoggedIn = this.ls.isLoggedIn();
+    
 
 
     this.username = this.ls.getUserName();
@@ -43,6 +40,9 @@ export class ProfileComponent implements OnInit {
 
   getuserdetails()
   {
+    this.isUpdated=false;
+    this.isFailed=false;
+
     this.e.getDetails(this.username).subscribe(
       (u:User)=>{
         if(u.email!==null && u.email===this.username)
@@ -65,24 +65,26 @@ updateProfile()
         //this.msg=rsp.message;
         console.log(rsp.status);
         this.isUpdated=true;
-
+        this.isFailed=false;
         this.msg="updated successfully";
-        
+        this.hideSuccessMessage = false;
       }
     },
     (err)=>{console.log(JSON.stringify(err));
       //this.msg="you got some error";
+      this.isFailed=true;
       this.isUpdated=false;
       this.msg="some error occured";
-      console.log(this.msg+" "+this.isUpdated);
+      this.hideSuccessMessage = false;
     });
 }
 
-logout() {
-  this.apc.logout();
-  // this.ls.logout();
-  // this.isLoggedIn = false;
-  // this.r.navigateByUrl('');
-}
+
+
+  FadeOutSuccessMsg() {
+    setTimeout( () => {
+        this.hideSuccessMessage = true;
+     }, 2000);
+    }
 
 }

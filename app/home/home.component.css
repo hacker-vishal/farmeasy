@@ -7,7 +7,7 @@
 
 .container
 {
-    position:sticky;
+    
     background: url(farming.jpg);
     background-size: cover;
     margin-top: 20px;
@@ -28,7 +28,7 @@
 {
     background-color: teal;
     color:snow;
-    margin-left: 150px;
+    margin-left: 20%;
     
 }
 
@@ -39,11 +39,17 @@
     
 }
 
-.needbtn
+.eqpcontainer
 {
-    
-    margin-left: 300px;
+    margin-left:30%;
+    width:40%;
 }
+
+.btnn
+{
+    margin-left: 30%;
+}
+
 
 .example-form1
 {

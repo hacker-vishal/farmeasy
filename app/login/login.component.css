@@ -17,8 +17,8 @@
 {
     
     background-color:white;
-    width: 700px;
-    margin-left: 300px;
+    width: 50%;
+    margin-left: 25%;
     height:750px;
     opacity: 0.8;
     
@@ -38,14 +38,14 @@
 .loginbtn
 {
     
-    margin-left: 150px;
+    margin-left: 20%;
 }
 
 .forgotpswrd
 {
     font-weight: bold;
     margin-top: 10px;
-    margin-left: 120px;
+    margin-left: 10%;
     margin-bottom:10px;
     
 }
@@ -69,7 +69,7 @@
 
 .fb
 {
-    margin-left: 100px;
+    margin-left: 13%;
     
 }
 
@@ -91,7 +91,7 @@
 
 .google
 {
-    margin-left: 100px;
+    margin-left: 13%;
     
 }
 

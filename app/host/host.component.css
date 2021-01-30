@@ -1,7 +1,7 @@
 
 .container
 {
-    margin-right:200px;
+    margin-right:20%;
     align-content:center;
     
 }
@@ -9,14 +9,14 @@
 .listhead
 {
     
-    margin-right: 300px;
-    padding-top: 120px;
-    padding-right:150px;
+    margin-right: 25%;
+    padding-top: 15%;
+    padding-right:15%;
 }
 
 .le
 {
-    padding-right:238px;
+    margin-left: -50%;
 }
 
 .lee
@@ -27,7 +27,7 @@
 .lec
 {
     border-left: 4px solid #0079d3;
-    margin-left: 180px;
+    margin-left: 27%;
 }
 
 .img
@@ -38,7 +38,7 @@
 
 .form-group
 {
-    margin-left: 500px;
+    margin-left: 60%;
     margin-top: 50px;
 }
 

@@ -3,7 +3,7 @@
 {
     background-color:cadetblue;
     max-width: 100%;
-    height:450px;
+    height:60%;
 }
 
 .contact
@@ -28,4 +28,11 @@
 {
     margin-top: 20px;
     color:red;
+    
+    
+}
+
+.acts
+{
+    padding-bottom: 10%;
 }

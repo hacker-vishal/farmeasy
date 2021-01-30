@@ -16,6 +16,9 @@ import { ShowlistComponent } from './showlist/showlist.component';
 import { HostComponent } from './host/host.component';
 import { AuthGuard } from './Services/auth.guard';
 import { BookingComponent } from './booking/booking.component';
+import { UserMenuComponent } from './user-menu/user-menu.component';
+import { BookingCardviewComponent } from './booking-cardview/booking-cardview.component';
+import { WishlistCardviewComponent } from './wishlist-cardview/wishlist-cardview.component';
 
 const routes: Routes = [
       { path:'', redirectTo:'home', pathMatch: 'full' },
@@ -32,6 +35,11 @@ const routes: Routes = [
       { path:'host', component: HostComponent },
       { path:'book', component: BookingComponent },
       { path:'showlist', component: ShowlistComponent },
+      { path:'user-menu', component: UserMenuComponent },
+      { path:'booking', component: BookingComponent },
+      { path:'booking-cardview', component: BookingCardviewComponent },
+      { path:'wishlist-cardview', component: WishlistCardviewComponent },
+      { path:'profile', component: ProfileComponent },
       { path:'profile/: name', component: ProfileComponent, canActivate: [AuthGuard] }
 ];
 
@@ -43,4 +51,4 @@ export class AppRoutingModule { }
 export const routingComponents = [AppComponent,LoginComponent,SignupComponent,
   HomeComponent,ForgotpasswordComponent,OtpverificationComponent,SetnewpasswordComponent,
   AboutusComponent,ContactusComponent,HelpComponent,BlogComponent,ProfileComponent,ShowlistComponent,
-  HostComponent,BookingComponent]
+  HostComponent,BookingComponent,UserMenuComponent,WishlistCardviewComponent,BookingCardviewComponent]

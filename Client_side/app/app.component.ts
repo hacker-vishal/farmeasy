@@ -63,7 +63,7 @@ export class AppComponent {
       this.loginService.logout();
       this.isLoggedIn = false;
       this.r.navigateByUrl('');
-      this.t.info("Logged out! Thank you!")
+      this.t.info("Logged out! Thank you!");
     }
 }
 

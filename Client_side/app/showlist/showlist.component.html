@@ -6,14 +6,14 @@
     <mat-card-title>{{item.equipmenttype}}</mat-card-title>
     <mat-card-subtitle>{{item.servicetype}}</mat-card-subtitle>
   </mat-card-header>
-  <img class= mat-card-image src="assets/tractor2.jpg" alt="">
+  <img class= mat-card-image src="../../assets/tractor2.jpg" alt="">
   <mat-card-content>
       <p>manufacturer:{{item.manufacturer}}</p> 
       <p>rent: INR {{item.rent}}</p> 
   </mat-card-content>
   <mat-card-actions>
     <button class="btnn" mat-button (click)='goToBooking(item)'>book</button>
-    <button class="btnn" mat-button>wishlist</button>
+    <button class="btnn" mat-button>+ Add to Wishlist</button>
   </mat-card-actions>
 </mat-card>
 </div>

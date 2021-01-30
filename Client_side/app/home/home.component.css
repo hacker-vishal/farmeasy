@@ -8,7 +8,7 @@
 .container
 {
     
-    background: url(farming.jpg);
+    background: url(../../assets/farming.jpg);
     background-size: cover;
     margin-top: 20px;
     max-width: 100%;

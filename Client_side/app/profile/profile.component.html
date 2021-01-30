@@ -1,22 +1,9 @@
 <div class="container">
 
   <div class="row">
-
     <div class="menubar">
-      <div class="col-sm">
-        <br>
-        
-        <h4 class="ep1" type="button" routerLink="/profile">Edit Profile</h4>
-
-        <h4 class="ep" type="button" routerLink="/host">Add An Equipment</h4>
-        
-        <h4 class="ep" type="button" routerLink="/booking">Bookings</h4>
-
-        <h4 class="ep" type="button" routerLink="/Wishlist">My Wishlist</h4>
-
-        
-        <h4 class="lg" type="button"  *ngIf="isLoggedIn" (click)="logout()">Log Out</h4>
-
+      <div class="col-sm">      
+        <app-user-menu></app-user-menu>
       </div>
     </div>
     <div class="col-sm">
@@ -32,34 +19,15 @@
                 <!-- <i class="fa fa-user fa-5x"></i> -->
                   <div class="abc">
                     <input style="display: none" type="file" accept="image/*" (change)="onFileChanged($event)" #fileInput>
-                    <mat-icon type="button" (click)="fileInput.click()">add_a_photo</mat-icon>
-                    
+                    <mat-icon type="button" (click)="fileInput.click()">add_a_photo</mat-icon>                  
                   </div>
             </div>
           </div>
         </div>
-      
-      
+           
         <div class="profileContainer">
       
           <h2>Edit Profile</h2>
-<!--
-        <div  <!--*ngIf="!hideSuccessMessage">
-          <div class="col-12" *ngIf="isUpdated">
-            <p class="alert alert-success">
-                <strong [ngClass] ="FadeOutSuccessMsg()" >{{msg}}</strong>                 
-            </p>
-          </div>
-        </div>
-
-        <div  *ngIf="!hideSuccessMessage">
-          <div class="col-12" *ngIf="isFailed">
-            <p class="alert alert-danger">
-                <strong [ngClass] ="FadeOutSuccessMsg()" >{{msg}}</strong>                 
-            </p>
-          </div>
-        </div>
--->
 
             <div class="row">
               <div class="col-sm">
@@ -79,8 +47,7 @@
                 </form>
             </div>
           </div>
-      
-      
+        
           <div class="row">
             <div class="col-sm">
               <form class="example-form1">
@@ -99,10 +66,37 @@
                 </form>
             </div>
           </div>
+       </div>
       
-          
-      
-       <!-- 
+       <div class="form-group">
+        <button class="btn  my-2 my-sm-0" type="button" (click)='updateProfile()'>Update</button>
+       </div>
+ 
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+
+  <!-- 
+<div  *ngIf="!hideSuccessMessage">
+          <div class="col-12" *ngIf="isUpdated">
+            <p class="alert alert-success">
+                <strong [ngClass] ="FadeOutSuccessMsg()" >{{msg}}</strong>                 
+            </p>
+          </div>
+        </div>
+
+        <div  *ngIf="!hideSuccessMessage">
+          <div class="col-12" *ngIf="isFailed">
+            <p class="alert alert-danger">
+                <strong [ngClass] ="FadeOutSuccessMsg()" >{{msg}}</strong>                 
+            </p>
+          </div>
+        </div>
+        
+
           <div class="row">
             <div class="col-sm">
               <form class="example-form1">
@@ -121,22 +115,3 @@
                 </form>
             </div>
           </div> -->
-      
-      
-       </div>
-      
-      
-      
-      
-       <div class="form-group">
-        <button class="btn  my-2 my-sm-0" type="button" (click)='updateProfile()'>Update</button>
-       </div>
-      
-      
-      </div>
-
-      
-    </div>
-  </div>
-
-  </div>

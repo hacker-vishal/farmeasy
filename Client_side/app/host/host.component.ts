@@ -3,6 +3,7 @@ import { Hostuser } from '../Models/hostuser';
 import { LoginService } from '../Services/login.service';
 import { HostService } from '../Services/host.service';
 import { Response } from '../Models/response';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-host',
@@ -16,7 +17,7 @@ export class HostComponent implements OnInit {
   msg:string;
   
 
-  constructor(private loginService:LoginService, private hs:HostService) 
+  constructor(private loginService:LoginService, private hs:HostService, private t:ToastrService) 
   { 
     this.h = {
       hostemail : "",
@@ -31,7 +32,7 @@ export class HostComponent implements OnInit {
 
   ngOnInit(): void {
     this.h.hostemail = this.loginService.getUserName();
-    console.log(this.h.hostemail);
+    //console.log(this.h.hostemail);
   }
 
   onFileChanged(event) {
@@ -47,14 +48,17 @@ export class HostComponent implements OnInit {
         //console.log(this.h);
         if(rsp.status===1)
         {
-          console.log(rsp.message);
+          this.t.show(rsp.message);
+          //console.log(rsp.message);
         }
         else
         {
-          console.log(rsp.message);
+          this.t.warning(rsp.message);
+          //console.log(rsp.message);
         }
       },
-    (err)=>{console.log(JSON.stringify(err));
+    (err)=>{//console.log(JSON.stringify(err));
+      this.t.error("You got some error!!!")
     });
 }
 }

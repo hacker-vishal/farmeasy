@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { User } from '../Models/user';
 import { LoginService } from '../Services/login.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { PassresetService } from '../Services/passreset.service';
 import { Response } from '../Models/response';
 
@@ -20,7 +19,7 @@ export class SignupComponent implements OnInit {
   userAlreadyExists: boolean;
 
   constructor(private loginService: LoginService, private router: Router,
-    private toastr: ToastrService, private pr:PassresetService, private r:Router) {
+    private t: ToastrService, private pr:PassresetService, private r:Router) {
     this.user = {
       email: '', password: '', fname:'', lname:'', otp:null, mobileno:null
     };
@@ -44,9 +43,9 @@ export class SignupComponent implements OnInit {
         else
           this.userAlreadyExists = false;
       },
-      (err)=>{console.log(JSON.stringify(err));
-        console.log("you got some error");
-
+      (err)=>{//console.log(JSON.stringify(err));
+        //console.log("you got some error");
+        this.t.error("You got some error!!!");
       });
   }
 
@@ -62,9 +61,10 @@ export class SignupComponent implements OnInit {
     .subscribe(data => {
       this.router.navigate(['/login'],
         { queryParams: { registered: 'true' } });
+        this.t.success("User registered successfully!");
     }, error => {
-      console.log(error);
-      this.toastr.error('Registration Failed! Please try again');
+      //console.log(error);
+      this.t.error('Registration Failed! Please try again');
     });
   }
 

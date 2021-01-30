@@ -4,7 +4,7 @@ import { Userdto } from '../Models/userdto';
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { User } from '../Models/user';
 import { Observable, throwError } from 'rxjs';
-import { LocalStorageService } from 'ngx-webstorage';
+import { SessionStorageService } from 'angular-web-storage';
  import { LoginResponse } from '../Models/login-response';
 import { map, tap } from 'rxjs/operators';
 
@@ -22,7 +22,7 @@ export class LoginService {
   }
 
  constructor(private httpClient: HttpClient,
-   private localStorage: LocalStorageService) {
+   private session:SessionStorageService) {
   }
 
   //test logic
@@ -39,10 +39,10 @@ export class LoginService {
   login(userdto: Userdto): Observable<boolean> {
     return this.httpClient.post<LoginResponse>('http://localhost:8080/auth/login',
       userdto).pipe(map(data => {
-        this.localStorage.store('authenticationToken', data.authenticationToken);
-        this.localStorage.store('username', data.username);
-        this.localStorage.store('refreshToken', data.refreshToken);
-        this.localStorage.store('expiresAt', data.expiresAt);
+        this.session.set('authenticationToken', data.authenticationToken);
+        this.session.set('username', data.username);
+        this.session.set('refreshToken', data.refreshToken);
+        this.session.set('expiresAt', data.expiresAt);
 
         this.loggedIn.emit(true);
         this.username.emit(data.username);
@@ -51,19 +51,20 @@ export class LoginService {
   }
 
   getJwtToken() {
-    return this.localStorage.retrieve('authenticationToken');
+    return this.session.get('authenticationToken');
   }
 
   refreshToken() {
     return this.httpClient.post<LoginResponse>('http://localhost:8080/auth/refresh/token',
       this.refreshTokenPayload)
       .pipe(tap(response => {
-        this.localStorage.clear('authenticationToken');
-        this.localStorage.clear('expiresAt');
+        this.session.clear();
+        //this.session.clear('authenticationToken');
+       // this.session.clear('expiresAt');
 
-        this.localStorage.store('authenticationToken',
+        this.session.set('authenticationToken',
           response.authenticationToken);
-        this.localStorage.store('expiresAt', response.expiresAt);
+        this.session.set('expiresAt', response.expiresAt);
       }));
   }
 
@@ -75,17 +76,18 @@ export class LoginService {
       }, error => {
         throwError(error);
       })
-    this.localStorage.clear('authenticationToken');
-    this.localStorage.clear('username');
-    this.localStorage.clear('refreshToken');
-    this.localStorage.clear('expiresAt');
+      this.session.clear();
+    // this.localStorage.clear('authenticationToken');
+    // this.localStorage.clear('username');
+    // this.localStorage.clear('refreshToken');
+    // this.localStorage.clear('expiresAt');
   }
 
   getUserName() {
-    return this.localStorage.retrieve('username');
+    return this.session.get('username');
   }
   getRefreshToken() {
-    return this.localStorage.retrieve('refreshToken');
+    return this.session.get('refreshToken');
   }
 
   isLoggedIn(): boolean {

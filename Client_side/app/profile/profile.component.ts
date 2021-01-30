@@ -4,7 +4,6 @@ import { User } from '../Models/user';
 import { Response } from '../Models/response';
 import { Router } from '@angular/router';
 import { LoginService } from '../Services/login.service';
-import { AppComponent } from '../app.component';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -18,12 +17,8 @@ export class ProfileComponent implements OnInit {
   user:User;
   username:string;
   isLoggedIn:boolean;
-  // isUpdated:boolean;
-  // isFailed:boolean;
-  // hideSuccessMessage:boolean=false;
 
-  constructor(private e:EditService, private r: Router, private ls:LoginService, private apc:AppComponent,
-    private t:ToastrService) 
+  constructor(private e:EditService, private r: Router, private ls:LoginService, private t:ToastrService) 
   { 
     this.user = {email: '', password: '', fname:'', lname:'', otp:null, mobileno:null};
     
@@ -31,10 +26,6 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     
-
-    this.ls.loggedIn.subscribe((data: boolean) => this.isLoggedIn = data);
-      this.ls.username.subscribe((data: string) => this.username = data);
-      this.isLoggedIn = this.ls.isLoggedIn();
 
 
     this.username = this.ls.getUserName();
@@ -46,9 +37,6 @@ export class ProfileComponent implements OnInit {
 
   getuserdetails()
   {
-    // this.isUpdated=false;
-    // this.isFailed=false;
-
     this.e.getDetails(this.username).subscribe(
       (u:User)=>{
         if(u.email!==null && u.email===this.username)
@@ -57,9 +45,8 @@ export class ProfileComponent implements OnInit {
           this.user = u;
         }
       },
-      (err)=>{console.log(JSON.stringify(err));
-        //this.msg="you got some error";
-        this.t.error("You got some error!!!");
+      (err)=>{//console.log(JSON.stringify(err));
+        this.t.error("you got some error");
       });
   }
   
@@ -70,32 +57,14 @@ updateProfile()
       if(rsp.status===1)
       {
         //this.msg=rsp.message;
-        console.log(rsp.status);
-        // this.isUpdated=true;
-        // this.isFailed=false;
-        //this.msg="updated successfully";
-        //this.hideSuccessMessage = false;
-        this.t.success("Profile updated successfully!");
+        //console.log(rsp.status);
+        this.t.success("updated successfully");
       }
     },
     (err)=>{console.log(JSON.stringify(err));
-      this.t.error("You got some error!!!");
       //this.msg="you got some error";
-      // this.isFailed=true;
-      // this.isUpdated=false;
-      //this.msg="some error occured";
-      //this.hideSuccessMessage = false;
+      this.t.error("some error occured");
     });
 }
-
-logout() {
-  this.apc.logout();
-}
-
-  // FadeOutSuccessMsg() {
-  //   setTimeout( () => {
-  //       this.hideSuccessMessage = true;
-  //    }, 2000);
-  //   }
 
 }

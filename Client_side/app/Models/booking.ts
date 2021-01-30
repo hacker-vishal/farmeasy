@@ -2,7 +2,7 @@ import { Timestamp } from "rxjs";
 
 export class Booking {
 
-    bookingid:any="";
+    bookingid:number=0;
     email:string="";
     serviceprovider:string="";
     equipmenttype:string="";

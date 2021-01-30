@@ -54,11 +54,12 @@ export class LoginComponent implements OnInit {
       console.log('login successful');
             this.isError = false;
         this.router.navigateByUrl('/');
-        this.toastr.success('Login Successful');
-        this.msg ="Login Successful!";
+        this.toastr.success('Login Successful!');
+        //this.msg ="Login Successful!";
         this.isLoggedIn=true; //console.log(this.isLoggedIn);
       }, error => {
         this.isError = true;
+        this.toastr.error('You got some error!');
         throwError(error);
       });
     }
@@ -70,8 +71,8 @@ export class LoginComponent implements OnInit {
   {
     this.loginService.getUserEmailPswd(this.userdto).subscribe(
       (creds)=>{
-        console.log(JSON.stringify(creds));
-        this.msg = "No such user found";
+        //console.log(JSON.stringify(creds));
+        this.toastr.info("No such user found");
         if(creds.status==1)
         {
             this.msg = "Logged in successfully";

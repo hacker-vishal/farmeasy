@@ -1,0 +1,92 @@
+.jobicon
+{
+    width:145px;
+    height:50px;
+    background-color: brown;
+    margin-bottom: 0px;
+
+    
+}
+
+.jq
+{
+    color:white;
+    font-weight: bold;
+    font-size: 20px;
+    padding-top: 25px;
+    padding-left:50px;
+}
+
+.pg
+{
+    margin-top: 0px;
+    color:brown;
+    margin-bottom: 5px;
+
+}
+
+.a
+{
+    margin-top: 5px;
+    color:greenyellow;
+}
+
+
+
+.jdh
+{
+    font-weight: bolder;
+    width:800px;
+    float: right;
+    margin-top: -100px;
+    margin-right: 300px;
+    border-top: 4px solid brown;
+    border-right: 4px solid brown;
+    border-bottom: 4px solid brown;
+    padding-top: 8px;
+    padding-bottom:8px;
+    
+}
+
+p
+{
+    padding-left: 350px;
+}
+
+.heading
+{
+    padding-left:150px;
+}
+.p
+{
+    margin-top:-50px;
+    font-weight:lighter;
+    padding-left: 220px;
+}
+
+.pp
+{
+    margin-top:-38px;
+    font-weight:lighter;
+    padding-left: 280px;
+}
+
+.ppg
+{
+    margin-top:-38px;
+    font-weight:lighter;
+    padding-left: 250px;
+}
+
+.pp1
+{
+    margin-top:-38px;
+    font-weight:lighter;
+    padding-left: 320px;
+}
+
+li
+{
+    font-size: 13px;
+    margin-left: 200px;
+}

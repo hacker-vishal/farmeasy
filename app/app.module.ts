@@ -1,52 +1,33 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/Forms';
+import { AppRoutingModule } from './app-routing.module';
+import  { HttpClientModule } from '@angular/common/http';
 
-import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import  { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { SessionComponent } from './session/session.component';
+import { CasestudyComponent } from './casestudy/casestudy.component';
+import { FirstComponent } from './first/first.component';
+import { AdoptionComponent } from './adoption/adoption.component';
+import { JobdescComponent } from './jobdesc/jobdesc.component';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatInputModule} from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-
-import { NgxWebstorageModule } from 'ngx-webstorage';
-import { ToastrModule } from 'ngx-toastr';
-import { TokenInterceptor } from './Models/token-interceptor';
-//import { FontAwesomeModule } from '@fortawesome/fontawesome-free';
-import { RouterModule, Routes } from '@angular/router';
-import { MatCardModule}  from '@angular/material/card';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatNativeDateModule } from '@angular/material/core'; 
-import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule} from '@angular-material-components/datetime-picker';
-
-
-
-const routes: Routes = [
-]
 
 @NgModule({
   declarations: [
-      routingComponents,
-    
-      
-
+    AppComponent,
+    SessionComponent,
+    CasestudyComponent,
+    FirstComponent,
+    AdoptionComponent,
+    JobdescComponent
   ],
-  
   imports: [
-    BrowserModule,AppRoutingModule,NgbModule,FormsModule,HttpClientModule, 
-    BrowserAnimationsModule,MatToolbarModule,MatInputModule,MatButtonModule,MatIconModule,ReactiveFormsModule,
-    RouterModule.forRoot(routes),NgxWebstorageModule.forRoot(),ToastrModule.forRoot(), MatCardModule,
-    MatDatepickerModule, MatFormFieldModule, MatNativeDateModule,  NgxMatDatetimePickerModule,
-    NgxMatNativeDateModule, NgxMatTimepickerModule
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [ { provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptor,
-    multi: true }],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

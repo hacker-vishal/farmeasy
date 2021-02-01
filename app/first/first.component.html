@@ -1,0 +1,39 @@
+<div style="text-align:center">
+<h3>Search options</h3>
+<div style="text-align:right"><button (click)='logout()'>logout</button></div>
+
+<b>Employee ID:</b><input [(ngModel)]='s.id'/><br/>
+<b>First name:</b><input type="text"><br/>
+<b>Last name:</b><input type="text"><br/>
+<label for="dob"><b>Date of Birth:</b></label>
+<input type="date" id="dob" name="dob"><br/>
+<label for="doj"><b>Date of Joining:</b></label>
+<input type="date" id="doj" name="doj"><br/>
+<label><b>Grade:</b>
+    <input list="grade" name="grade" /></label>
+    <datalist id="grade">
+      <option value="M1">
+      <option value="M2">
+      <option value="M3">
+    </datalist><br/><br/>
+
+<button (click)='search()'>search</button>
+<br/>
+<h3>Employee result</h3>
+<table *ngIf="rows" class="center">
+<thead> 
+<tr><th *ngFor="let column of headers">
+{{column}}
+</th></tr>
+</thead>
+<tbody>
+<tr *ngFor="let row of rows">
+<td *ngFor="let column of headers">
+{{row[column]}}  
+</td>
+</tr>
+</tbody>  
+</table>
+<br/>
+<nav><a routerLink="/casestudy">Return to main menu</a></nav>
+</div>

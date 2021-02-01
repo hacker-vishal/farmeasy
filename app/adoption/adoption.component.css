@@ -1,0 +1,93 @@
+.adoptionBody
+{
+    background: url(a.jpeg);
+    background-size: cover;
+    max-width: 100%;
+    height:700px;
+    
+}
+h1{
+    /* font-style: italic; */
+    font-family:cursive;
+    font-size: 70px;
+    max-width: 100%;
+    height: 50px;
+    padding-left: 100px;
+    padding-bottom: 50px;
+    /* background-color: gray; */
+}
+
+.abc
+{
+    margin-top: 70px;
+    margin-left: 50px;
+   /* padding-top: 100px; */
+    background-color: orange;
+    height:700px;
+    color:white;
+    max-width: 550px;
+    padding-bottom: 30px;
+}
+
+.innerFormdiv input[type="text"],input[type="email"]{
+   border: none;
+   border-bottom: 1px solid #fff;
+   background: transparent;
+   outline: none;
+   height: 40px;
+   color: #fff;
+   font-size: 16px;
+}
+
+.form-control
+{
+    margin-left: 200px;
+}
+
+.form-control1
+{
+    margin-left: 130px;
+}
+
+.form-control2
+{
+    margin-left: 210px;
+}
+
+.form-control3
+{
+    margin-left: 175px;
+}
+
+.a
+{
+    margin-bottom: 20px;
+}
+.b
+{
+    margin-bottom: 18px;
+}
+.c
+{
+    margin-bottom: 20px;
+}
+.d
+{
+    margin-bottom: 20px;
+
+}
+.e
+{
+    margin-bottom: 20px;
+}
+
+.f
+{
+    margin-bottom: 20px;
+}
+.z
+{
+    margin-left: 10px;
+}
+
+

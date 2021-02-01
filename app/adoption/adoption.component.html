@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="a.jpeg">
+<div class="adoptionBody">
+    <div class="adoptionPage">
+        <div class="abc">
+            <h1>e-pet</h1>
+            <h2 class="pageHeading" id ="heading">{{petId}}'s Adoption Form:</h2>
+           
+                <form novalidate #adoptionForm="ngForm" (ngSubmit)="onSubmit(adoptionForm)">
+                <div class="innerFormdiv">
+                    <div class="formUserDetails">
+                        <div class="a">
+                            <label>Name:</label><input type="text" id="name" placeholder="Name" class="form-control">
+                        </div>
+                        <div class="b">
+                            <label>Aadhaar Number:</label><input type="text" id="aadhaar" placeholder="Aadhaar Number" class="form-control1">
+                        </div>
+                        <div class="c">
+                            <label>Age:</label><input type="text" id="age" placeholder="Age" class="form-control2">
+                        </div>
+                        <div class="d">
+                            <label>PhoneNo:</label><input type="text" id="phoneNo" placeholder="Phone Number" class="form-control3">
+                        </div>
+                        <div class="e">
+                            <label>Email:</label><input type="email" id="email" placeholder="Email" class="form-control">
+                        </div>
+                        <div class="f">
+                            <input type="checkbox" id="petition"  class=""><label>Petition:</label><span>Never Breed or Buy. Always Adopt. Always Spay and Neuter.</span>
+                        </div>
+                    </div>
+                    <div class="z">
+                        <button class="y " type="submit">
+                            <div class="p ">Submit </div>
+                        </button></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

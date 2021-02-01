@@ -1,0 +1,16 @@
+<p>session works!</p>
+Hi   {{ title }}!
+<Br/> account number 
+   <input [(ngModel)]='obj1.acno' />
+
+   <Br/><Br/>
+   <button (click)='step2()'>get acc information</button>
+   <button (click)='step3()'>since we did  homework,, ajax call</button>
+   <hr/>
+
+<!-- I did this after knowing that my server will send
+array of acc objects.. -->
+  
+<p *ngFor="let y of acar">
+    <br/>{{y.acno}}  -- {{y.pin}}  --{{y.balance}}
+    </p>

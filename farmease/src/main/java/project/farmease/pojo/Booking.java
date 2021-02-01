@@ -35,6 +35,7 @@ public class Booking {
 	private Timestamp dateofbooking;
 	private Timestamp datefinish;
 	private Double rent;
+	@Column(columnDefinition = "boolean default false")
 	Boolean isInvalid;
 	 
 	@ManyToOne(optional=false,fetch = FetchType.LAZY)

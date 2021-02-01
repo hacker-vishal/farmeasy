@@ -26,7 +26,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) {
-        Optional<User> userOptional = userRepo.findByEmail(username);      // retrieve the user by username
+        Optional<User> userOptional = userRepo.findById(username);      // retrieve the user by username
            // log.info("Checking whether user is present or not ---- userOptional {}:",userOptional);
         User user = userOptional
                 .orElseThrow(() -> new UsernameNotFoundException("No user " +

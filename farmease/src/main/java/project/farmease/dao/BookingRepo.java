@@ -11,7 +11,10 @@ import project.farmease.pojo.Booking;
 
 public interface BookingRepo extends JpaRepository<Booking, Integer>{
 
-	@Query("from Booking where email=:email and isInvalid=:isInvalid")
-	List<Booking> findbooking(@Param("email") String email, @Param("isInvalid") Boolean isInvalid);
+	@Query("from Booking where serviceprovider=:serviceprovider and isInvalid=false")
+	List<Booking> findByServiceprovider(@Param("serviceprovider") String serviceprovider);
+
+	@Query("from Booking where email=:email and isInvalid=false")
+	List<Booking> findByEmail(@Param("email") String username);
 	
 }

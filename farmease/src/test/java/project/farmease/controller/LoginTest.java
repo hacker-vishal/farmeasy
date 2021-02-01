@@ -13,12 +13,12 @@ import project.farmease.dto.Userdto;
 class LoginTest {
 	
 //	Logger logger = LogManager.getLogger(LoginTest.class);
-	private static Login login;
+	private static LoginController login;
 	private Response response;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		login = new Login();
+		login = new LoginController();
 	}
 
 	@Test

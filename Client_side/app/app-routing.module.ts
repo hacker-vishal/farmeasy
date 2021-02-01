@@ -19,6 +19,8 @@ import { BookingComponent } from './booking/booking.component';
 import { UserMenuComponent } from './user-menu/user-menu.component';
 import { BookingCardviewComponent } from './booking-cardview/booking-cardview.component';
 import { WishlistCardviewComponent } from './wishlist-cardview/wishlist-cardview.component';
+import { PaymentComponent } from './payment/payment.component';
+
 
 const routes: Routes = [
       { path:'', redirectTo:'home', pathMatch: 'full' },
@@ -37,6 +39,7 @@ const routes: Routes = [
       { path:'showlist', component: ShowlistComponent },
       { path:'user-menu', component: UserMenuComponent },
       { path:'booking', component: BookingComponent },
+      { path:'payment', component: PaymentComponent },
       { path:'booking-cardview', component: BookingCardviewComponent },
       { path:'wishlist-cardview', component: WishlistCardviewComponent },
       { path:'profile', component: ProfileComponent },
@@ -51,4 +54,5 @@ export class AppRoutingModule { }
 export const routingComponents = [AppComponent,LoginComponent,SignupComponent,
   HomeComponent,ForgotpasswordComponent,OtpverificationComponent,SetnewpasswordComponent,
   AboutusComponent,ContactusComponent,HelpComponent,BlogComponent,ProfileComponent,ShowlistComponent,
-  HostComponent,BookingComponent,UserMenuComponent,WishlistCardviewComponent,BookingCardviewComponent]
+  HostComponent,BookingComponent,UserMenuComponent,WishlistCardviewComponent,BookingCardviewComponent, PaymentComponent
+  ]

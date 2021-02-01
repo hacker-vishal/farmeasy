@@ -14,12 +14,12 @@ import project.farmease.pojo.User;
 class PswdworkTest {
 	Logger log = LogManager.getLogger(PswdworkTest.class);
 	private static Userdto userdto;
-	private static Pswdwork pswdwork;
+	private static PswdworkController pswdwork;
 	private Response response;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		pswdwork = new Pswdwork();
+		pswdwork = new PswdworkController();
 	}
 
 	@Test

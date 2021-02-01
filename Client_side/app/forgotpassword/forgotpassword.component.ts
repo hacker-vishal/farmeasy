@@ -39,9 +39,8 @@ export class ForgotpasswordComponent implements OnInit {
           this.t.error("User with "+this.username+" username does not exist");
         }
       },
-      (err)=>{console.log(JSON.stringify(err));
-        this.t.error("you got some error");
-
+      (err)=>{//console.log(JSON.stringify(err));
+        this.t.error("You got some error!!!");
       });
   }
 

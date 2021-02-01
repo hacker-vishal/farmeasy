@@ -15,11 +15,11 @@ import project.farmease.pojo.Wishlist;
 class WishlistControlTest {
 	
 	Response response = new Response();
-	private static WishlistControl wishlistControl;
+	private static WishlistController wishlistControl;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		wishlistControl = new WishlistControl();
+		wishlistControl = new WishlistController();
 	}
 
 	@Test

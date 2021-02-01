@@ -12,10 +12,7 @@ export class HostService {
   constructor(private h:HttpClient) { }
 
   gethostdetails(hu: Hostuser): Observable<Response> {
-    console.log(hu);
-    let url ="http://localhost:8080/services/insert";
-    return this.h.post<Response>(url,hu);
-    
+    // console.log(hu);
+    return this.h.post<Response>("http://localhost:8080/services/insert",hu);
   }
-
 }

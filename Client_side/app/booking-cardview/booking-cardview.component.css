@@ -11,7 +11,7 @@
     border-right:1px solid skyblue;
     width:30%;
     height:80%;
-    margin-left: 10%;
+    
     margin-right: 5%;
 }
 
@@ -48,7 +48,7 @@
 
   .img
   {
-      width:15%;
+      width:30%;
   }
   .card {
     
@@ -67,15 +67,7 @@
     line-height: 24px;
   }
 
-  .mat-card-image
-  {
-      
-      float: left;
-      width:15%;
-      height: 60%;
-      margin-left: 5%;
-      margin-top: -10%;
-  }
+ 
 
   .btn
   {

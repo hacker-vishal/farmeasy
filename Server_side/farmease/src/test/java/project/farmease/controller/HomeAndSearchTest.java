@@ -19,14 +19,14 @@ import project.farmease.pojo.Hostuser;
 public class HomeAndSearchTest {
 
 	//Logger logger = LogManager.getLogger(HomeAndSearchTest.class);
-	static HomeAndSearch homeAndSearch;
+	static HomeAndSearchController homeAndSearch;
 	private Response response;
 	List<Hostuser> l;	
 	
 	@BeforeAll
 	static void beforeAll() 
 	{
-		homeAndSearch = new HomeAndSearch();
+		homeAndSearch = new HomeAndSearchController();
 	}
 	
 	@Test

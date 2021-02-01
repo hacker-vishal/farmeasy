@@ -16,12 +16,12 @@ class SignupTest {
 	
 	Logger log = LogManager.getLogger(SignupTest.class);
 	private static User user;
-	private static Signup signup;
+	private static SignupController signup;
 	private Response response;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		signup = new Signup();
+		signup = new SignupController();
 	}
 
 	@Test

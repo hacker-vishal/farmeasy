@@ -5,6 +5,7 @@ import { LoginService } from '../Services/login.service';
 import { Response } from '../Models/response';
 import { ToastrService } from 'ngx-toastr';
 import { SessionStorageService } from 'angular-web-storage';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-booking',
@@ -17,29 +18,37 @@ export class BookingComponent implements OnInit {
   msg:string;
   b:Booking;
   username:string;
-  isLoggedIn:boolean;
+  isLoggedIn:boolean=false;
   maxDate: Date; 
   today:any;
   showdata:any;
   diff:any;
+  total:any;
   isBookingAvailable:boolean=false;
   isShowDataAvailable:boolean=false;
 
   constructor(private bs:BookService, private ls:LoginService, private t:ToastrService, 
-    private session:SessionStorageService) { 
+    private session:SessionStorageService, private r:Router) { 
     this.b = new Booking();
   }
 
   ngOnInit(): void {
+    // this.isLoggedIn=false;
     this.bookData=this.session.get('book');
     // this.bookData=history.state.book;
-    //console.log(this.bookData);
+    // console.log(this.bookData);
+    this.isLoggedIn = this.ls.isLoggedIn();
+    // console.log(this.isLoggedIn);
+
     if(this.bookData!==null && this.bookData!==undefined)
     {
       this.b.serviceprovider = this.bookData.hostemail;
       this.showdata = this.bookData;
       this.isShowDataAvailable=true;
     }
+
+    if(this.b.serviceprovider==null || this.b.serviceprovider==undefined)
+    this.b.serviceprovider=this.bookData.serviceprovider;
 
     let today = new Date();
     let month = today.getMonth();
@@ -52,8 +61,9 @@ export class BookingComponent implements OnInit {
 
   check()
   {
-    //console.log(this.b);
+    // console.log(this.b);
     //console.log("check checked!");
+    
     this.bs.checkavailability(this.b).subscribe(
       (rsp:Response)=>{//console.log(rsp);
         if(rsp.status===1)
@@ -62,22 +72,42 @@ export class BookingComponent implements OnInit {
           //console.log(rsp.message);
           this.isBookingAvailable=true;
           this.diff=this.calculateDiff(this.b);
-          console.log("difference in dates: "+this.diff);
+          this.total=this.diff*this.showdata.rent;
+          //console.log("difference in dates: "+this.diff);
+          //we habe to pass entire booking object to payment page
+          //to confirm booking on successful payment
+          this.b.email=this.username;
+          this.b.equipmenttype=this.bookData.equipmenttype;
+          this.b.location=this.bookData.location;
+          this.b.manufacturer=this.bookData.manufacturer;
+          this.b.rent=this.bookData.rent;
+          this.b.serviceprovider=this.bookData.serviceprovider;
+          this.b.servicetype=this.bookData.servicetype;
+          this.session.set('rent',this.total);
+          this.session.set('booking',this.b);
         }
         else{
           this.t.info(rsp.message);
           //console.log(rsp.message);
         }
       },
-      (err)=>{console.log(JSON.stringify(err));
-        this.t.error("you got some error");
+      (err)=>{//console.log(JSON.stringify(err));
+        this.t.error("You got some error!!!");
 
       });
   }
 
   goToPayment()
   {
-    //navigate to payment page
+    // console.log(this.isLoggedIn);
+    if(this.isLoggedIn===true)
+    {
+      this.r.navigate(['/payment']);
+    }
+    else
+    {
+      this.t.warning("You need to login first!!!");
+    }
   }
 
   calculateDiff(b) {

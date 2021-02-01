@@ -1,10 +1,22 @@
 .cal
 {
-    margin-top: 30%;
+    margin-top: 40%;
     border-left: 1px solid grey;
-    margin-left: 40%;
-    height:50%;
+    margin-left: 10%;
+    height:30%;
+
     
+}
+
+strong
+{
+    padding-right:15%;
+    
+}
+
+.mat-card-image
+{
+    width:50%;
 }
 
 .cc
@@ -19,14 +31,10 @@
     height:100%;
 }
 
-.menubar
+.containercard
 {
-    margin-top: 15%;
-    border-right:1px solid skyblue;
-    width:30%;
-    height:80%;
-    margin-left: 10%;
-    margin-right: 5%;
+    margin-top: 8%;
+    height:50%;
 }
 
 .ep1
@@ -53,8 +61,9 @@
 
 .btn
 {
-    margin-left: 40%;
-    width:35%;
+    
+    margin-left: 10%;
+    width:45%;
     background-color: red;
     color:white;
     
@@ -64,4 +73,19 @@
 {
     color:yellow;
     background-color:seagreen;
+}
+
+.btc
+{
+     
+    margin-left: 10%;
+    width:45%;
+    background-color:navy;
+    color:white;
+}
+
+.btc:hover
+{
+    color:navy;
+    background-color:orange;
 }

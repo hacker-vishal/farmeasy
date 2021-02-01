@@ -11,8 +11,15 @@ export class BookService {
 
   constructor(private h:HttpClient) { }
 
-  checkavailability(b:Booking): Observable<Response>{
-    let url="http://localhost:8080/booking/checkavail";
-    return this.h.post<Response>(url, b);
+  checkavailability(b:Booking): Observable<Response>{  
+    return this.h.post<Response>("http://localhost:8080/booking/checkavail", b);
+  }
+
+  getbookings(username: string): Observable<any> {
+    return this.h.get<any>("http://localhost:8080/booking/get?username="+username);
+  }
+
+  bookit(b: Booking): Observable<Response> {
+    return this.h.post<Response>("http://localhost:8080/booking/bookit", b);
   }
 }

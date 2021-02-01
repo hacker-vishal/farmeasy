@@ -11,9 +11,8 @@ export class HomeService {
   constructor(private h:HttpClient) {  }
 
   getServiceOnEqAndLoc(e:Hostuser):Observable<any>
-  {
-    let url="http://localhost:8080/services/searchserv";  
-    return this.h.post<any>(url,e);
+  {  
+    return this.h.post<any>("http://localhost:8080/services/searchserv",e);
   }
 
 }

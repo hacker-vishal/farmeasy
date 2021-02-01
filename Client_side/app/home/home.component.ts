@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit{
         this.t.info("No service found matching to your request!");
       }
       },
-      (err)=>{console.log(JSON.stringify(err));
+      (err)=>{//console.log(JSON.stringify(err));
         this.t.error("You got some error!!!");
       });
   }

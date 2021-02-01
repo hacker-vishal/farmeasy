@@ -35,15 +35,6 @@ export class LoginComponent implements OnInit {
        username: new FormControl('', Validators.required),
        password: new FormControl('', Validators.required)
      });
- 
-      // this.activatedRoute.queryParams
-      //   .subscribe(params => {
-      //     if (params.registered !== undefined && params.registered === 'true') {
-      //       this.toastr.success('Signup Successful');
-      //       this.registerSuccessMessage = 'Please Check your inbox for activation email '
-      //         + 'activate your account before you Login!';
-      //     }
-      //   });
    }
  
     login() {
@@ -51,7 +42,7 @@ export class LoginComponent implements OnInit {
       // this.userdto.password = this.loginForm.get('password').value;
  
       this.loginService.login(this.userdto).subscribe(data => {
-      console.log('login successful');
+      //console.log('login successful');
             this.isError = false;
         this.router.navigateByUrl('/');
         this.toastr.success('Login Successful!');
@@ -59,7 +50,7 @@ export class LoginComponent implements OnInit {
         this.isLoggedIn=true; //console.log(this.isLoggedIn);
       }, error => {
         this.isError = true;
-        this.toastr.error('You got some error!');
+        this.toastr.error("Incorrect username or password!!!");
         throwError(error);
       });
     }
@@ -76,7 +67,7 @@ export class LoginComponent implements OnInit {
         if(creds.status==1)
         {
             this.msg = "Logged in successfully";
-            console.log("logged in");
+            //console.log("logged in");
         }
       },
       (err)=>{this.msg= JSON.stringify(err);

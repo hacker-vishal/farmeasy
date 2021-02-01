@@ -8,18 +8,14 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class EditService {
-  getDetails(username: string): Observable<User> {
-    let url="http://localhost:8080/update/details?username="+username;
-    return this.h.get<User>(url);
-  }
 
   constructor(private h:HttpClient) { }
 
-  profileEdit(user: User): Observable<Response> {
-    
-    let url="http://localhost:8080/update/";
-    return this.h.post<Response>(url,user);
+  getDetails(username: string): Observable<User> {
+    return this.h.get<User>("http://localhost:8080/update/details?username="+username);
   }
 
-  
+  profileEdit(user: User): Observable<Response> {
+    return this.h.post<Response>("http://localhost:8080/update/",user);
+  }
 }

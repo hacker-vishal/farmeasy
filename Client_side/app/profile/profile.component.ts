@@ -25,9 +25,6 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
-
-
     this.username = this.ls.getUserName();
     //console.log(this.username);
 
@@ -46,7 +43,7 @@ export class ProfileComponent implements OnInit {
         }
       },
       (err)=>{//console.log(JSON.stringify(err));
-        this.t.error("you got some error");
+        this.t.error("You got some error!!!");
       });
   }
   
@@ -59,11 +56,12 @@ updateProfile()
         //this.msg=rsp.message;
         //console.log(rsp.status);
         this.t.success("updated successfully");
+        window.location.reload();
       }
     },
     (err)=>{console.log(JSON.stringify(err));
       //this.msg="you got some error";
-      this.t.error("some error occured");
+      this.t.error("You got some error!!!");
     });
 }
 

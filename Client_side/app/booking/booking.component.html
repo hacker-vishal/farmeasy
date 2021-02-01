@@ -1,25 +1,26 @@
   <div class="container">
     <div class="row">
       
-      <div class="menubar">
+      <div class="containercard">
         <div class="col-sm">
-          <div class="containercard">
+          
             <mat-card *ngIf="isShowDataAvailable">
                 <h3 class="head"><u>Your booking</u></h3>
             <mat-card-header>
               <div mat-card-avatar class="example-header-image">
-                <h4>Equipment:{{showdata.equipmenttype}} Rent:{{showdata.rent}}</h4>
+                <h4>Equipment:<strong>{{showdata.equipmenttype}}</strong> </h4>
               </div>
             </mat-card-header>
             <img class= "mat-card-image" src="../../assets/tractor2.jpg" alt="">
             <mat-card-content>
-              <h4>Serviceprovider:{{showdata.hostemail}}</h4>
-              <h4>Manufacturer:{{showdata.manufacturer}}</h4>
-              <h4>Servicetype:{{showdata.servicetype}}</h4>
-              <h4>Location:{{showdata.location}}</h4>
+              <h4>Rent: <strong>INR{{showdata.rent}}</strong></h4>
+              <h4><strong>Serviceprovider:</strong>{{showdata.hostemail}}{{showdata.serviceprovider}}</h4>
+              <h4><strong>Manufacturer:</strong>{{showdata.manufacturer}}</h4>
+              <h4><strong>Service Type:</strong>{{showdata.servicetype}}</h4>
+              <h4><strong>Location:</strong>{{showdata.location}}</h4>
             </mat-card-content>
           </mat-card>
-          </div>
+          
         </div>
       </div>
 
@@ -42,14 +43,20 @@
         </div>
         <!--</form>-->
 
-          <div>
-            <button class="btn" mat-button (click)='check()'>Check Availability</button>
-          </div>
-    
+        <div>
+          <button class="btn" mat-button (click)='check()'>Check Availability</button>
+        </div>
 
-          <div>
-            <button class="btn" mat-button *ngIf="isBookingAvailable" (click)='goToPayment()'>Make Payment</button>
+        <br>
+
+        <div *ngIf ="isBookingAvailable">
+          <div class="calc">
+            <h3>Your Rent: ₹ {{showdata.rent}} x {{diff}}  =  ₹ {{total}}</h3>
           </div>
+          <div>
+            <button class="btn btc" mat-button (click)='goToPayment()'>Make Payment</button>
+          </div>
+        </div>
 
     </div>
 </div>

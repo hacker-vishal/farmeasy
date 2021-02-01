@@ -27,11 +27,6 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     this.userAlreadyExists=false;
-    // this.signupForm = new FormGroup({
-    //   username: new FormControl('', Validators.required),
-    //   email: new FormControl('', [Validators.required, Validators.email]),
-    //   password: new FormControl('', Validators.required),
-    // });
   }
 
   checkmail()
@@ -50,13 +45,6 @@ export class SignupComponent implements OnInit {
   }
 
   signup() {
-    // this.user.email = this.signupForm.get('email').value;
-    // this.user.password = this.signupForm.get('password').value;
-    // this.user.fname = this.signupForm.get('fname').value;
-    // this.user.lname = this.signupForm.get('lname').value;
-    // this.user.otp = this.signupForm.get('otp').value;
-    // this.user.mobileno = this.signupForm.get('mobileno').value;
-
     this.loginService.signup(this.user)
     .subscribe(data => {
       this.router.navigate(['/login'],
@@ -64,8 +52,7 @@ export class SignupComponent implements OnInit {
         this.t.success("User registered successfully!");
     }, error => {
       //console.log(error);
-      this.t.error('Registration Failed! Please try again');
+      this.t.error("Registration Failed! Please try again");
     });
   }
-
 }

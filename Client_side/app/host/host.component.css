@@ -16,16 +16,18 @@
 
 .le
 {
-    margin-left: -50%;
+    padding-right: 52%;
 }
 
 .lee
 {
+    
     color:grey;
 }
 
 .lec
 {
+    width:70%;
     border-left: 4px solid #0079d3;
     margin-left: 27%;
 }

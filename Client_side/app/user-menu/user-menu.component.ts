@@ -20,11 +20,9 @@ export class UserMenuComponent implements OnInit {
     this.ls.loggedIn.subscribe((data: boolean) => this.isLoggedIn = data);
       this.ls.username.subscribe((data: string) => this.username = data);
       this.isLoggedIn = this.ls.isLoggedIn();
-
   }
 
   logout() {
     this.apc.logout();
   }
-
 }

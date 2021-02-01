@@ -17,12 +17,12 @@ class EditprofileTest {
 
 	Logger logger = LogManager.getLogger(EditprofileTest.class);
 	private User user;
-	private static Editprofile editprofile;
+	private static EditProfileController editprofile;
 	private Response response;
 	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		editprofile = new Editprofile();
+		editprofile = new EditProfileController();
 	}
 
 	@Test

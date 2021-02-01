@@ -28,8 +28,7 @@ export class LoginService {
   //test logic
   getUserEmailPswd(u:Userdto):Observable<Response>
   {
-    let url = "http://localhost:8080/login";
-    return this.httpClient.post<Response>(url,u);
+    return this.httpClient.post<Response>("http://localhost:8080/login",u);
   }
 
   signup(user: User): Observable<any> {
@@ -72,7 +71,7 @@ export class LoginService {
     this.httpClient.post('http://localhost:8080/auth/logout', this.refreshTokenPayload,
       { responseType: 'text' })
       .subscribe(data => {
-        console.log(data);
+        //console.log(data);
       }, error => {
         throwError(error);
       })

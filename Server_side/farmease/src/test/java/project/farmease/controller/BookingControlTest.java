@@ -17,12 +17,12 @@ import project.farmease.pojo.Hostuser;
 class BookingControlTest {
 	
 	Logger logger = LogManager.getLogger(BookingControlTest.class);
-	private static BookingControl bookingControl;
+	private static BookingController bookingControl;
 	private Response response;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		bookingControl = new BookingControl();
+		bookingControl = new BookingController();
 	}
 
 	@Test

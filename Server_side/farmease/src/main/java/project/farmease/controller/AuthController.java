@@ -1,31 +1,17 @@
 package project.farmease.controller;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.ResponseEntity.BodyBuilder;
 import org.springframework.web.bind.annotation.*;
-
 import project.farmease.dto.AuthenticationResponse;
 import project.farmease.dto.RefreshTokenRequest;
 import project.farmease.dto.RegisterRequest;
 import project.farmease.dto.Userdto;
 import project.farmease.service.AuthService;
 import project.farmease.service.RefreshTokenService;
-
 import javax.validation.Valid;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-
-//import jdk.internal.org.jline.utils.Log;
-
-//import javax.validation.Valid;
-
-
-
-
-//import static org.springframework.http.HttpStatus.OK;
-
 import org.springframework.http.HttpStatus;
 
 @RestController

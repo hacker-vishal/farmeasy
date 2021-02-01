@@ -45,7 +45,7 @@ export class SetnewpasswordComponent implements OnInit {
   {//console.log(123);
     this.pr.setNewPassword(this.userdto).subscribe(
       (rsp:Response)=>{
-        console.log(JSON.stringify(rsp));
+        //console.log(JSON.stringify(rsp));
         if(rsp.status===1)
         {
           //console.log(rsp.message);

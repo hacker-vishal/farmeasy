@@ -14,19 +14,35 @@
 
 
 
-<div class="containercard">
+<div class="containercard" >
     <mat-card>
-        <h5 class="head">See all your bookings here!</h5>
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image">
-      </div>
-    </mat-card-header>
-    <img class= "mat-card-image" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-       
-    </mat-card-content>
+      
 
-    <button class="btn" type="button" routerLink='/booking'>Show Bookings</button>
+        <table class="table table-striped" *ngIf="!isListEmpty">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Service Type</th>
+            <th scope="col">Equipment Type</th>
+            <th scope="col">Service Provider</th>
+            <th scope="col">Booking Date</th>
+            <th scope="col">Finish Date</th>
+            <th scope="col">Rent</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let b of mybookings">
+          <tr>
+            <td>{{b.bookingid}}</td>
+            <td>{{b.servicetype}}</td>
+            <td>{{b.equipmenttype}}</td>
+            <td>{{b.serviceprovider}}</td>
+            <td>{{b.dateofbooking}}</td>
+            <td>{{b.datefinish}}</td>
+            <td>{{b.rent}}</td>
+           <!-- <td><button class="btn btn-success" type="button">Show</button></td> -->
+          </tr>
+        </tbody>
+      </table>
     
   </mat-card>
   </div>

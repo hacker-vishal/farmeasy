@@ -16,9 +16,11 @@ export class OtpverificationComponent implements OnInit {
   username:string;
   otp=null;
 
+  //inject services required into constructor
   constructor(private r: Router, private pr:PassresetService, private ls:LoginService,
     private t:ToastrService, private session:SessionStorageService) { }
 
+    //get otp for username who forgot his password
   ngOnInit() {
     this.username = this.session.get('id');
 
@@ -30,6 +32,7 @@ export class OtpverificationComponent implements OnInit {
     //console.log(this.otp);
   }
 
+  //finds otp from db
   findOtp()
   {
     this.pr.getOtp(this.username).subscribe(
@@ -41,6 +44,7 @@ export class OtpverificationComponent implements OnInit {
       });
   }
 
+  //resets password with new password
   pswrdreset()
   {
     //this.r.navigate(['/setnewpassword']);

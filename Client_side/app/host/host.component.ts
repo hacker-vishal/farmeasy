@@ -16,7 +16,7 @@ export class HostComponent implements OnInit {
   selectedFile:File;
   msg:string;
   
-
+  //inject services required into constructor and initialize the hostuser object
   constructor(private loginService:LoginService, private hs:HostService, private t:ToastrService) 
   { 
     this.h = {
@@ -30,16 +30,19 @@ export class HostComponent implements OnInit {
     };
   }
 
+  //get the name of serviceprovider on loading
   ngOnInit(): void {
     this.h.hostemail = this.loginService.getUserName();
     //console.log(this.h.hostemail);
   }
 
+  //show the name of image file chosen to upload
   onFileChanged(event) {
     this.selectedFile = event.target.files[0];
     this.msg=this.selectedFile.name;
   }
 
+  //registers the serviceproviders details
   registerhost(){
 
     this.hs.gethostdetails(this.h).subscribe(

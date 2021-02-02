@@ -15,6 +15,7 @@ export class AppComponent {
 
   title = GlobalConstants.siteTitle;
 
+  //inject services required into constructor
     constructor(private r:Router, private loginService: LoginService, private resp:ResponsiveService,
       private t:ToastrService) 
     {
@@ -27,6 +28,7 @@ export class AppComponent {
     isLoggedIn: boolean;
     username: string;
   
+    //get data of user on load
     ngOnInit() {
       this.loginService.loggedIn.subscribe((data: boolean) => this.isLoggedIn = data);
       this.loginService.username.subscribe((data: string) => this.username = data);
@@ -45,20 +47,23 @@ export class AppComponent {
       this.onResize();    
     }
   
+    //logic to resize the page
     onResize(){
       this.resp.checkWidth();
     }
     
-
+    // navigate to login page
     login()
     {
       this.r.navigate['/login'];
     }
 
+    // navigate to profile
     goToUserProfile() {
       this.r.navigateByUrl('/profile/' + this.username);
     }
   
+    //log out of the session
     logout() {
       this.loginService.logout();
       this.isLoggedIn = false;

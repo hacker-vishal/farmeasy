@@ -19,9 +19,11 @@ export class PaymentComponent implements OnInit {
   b:Booking;
   username:string;
 
+  //inject services required into constructor
   constructor(private r:Router, private t:ToastrService, private session:SessionStorageService,
     private bs:BookService, private ls:LoginService) { }
 
+    //get booking data on load
   ngOnInit() {
     this.rent=this.session.get('rent');
     this.b=this.session.get('booking');
@@ -29,6 +31,7 @@ export class PaymentComponent implements OnInit {
     this.b.email=this.username;
   }
 
+  //make payment and if successful do book the service
   dopayment()
   {
     // console.log(this.b);

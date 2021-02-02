@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
     isLoggedIn=false;
     //hideSuccessMessage:boolean=false;
  
+    //inject services required into constructor and initialize userdto
     constructor(private loginService: LoginService, private activatedRoute: ActivatedRoute,
      private router: Router, private toastr: ToastrService) {
       this.userdto = {
@@ -30,6 +31,7 @@ export class LoginComponent implements OnInit {
       };
    }
  
+    //apply validators on login form
    ngOnInit(): void {
      this.loginForm = new FormGroup({
        username: new FormControl('', Validators.required),
@@ -37,6 +39,7 @@ export class LoginComponent implements OnInit {
      });
    }
  
+   //logs in the user if credentials are correct
     login() {
       // this.userdto.username = this.loginForm.get('username').value;
       // this.userdto.password = this.loginForm.get('password').value;
@@ -55,6 +58,7 @@ export class LoginComponent implements OnInit {
       });
     }
 
+    //if forgot password, navigate to forgot password page
   fgtpswd()
   { this.router.navigate['/forgotpassword'];}
 

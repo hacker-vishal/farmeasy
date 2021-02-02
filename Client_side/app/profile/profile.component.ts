@@ -18,12 +18,13 @@ export class ProfileComponent implements OnInit {
   username:string;
   isLoggedIn:boolean;
 
+  //inject services required into constructor and initialize the user
   constructor(private e:EditService, private r: Router, private ls:LoginService, private t:ToastrService) 
   { 
-    this.user = {email: '', password: '', fname:'', lname:'', otp:null, mobileno:null};
-    
+    this.user = {email: '', password: '', fname:'', lname:'', otp:null, mobileno:null}; 
   }
 
+  //get username on loading of page
   ngOnInit(): void {
     this.username = this.ls.getUserName();
     //console.log(this.username);
@@ -32,6 +33,7 @@ export class ProfileComponent implements OnInit {
     this.getuserdetails();
   }
 
+  //fetch user details from db and show on profile
   getuserdetails()
   {
     this.e.getDetails(this.username).subscribe(
@@ -47,6 +49,7 @@ export class ProfileComponent implements OnInit {
       });
   }
   
+  //update into the profile
 updateProfile()
 {
   this.e.profileEdit(this.user).subscribe(

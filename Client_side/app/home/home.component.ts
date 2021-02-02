@@ -18,16 +18,20 @@ export class HomeComponent implements OnInit{
   msg:any=[];
   isLoggedIn:boolean=false;
 
+  //inject services required into constructor
   constructor(private hs:HomeService, private r:Router, private loginService:LoginService,
     private session:SessionStorageService, private t:ToastrService) 
   { 
     this.h = new Hostuser("","");
     
   }
+
+  //checks if user is logged in or not
   ngOnInit(): void {
     this.isLoggedIn = this.loginService.isLoggedIn();
   }
 
+  //searches for the services according to the equipmenttype and location passed by the user
   getnow()
   {
     this.hs.getServiceOnEqAndLoc(this.h).subscribe(
@@ -60,6 +64,7 @@ export class HomeComponent implements OnInit{
       });
   }
 
+  //navigate to host component
   navigatetohost()
   {
     if(this.isLoggedIn)

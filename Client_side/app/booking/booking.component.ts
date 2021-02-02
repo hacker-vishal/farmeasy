@@ -17,7 +17,6 @@ export class BookingComponent implements OnInit {
   bookData:any;
   msg:string;
   b:Booking;
-  // username:string;
   isLoggedIn:boolean=false;
   maxDate: Date; 
   today:any;
@@ -27,11 +26,13 @@ export class BookingComponent implements OnInit {
   isBookingAvailable:boolean=false;
   isShowDataAvailable:boolean=false;
 
+  //injected the services required into constructor and created the object of booking
   constructor(private bs:BookService, private ls:LoginService, private t:ToastrService, 
     private session:SessionStorageService, private r:Router) { 
     this.b = new Booking();
   }
 
+  //on loading of page, we will get data of booking
   ngOnInit(): void {
     // this.isLoggedIn=false;
     this.bookData=this.session.get('book');
@@ -50,6 +51,7 @@ export class BookingComponent implements OnInit {
     if(this.b.serviceprovider==null || this.b.serviceprovider==undefined)
     this.b.serviceprovider=this.bookData.serviceprovider;
 
+    //you can book upto 4 months from today
     let today = new Date();
     let month = today.getMonth();
     let nextMonth = (month === 11) ? 0 : month + 4;
@@ -59,6 +61,8 @@ export class BookingComponent implements OnInit {
     this.today = today;
   }
 
+
+  //checks the availability of booking slot and if available, shows the total rent you have to pay
   check()
   {
     //  console.log(this.b);
@@ -94,11 +98,12 @@ export class BookingComponent implements OnInit {
           //console.log(rsp.message);
         }
       },
-      (err)=>{//console.log(JSON.stringify(err));
+      (err)=>{console.log(JSON.stringify(err));
         this.t.error("You got some error!!!");
       });
   }
 
+  //to book any service, you have to make payment, you will be redirected to payment page here
   goToPayment()
   {
     // console.log(this.isLoggedIn);
@@ -113,6 +118,7 @@ export class BookingComponent implements OnInit {
     }
   }
 
+  //calculates the difference between dateofbooking and datefinish to calculate total charges
   calculateDiff(b) {
     let date1:any = new Date(b.dateofbooking);
     let date2:any = new Date(b.datefinish);

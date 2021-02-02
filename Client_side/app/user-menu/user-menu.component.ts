@@ -12,9 +12,10 @@ export class UserMenuComponent implements OnInit {
   username:string;
   isLoggedIn:boolean;
   
-
+  //inject services required into constructor
   constructor(private ls:LoginService, private apc:AppComponent) { }
 
+  //load the log in data on load
   ngOnInit(): void {
 
     this.ls.loggedIn.subscribe((data: boolean) => this.isLoggedIn = data);
@@ -22,6 +23,7 @@ export class UserMenuComponent implements OnInit {
       this.isLoggedIn = this.ls.isLoggedIn();
   }
 
+  //do log out of your account
   logout() {
     this.apc.logout();
   }

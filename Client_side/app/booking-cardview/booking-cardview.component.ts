@@ -14,15 +14,17 @@ export class BookingCardviewComponent implements OnInit {
   username:string;
   isListEmpty:boolean=false;
 
+  //inject the services required
   constructor(private bs: BookService, private loginService: LoginService, private t: ToastrService) { }
 
-  ngOnInit(): void {
-     
+  //get the bookings done by user on page loading
+  ngOnInit(): void { 
     this.username = this.loginService.getUserName();
     //console.log(this.username);
     this.showmybookings();
   }
 
+  //finds the bookings done by particular user
   showmybookings()
   {
     this.bs.getbookings(this.username).subscribe(

@@ -16,13 +16,15 @@ export class ForgotpasswordComponent implements OnInit {
   username:string;
   msg: string;
 
-  constructor(private r: Router, private pr:PassresetService, private ls:LoginService, 
+  //inject services required into constructor
+  constructor(private r: Router, private pr:PassresetService, 
     private t:ToastrService, private session:SessionStorageService) 
   { }
 
   ngOnInit() {
   }
 
+  //generates an otp and stores in db for the user who forgot the password
   otp()
   {
     this.pr.isEmailExists(this.username).subscribe(

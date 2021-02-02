@@ -18,6 +18,7 @@ export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   userAlreadyExists: boolean;
 
+  //inject services required into constructor and initialize user
   constructor(private loginService: LoginService, private router: Router,
     private t: ToastrService, private pr:PassresetService, private r:Router) {
     this.user = {
@@ -25,10 +26,12 @@ export class SignupComponent implements OnInit {
     };
   }
 
+  //on loading of page, checks whether the user already exists or not
   ngOnInit() {
     this.userAlreadyExists=false;
   }
 
+  //check the username to find if user with same name exists or not
   checkmail()
   { //console.log("checkmail works!");
     this.pr.isEmailExists(this.user.email).subscribe(
@@ -44,6 +47,7 @@ export class SignupComponent implements OnInit {
       });
   }
 
+  //completes the registration of user
   signup() {
     this.loginService.signup(this.user)
     .subscribe(data => {

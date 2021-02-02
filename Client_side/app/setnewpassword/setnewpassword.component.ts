@@ -20,12 +20,14 @@ export class SetnewpasswordComponent implements OnInit {
   userdto:Userdto;
   form: FormGroup = new FormGroup({});
 
+  //retrieve username on load of page
   ngOnInit() {
     this.username = this.session.get('id');
     //this.username = history.state.id;
     this.userdto.username=this.username;
   }
 
+  //inject services required into constructor and apply validators on reset password form
   constructor(private pr:PassresetService, private r:Router, private fb: FormBuilder,
     private t:ToastrService, private session:SessionStorageService) { 
     this.userdto = new Userdto ("","");
@@ -41,6 +43,7 @@ export class SetnewpasswordComponent implements OnInit {
     return this.form.controls;
   }
 
+  //confirm and reset the password
   confirm()
   {//console.log(123);
     this.pr.setNewPassword(this.userdto).subscribe(

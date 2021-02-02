@@ -20,10 +20,12 @@ export class ShowlistComponent implements OnInit {
   w:Wishlist;
   username:string;
 
+  //inject services required into constructor
   constructor(private r:Router, private session:SessionStorageService, private t:ToastrService,
     private ws:WishlistService, private ls:LoginService) 
     { this.w = new Wishlist(); }
 
+    //get list of services on loading of page
   ngOnInit(): void {
     this.username = this.ls.getUserName();
     //this.showlist=history.state.list;
@@ -39,6 +41,7 @@ export class ShowlistComponent implements OnInit {
     // console.log(this.isListEmpty);    
   }
 
+  //redirect to book page on click of button of service you want
   goToBooking(item:any)
   {
     //console.log("hi");
@@ -50,7 +53,7 @@ export class ShowlistComponent implements OnInit {
     // this.r.navigate(['/book'],{state :{ book : this.dataToBook}});
   }
 
-
+  //add the desired service into wishlist
   addToWishlist(item:any)
   {//console.log(item);
     this.w.email=this.username;

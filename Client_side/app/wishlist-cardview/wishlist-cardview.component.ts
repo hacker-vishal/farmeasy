@@ -17,15 +17,18 @@ export class WishlistCardviewComponent implements OnInit {
   username:string;
   isListEmpty:boolean=false;
 
+  //inject services required into constructor
   constructor(private ws: WishlistService, private t: ToastrService, private ls:LoginService, private r:Router,
     private session:SessionStorageService) { }
 
+    //on loading of page, get wishlist to show
   ngOnInit(): void {
 
     this.username = this.ls.getUserName();
     this.showmywishlist();
   }
 
+  //shows wishlist of user
   showmywishlist()
   {
     this.ws.getwishlist(this.username).subscribe(
@@ -48,6 +51,7 @@ export class WishlistCardviewComponent implements OnInit {
       });
   }
 
+  //go to book page to book the item you liked from wishlist
   bookthisitem(w:any)
   {
     this.session.remove('book');
@@ -55,6 +59,7 @@ export class WishlistCardviewComponent implements OnInit {
     this.r.navigate(['/book']);
   }
 
+  //remove the items from wishlist that you dont want
   removefromwishlist(w:any)
   {
     this.ws.removeitem(w).subscribe(

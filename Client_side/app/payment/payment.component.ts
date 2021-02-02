@@ -31,7 +31,7 @@ export class PaymentComponent implements OnInit {
 
   dopayment()
   {
-    console.log(this.b);
+    // console.log(this.b);
     this.bs.bookit(this.b).subscribe(
       (rsp:Response)=>{//console.log(rsp);
         if(rsp.status===1)
@@ -46,7 +46,7 @@ export class PaymentComponent implements OnInit {
           //console.log(rsp.message);
         }
       },
-      (err)=>{console.log(JSON.stringify(err));
+      (err)=>{//console.log(JSON.stringify(err));
         this.t.error("You got some error!!!");
         this.t.warning("Payment failed!!!");
       });

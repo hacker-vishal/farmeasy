@@ -47,7 +47,6 @@ export class BookingCardviewComponent implements OnInit {
       },
       (err)=>{//console.log(JSON.stringify(err));
         this.t.error("You got some error!!!");
-
       });
 
   }

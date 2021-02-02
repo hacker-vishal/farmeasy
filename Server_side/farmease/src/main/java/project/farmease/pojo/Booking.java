@@ -36,7 +36,7 @@ public class Booking {
 	private Timestamp datefinish;
 	private Double rent;
 	@Column(columnDefinition = "boolean default false")
-	Boolean isInvalid;
+	private Boolean invalid;
 	 
 	@ManyToOne(optional=false,fetch = FetchType.LAZY)
 	@JoinColumn(name="email",insertable=false, updatable=false)
@@ -56,7 +56,7 @@ public class Booking {
 	}
 
 	public Booking(Integer bookingid, String email, String serviceprovider, String equipmenttype,String manufacturer, String location, String servicetype,
-			Timestamp dateofbooking, Timestamp datefinish, Double rent, Boolean isInvalid) {
+			Timestamp dateofbooking, Timestamp datefinish, Double rent, Boolean invalid) {
 		this.bookingid = bookingid;
 		this.email = email;
 		this.serviceprovider = serviceprovider;
@@ -67,7 +67,7 @@ public class Booking {
 		this.dateofbooking = dateofbooking;
 		this.datefinish = datefinish;
 		this.rent = rent;
-		this.isInvalid=isInvalid;
+		this.invalid=invalid;
 	}
 
 	public Integer getBookingid() {
@@ -150,11 +150,11 @@ public class Booking {
 		this.location = location;
 	}
 
-	public Boolean getIsInvalid() {
-		return isInvalid;
+	public Boolean getInvalid() {
+		return invalid;
 	}
 
-	public void setIsInvalid(Boolean isInvalid) {
-		this.isInvalid = isInvalid;
+	public void setInvalid(Boolean invalid) {
+		this.invalid = invalid;
 	}
 }

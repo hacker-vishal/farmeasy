@@ -12,5 +12,5 @@ export class Booking {
     datefinish:any;
     location:string="";
     rent:any; 
-    isinvalid:boolean=false;
+    invalid:boolean=false;
 }

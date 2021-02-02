@@ -15,7 +15,6 @@ import project.farmease.dao.UserRepo;
 import project.farmease.dto.Response;
 import project.farmease.pojo.Booking;
 
-@Transactional
 @Service
 public class BookingService {
 	
@@ -124,6 +123,7 @@ public class BookingService {
 		return resp;
 	}
 	
+	@Transactional
 	public Response dobooking(Booking booking)
 	{
         Response response = new Response(0, "Booking failed");
@@ -147,6 +147,7 @@ public class BookingService {
 		}
 		else
 		{
+			logger.debug(booking.getDateofbooking()+" "+booking.getDatefinish()+" "+booking.getRent()+" "+booking.getInvalid());
 			bookingRepo.save(booking);
 			response.setStatus(1);
 			response.setMessage("Booking successful!");

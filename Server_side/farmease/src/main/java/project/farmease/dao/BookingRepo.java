@@ -12,9 +12,9 @@ import project.farmease.pojo.Wishlist;
 
 public interface BookingRepo extends JpaRepository<Booking, Integer>{
 
-	@Query("from Booking where serviceprovider=:serviceprovider and isInvalid=false")
+	@Query("from Booking where serviceprovider=:serviceprovider and invalid=false")
 	List<Booking> findByServiceprovider(@Param("serviceprovider") String serviceprovider);
 
-	@Query("from Booking where email=:email and isInvalid=false")
+	@Query("from Booking where email=:email and invalid=false")
 	List<Booking> findByEmail(@Param("email") String username);
 }

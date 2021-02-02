@@ -33,7 +33,7 @@ public class Hostuser {
 	@Id
 	@Column(nullable = false,length=50)
 	private String location;
-	private Integer rent;
+	private Double rent;
 	@Lob
     @Basic(fetch = FetchType.LAZY)
     private byte[] img;
@@ -47,7 +47,7 @@ public class Hostuser {
 	}
 
 	public Hostuser(String hostemail, String equipmenttype, String manufacturer, String servicetype, String location,
-			Integer rent, byte[] img) {
+			Double rent, byte[] img) {
 		super();
 		this.hostemail = hostemail;
 		this.equipmenttype = equipmenttype;
@@ -98,11 +98,11 @@ public class Hostuser {
 		this.location = location;
 	}
 
-	public Integer getRent() {
+	public Double getRent() {
 		return rent;
 	}
 
-	public void setRent(Integer rent) {
+	public void setRent(Double rent) {
 		this.rent = rent;
 	}
 

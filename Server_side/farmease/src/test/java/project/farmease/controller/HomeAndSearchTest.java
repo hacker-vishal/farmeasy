@@ -65,7 +65,7 @@ public class HomeAndSearchTest {
 	@Test
 	void registerhosttest()
 	{
-		Hostuser hostuser = new Hostuser("vish@email","tractor", "kubota", "ploughing", "pune", 222, null);
+		Hostuser hostuser = new Hostuser("vish@email","tractor", "kubota", "ploughing", "pune", 222d, null);
 		response= homeAndSearch.registerhost(hostuser);
 		
 		assertEquals(1, response.getStatus());
@@ -76,7 +76,7 @@ public class HomeAndSearchTest {
 	void registerhosttestfailcase()
 	{
         //this dummy hostuser will be passed to check our function
-		Hostuser hostuser = new Hostuser("a@b","tractor", "a", "ploughing", "pune", 222, null);
+		Hostuser hostuser = new Hostuser("a@b","tractor", "a", "ploughing", "pune", 222d, null);
 		response= homeAndSearch.registerhost(hostuser);
 		
 		assertEquals(0, response.getStatus());

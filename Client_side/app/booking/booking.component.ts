@@ -17,7 +17,7 @@ export class BookingComponent implements OnInit {
   bookData:any;
   msg:string;
   b:Booking;
-  username:string;
+  // username:string;
   isLoggedIn:boolean=false;
   maxDate: Date; 
   today:any;
@@ -61,7 +61,7 @@ export class BookingComponent implements OnInit {
 
   check()
   {
-    // console.log(this.b);
+    //  console.log(this.b);
     //console.log("check checked!");
     
     this.bs.checkavailability(this.b).subscribe(
@@ -74,15 +74,18 @@ export class BookingComponent implements OnInit {
           this.diff=this.calculateDiff(this.b);
           this.total=this.diff*this.showdata.rent;
           //console.log("difference in dates: "+this.diff);
+
           //we habe to pass entire booking object to payment page
           //to confirm booking on successful payment
-          this.b.email=this.username;
+          this.b.email=this.bookData.email;
           this.b.equipmenttype=this.bookData.equipmenttype;
           this.b.location=this.bookData.location;
           this.b.manufacturer=this.bookData.manufacturer;
           this.b.rent=this.bookData.rent;
           this.b.serviceprovider=this.bookData.serviceprovider;
           this.b.servicetype=this.bookData.servicetype;
+          this.b.invalid=false;
+
           this.session.set('rent',this.total);
           this.session.set('booking',this.b);
         }
@@ -93,7 +96,6 @@ export class BookingComponent implements OnInit {
       },
       (err)=>{//console.log(JSON.stringify(err));
         this.t.error("You got some error!!!");
-
       });
   }
 
@@ -107,6 +109,7 @@ export class BookingComponent implements OnInit {
     else
     {
       this.t.warning("You need to login first!!!");
+      this.r.navigate(['/login']);
     }
   }
 

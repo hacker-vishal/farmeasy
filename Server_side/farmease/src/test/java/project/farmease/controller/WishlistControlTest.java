@@ -24,14 +24,14 @@ class WishlistControlTest {
 
 	@Test
 	void addtowishlisttest() {
-		Wishlist wishlist = new Wishlist("v@g.com", "tractor", "farmtrac", "cultivating", "s@n.com", "pune", 2000);
+		Wishlist wishlist = new Wishlist("v@g.com", "tractor", "farmtrac", "cultivating", "s@n.com", "pune", 2000d);
 		response = wishlistControl.addToWishlist(wishlist);
 		assertEquals(1, response.getStatus());
 	}
 	
 	@Test
 	void addtowishlisttestfailcase() {
-		Wishlist wishlist = new Wishlist(null, "tractor", "farmtrac", "cultivating", "s@n.com", "pune", 2000);
+		Wishlist wishlist = new Wishlist(null, "tractor", "farmtrac", "cultivating", "s@n.com", "pune", 2000d);
 		response = wishlistControl.addToWishlist(wishlist);
 		assertEquals(0, response.getStatus());
 	}

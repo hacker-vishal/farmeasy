@@ -30,7 +30,7 @@ public class Wishlist {
 	private String location;
 	@Column(nullable = false,length=30)
 	private String manufacturer;
-	private Integer rent;
+	private Double rent;
 	
 	@ManyToOne(optional=false,fetch = FetchType.LAZY)
 	@JoinColumn(name="email",insertable=false, updatable=false)
@@ -49,7 +49,7 @@ public class Wishlist {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Wishlist(String email, String equipmenttype,String manufacturer, String servicetype, String serviceprovider, String location,Integer rent) {
+	public Wishlist(String email, String equipmenttype,String manufacturer, String servicetype, String serviceprovider, String location,Double rent) {
 		super();
 		this.email = email;
 		this.equipmenttype = equipmenttype;
@@ -92,11 +92,11 @@ public class Wishlist {
 		this.serviceprovider = serviceprovider;
 	}
 
-	public Integer getRent() {
+	public Double getRent() {
 		return rent;
 	}
 
-	public void setRent(Integer rent) {
+	public void setRent(Double rent) {
 		this.rent = rent;
 	}
 

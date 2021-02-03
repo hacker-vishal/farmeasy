@@ -86,24 +86,29 @@ To truncate tables that has FK constraints-
 SET FOREIGN_KEY_CHECKS = 0;
 SET FOREIGN_KEY_CHECKS = 1;
 
-Trigger---
 
-//now not in use
-Delimiter /
-create trigger putinlogincreds after insert on user
-for each row
-Begin
-	insert into logincreds values (new.email, null, new.password);
-End  /
+
+procedures-
+
+//use only if you are declaring procedure in entity
+In repository-
+@Query(value = "CALL Update_invalid ();", nativeQuery = true)
+void updateinvalidmark();
+
+Delimiter //
+Create Procedure Update_invalid ()
+BEGIN
+UPDATE booking
+SET invalid = true WHERE datefinish < now();
+END //
 Delimiter ;
 
-Delimiter /
-create trigger markinvalid after insert on booking
-for each row
-Begin
-	update booking set isInvalid=true where datefinish < now();
-End  /
-Delimiter ;
+
+In repository-
+@Procedure("Update_invalid")
+void updateinvalidmark();
+
+
 
 
 

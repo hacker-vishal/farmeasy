@@ -1,0 +1,49 @@
+
+
+<div class="container">
+
+    <div class="row">
+  
+      <div class="menubar">
+        <div class="col-sm">
+          
+          <app-user-menu></app-user-menu>
+  
+        </div>
+      </div>
+      <div class="col-sm">
+
+       <div class="containercard">
+        <mat-card>
+            <table class="table table-striped" *ngIf="!isListEmpty">
+            <thead>
+              <tr>
+                <th scope="col">Equipment Type</th>
+                <th scope="col">Service Type</th>
+                <th scope="col">Service Provider</th>
+                <th scope="col">Manufacturer</th>
+                <th scope="col">Rent</th>
+                <th scope="col">BookIt</th>
+                <th scope="col">Remove</th>
+              </tr>
+            </thead>
+            
+            <tbody *ngFor="let w of mywishlist">
+              <tr>
+                <td>{{w.equipmenttype}}</td>
+                <td>{{w.servicetype}}</td>
+                <td>{{w.serviceprovider}}</td>
+                <td>{{w.manufacturer}}</td>
+                <td>{{w.rent}}</td>
+                <td><button class="btn btn-success" type="button" (click)="bookthisitem(w)">Book</button></td>
+                <td><button class="btn btn-danger" type="button" (click)="removefromwishlist(w)">Remove</button></td>
+              </tr>
+            </tbody>
+          </table>
+        
+      </mat-card>
+      </div>
+
+  </div>
+  </div>
+  </div>

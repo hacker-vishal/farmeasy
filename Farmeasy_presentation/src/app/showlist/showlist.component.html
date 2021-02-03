@@ -1,0 +1,19 @@
+
+  <div class="container" *ngFor="let item of showlist">
+  <mat-card>
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{item.equipmenttype}}</mat-card-title>
+    <mat-card-subtitle>{{item.servicetype}}</mat-card-subtitle>
+  </mat-card-header>
+  <img class= mat-card-image src="../../assets/tractor2.jpg" alt="">
+  <mat-card-content>
+      <p>manufacturer:{{item.manufacturer}}</p> 
+      <p>rent: INR {{item.rent}}</p> 
+  </mat-card-content>
+  <mat-card-actions>
+    <button class="btnn" mat-button (click)='goToBooking(item)'>book</button>
+    <button class="btnn" mat-button (click)='addToWishlist(item)'>+ Add to Wishlist</button>
+  </mat-card-actions>
+</mat-card>
+</div>

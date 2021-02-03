@@ -1,0 +1,13 @@
+
+
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter OTP</mat-label>
+      <input [(ngModel)]='this.otp' type="otp" name='otp' (keyup.enter)="pswrdreset()" matInput placeholder="Enter your OTP" required><span><h6 class='msg2'></h6></span>
+  
+    </mat-form-field>
+  </form>
+
+  <div class="fb w-75">
+    <button type="button" class="otpbtn btn-lg " (click)='pswrdreset()'>Confirm OTP</button>
+  </div>

@@ -15,6 +15,7 @@ import project.farmease.dao.UserRepo;
 import project.farmease.dto.Response;
 import project.farmease.pojo.Booking;
 
+@Transactional
 @Service
 public class BookingService {
 	
@@ -47,6 +48,7 @@ public class BookingService {
 		if(hostuserRepo.existsByHostemail(booking.getServiceprovider()))
 		{	
 			try {
+				bookingRepo.updateinvalidmark();
 				l= bookingRepo.findByServiceprovider(booking.getServiceprovider());
 				logger.debug(l);
 			} catch (Exception e) {
@@ -123,7 +125,6 @@ public class BookingService {
 		return resp;
 	}
 	
-	@Transactional
 	public Response dobooking(Booking booking)
 	{
         Response response = new Response(0, "Booking failed");

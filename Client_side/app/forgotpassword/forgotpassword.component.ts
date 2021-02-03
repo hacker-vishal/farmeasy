@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from '../Services/login.service';
 import { PassresetService } from '../Services/passreset.service';
 import { Response } from '../Models/response';
 import { ToastrService } from 'ngx-toastr';
@@ -43,6 +42,7 @@ export class ForgotpasswordComponent implements OnInit {
       },
       (err)=>{//console.log(JSON.stringify(err));
         this.t.error("You got some error!!!");
+        this.t.info(JSON.stringify("You can see logs at C:/Users/Admin/AdvancedJAVA/farmease/logs/farmeasy.txt"));
       });
   }
 

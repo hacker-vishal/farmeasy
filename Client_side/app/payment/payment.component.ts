@@ -34,13 +34,14 @@ export class PaymentComponent implements OnInit {
   //make payment and if successful do book the service
   dopayment()
   {
-    // console.log(this.b);
+    //console.log(this.b);
     this.bs.bookit(this.b).subscribe(
       (rsp:Response)=>{//console.log(rsp);
         if(rsp.status===1)
         {
           this.t.success("Payment received!");
           this.t.show(rsp.message);
+          this.t.show("Thank you for using our services! Farm'easy!!!");
           this.r.navigate(['/profile']);
         }
         else{

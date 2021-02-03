@@ -86,7 +86,7 @@ export class BookingComponent implements OnInit {
           this.b.location=this.bookData.location;
           this.b.manufacturer=this.bookData.manufacturer;
           this.b.rent=this.bookData.rent;
-          this.b.serviceprovider=this.bookData.serviceprovider;
+          //this.b.serviceprovider=this.bookData.serviceprovider;
           this.b.servicetype=this.bookData.servicetype;
           this.b.invalid=false;
 
@@ -98,8 +98,9 @@ export class BookingComponent implements OnInit {
           //console.log(rsp.message);
         }
       },
-      (err)=>{console.log(JSON.stringify(err));
+      (err)=>{//console.log(JSON.stringify(err));
         this.t.error("You got some error!!!");
+        this.t.info(JSON.stringify("You can see logs at C:/Users/Admin/AdvancedJAVA/farmease/logs/farmeasy.txt"));
       });
   }
 
@@ -114,7 +115,8 @@ export class BookingComponent implements OnInit {
     else
     {
       this.t.warning("You need to login first!!!");
-      this.r.navigate(['/login']);
+      let url = '/book';
+      this.r.navigate(['/login'], {state:{url:url}});
     }
   }
 

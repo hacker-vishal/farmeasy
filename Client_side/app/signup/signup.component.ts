@@ -44,6 +44,7 @@ export class SignupComponent implements OnInit {
       (err)=>{//console.log(JSON.stringify(err));
         //console.log("you got some error");
         this.t.error("You got some error!!!");
+        this.t.info(JSON.stringify("You can see logs at C:/Users/Admin/AdvancedJAVA/farmease/logs/farmeasy.txt"));
       });
   }
 

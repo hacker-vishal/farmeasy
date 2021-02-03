@@ -46,6 +46,7 @@ export class ProfileComponent implements OnInit {
       },
       (err)=>{//console.log(JSON.stringify(err));
         this.t.error("You got some error!!!");
+        this.t.info(JSON.stringify("You can see logs at C:/Users/Admin/AdvancedJAVA/farmease/logs/farmeasy.txt"));
       });
   }
   
@@ -62,9 +63,10 @@ updateProfile()
         window.location.reload();
       }
     },
-    (err)=>{console.log(JSON.stringify(err));
+    (err)=>{//console.log(JSON.stringify(err));
       //this.msg="you got some error";
       this.t.error("You got some error!!!");
+      this.t.info(JSON.stringify("You can see logs at C:/Users/Admin/AdvancedJAVA/farmease/logs/farmeasy.txt"));
     });
 }
 

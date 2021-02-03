@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
     registerSuccessMessage: string;
     isError: boolean;
     isLoggedIn=false;
+    url:any;
     //hideSuccessMessage:boolean=false;
  
     //inject services required into constructor and initialize userdto
@@ -33,6 +34,9 @@ export class LoginComponent implements OnInit {
  
     //apply validators on login form
    ngOnInit(): void {
+
+    this.url = history.state.url;//console.log(this.url);
+
      this.loginForm = new FormGroup({
        username: new FormControl('', Validators.required),
        password: new FormControl('', Validators.required)
@@ -51,6 +55,8 @@ export class LoginComponent implements OnInit {
         this.toastr.success('Login Successful!');
         //this.msg ="Login Successful!";
         this.isLoggedIn=true; //console.log(this.isLoggedIn);
+        if(this.url!==null && this.url!==undefined)
+        this.router.navigate([this.url]);
       }, error => {
         this.isError = true;
         this.toastr.error("Incorrect username or password!!!");

@@ -13,8 +13,8 @@ import { SessionStorageService } from 'angular-web-storage';
   templateUrl: './setnewpassword.component.html',
   styleUrls: ['./setnewpassword.component.css']
 })
-export class SetnewpasswordComponent implements OnInit {
 
+export class SetnewpasswordComponent implements OnInit {
   username:string;
   passwd:string;
   userdto:Userdto;
@@ -60,6 +60,7 @@ export class SetnewpasswordComponent implements OnInit {
       },
       (err)=>{//console.log(JSON.stringify(err));
         this.t.error("You got some error!!!");
+        this.t.info(JSON.stringify("You can see logs at C:/Users/Admin/AdvancedJAVA/farmease/logs/farmeasy.txt"));
       });
   }
 

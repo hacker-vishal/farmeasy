@@ -48,6 +48,7 @@ export class WishlistCardviewComponent implements OnInit {
       },
       (err)=>{//console.log(JSON.stringify(err));
         this.t.error("You got some error!!!");
+        this.t.info(JSON.stringify("You can see logs at C:/Users/Admin/AdvancedJAVA/farmease/logs/farmeasy.txt"));
       });
   }
 
@@ -78,6 +79,7 @@ export class WishlistCardviewComponent implements OnInit {
       },
       (err)=>{//console.log(JSON.stringify(err));
         this.t.error("You got some error!!!");
+        this.t.info(JSON.stringify("You can see logs at C:/Users/Admin/AdvancedJAVA/farmease/logs/farmease.txt"));
       });
   }
 }

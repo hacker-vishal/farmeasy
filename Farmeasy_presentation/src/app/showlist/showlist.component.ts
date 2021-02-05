@@ -6,6 +6,7 @@ import { Response } from '../Models/response';
 import { WishlistService } from '../Services/wishlist.service';
 import { Wishlist } from '../Models/wishlist';
 import { LoginService } from '../Services/login.service';
+import { elementAt } from 'rxjs/operators';
 
 @Component({
   selector: 'app-showlist',
@@ -16,9 +17,14 @@ export class ShowlistComponent implements OnInit {
 
   showlist:any;
   isListEmpty:boolean=true;
+  isLoggedIn:boolean=false;
   dataToBook:any;
   w:Wishlist;
   username:string;
+  eqtype:string;
+  src:any;
+  // istractor:boolean=true;
+  // isCultivator:boolean=true;
 
   //inject services required into constructor
   constructor(private r:Router, private session:SessionStorageService, private t:ToastrService,
@@ -29,7 +35,26 @@ export class ShowlistComponent implements OnInit {
   ngOnInit(): void {
     this.username = this.ls.getUserName();
     //this.showlist=history.state.list;
+    this.isLoggedIn = this.ls.isLoggedIn();
     this.showlist=this.session.get('list');
+    this.eqtype = this.showlist[0].equipmenttype; 
+    // for(let list of this.showlist)
+    // {
+      switch (this.eqtype) {
+        case 'tractor':
+            this.src='../../assets/tractor2.jpg';
+            break;
+        case 'cultivator':
+          this.src='../../assets/tractors.jpg';
+            break;
+        case 'Backhoe':
+          this.src='../../assets/tractor3.jpg';
+            break;
+        default:
+          this.src='../../assets/accicon.jpg';
+    }
+    // }
+    // console.log(this.showlist[0].equipmenttype);
     // this.showlist = [{equipmenttype:'tractor',servicetype:'cultivating',rent:333,manufacturer:'farmtrac'},
     // {equipmenttype:'tractor',servicetype:'fertilizing',rent:333,manufacturer:'mahindra'},
     // {equipmenttype:'tractor',servicetype:'ploughing',rent:333,manufacturer:'swaraj'}];
@@ -56,6 +81,8 @@ export class ShowlistComponent implements OnInit {
   //add the desired service into wishlist
   addToWishlist(item:any)
   {//console.log(item);
+    if(this.isLoggedIn)
+    {
     this.w.email=this.username;
     this.w.serviceprovider=item.hostemail;
     this.w.equipmenttype=item.equipmenttype;
@@ -85,5 +112,11 @@ export class ShowlistComponent implements OnInit {
       this.t.info(JSON.stringify("You can see logs at C:/Users/Admin/AdvancedJAVA/farmease/logs/farmeasy.txt"));
     });
   }
+  else{
+    this.t.warning("You need to login first!!!");
+    let url = '/showlist';
+    this.r.navigate(['/login'], {state:{url:url}});
+}
+}
 }
 

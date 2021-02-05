@@ -45,7 +45,10 @@ export class SetnewpasswordComponent implements OnInit {
 
   //confirm and reset the password
   confirm()
-  {//console.log(123);
+  {
+    //console.log(JSON.stringify(this.form.value.password));
+    this.userdto.password=this.form.value.password;
+    //console.log(JSON.stringify(this.userdto));
     this.pr.setNewPassword(this.userdto).subscribe(
       (rsp:Response)=>{
         //console.log(JSON.stringify(rsp));

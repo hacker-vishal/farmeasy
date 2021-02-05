@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BookService } from '../Services/book.service';
 import { LoginService } from '../Services/login.service';
 import { ToastrService } from 'ngx-toastr';
+import { Response } from '../Models/response';
 
 @Component({
   selector: 'app-booking-cardview',
@@ -37,10 +38,11 @@ export class BookingCardviewComponent implements OnInit {
             d.datefinish=new Date(d.datefinish).toLocaleDateString("en-us");
             //console.log(d.datefinish);
           }
-          //console.log(JSON.stringify(data));
+          
           if(data!==null && data!==undefined)
           this.isListEmpty=false;
           this.mybookings= data;
+          //console.log(JSON.stringify(data)); 
         }
         else{
           this.t.info("You do not have any bookings yet!");
@@ -51,7 +53,26 @@ export class BookingCardviewComponent implements OnInit {
         this.t.error("You got some error!!!");
         this.t.info(JSON.stringify("You can see logs at C:/Users/Admin/AdvancedJAVA/farmease/logs/farmeasy.txt"));
       });
-
   }
 
+  cancel(bid:any)
+  {
+    alert("You are about to cancel your booking!!!");
+    //console.log(bid);
+    this.bs.cancelmybooking(bid).subscribe(
+      (rsp:Response)=>{
+        if(rsp.status==1)
+        {
+          window.location.reload();
+          this.t.success(rsp.message);
+          this.t.info("You will get your money refunded within 3-4 working days!");
+        }
+        else
+          this.t.warning(rsp.message);
+      },
+      (err)=>{//console.log(JSON.stringify(err));
+        this.t.error("You got some error!!!");
+        this.t.info(JSON.stringify("You can see logs at C:/Users/Admin/AdvancedJAVA/farmease/logs/farmeasy.txt"));
+      });
+  }
 }

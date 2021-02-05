@@ -40,6 +40,7 @@ public class BookingService {
 //		Booking book3 = new Booking(3, "v@j.com", "s@n.com", "tractor", "farmtrac", "blr", "harvesting", Timestamp.valueOf("2021-03-04 09:02:15"),Timestamp.valueOf("2021-03-05 09:01:15"), 1000d, true);
 		
 		 List<Booking> l = new ArrayList<Booking>();
+		 //List<Booking> d = new ArrayList<Booking>();
 		
 //		l.add(book1);
 //		l.add(book2);
@@ -70,7 +71,18 @@ public class BookingService {
 			{
 			for(Booking b:l)
 			{
-				if((booking.getDateofbooking().before(b.getDateofbooking()) || booking.getDateofbooking().after(b.getDatefinish()))) 
+				if((!(  (booking.getEquipmenttype().equalsIgnoreCase(b.getEquipmenttype())) && (booking.getLocation().equalsIgnoreCase(b.getLocation()))
+						   && (booking.getManufacturer().equalsIgnoreCase(b.getManufacturer())) && (booking.getServiceprovider().equalsIgnoreCase(b.getServiceprovider()))	
+						   && (booking.getServicetype().equalsIgnoreCase(b.getServicetype()))   )))
+				{
+					logger.debug("ok not the same type");
+					resp.setStatus(1);
+					resp.setMessage("You can book now!");
+				}
+				
+				else {
+					logger.debug("its of same type check for dates!!!");
+				if( (booking.getDateofbooking().before(b.getDateofbooking()) || booking.getDateofbooking().after(b.getDatefinish())) ) 
 				{  
 					logger.debug("1st condition");
 					for(Booking book:l) 
@@ -94,7 +106,7 @@ public class BookingService {
 				}
 				else
 				break;
-			}
+			
 				
 			//logger.debug(c);
 			
@@ -106,6 +118,8 @@ public class BookingService {
 					logger.debug(resp.getStatus()+" "+resp.getMessage());
 					return resp;
 				}
+			}
+			}
 			}
 			else
 			{
@@ -168,4 +182,22 @@ public class BookingService {
 		return l;
 	}
 
+	public Response cancelbooking(Integer bid) {
+
+		logger.debug(bid);
+		Response response = new Response(0, "Booking cancellation failed!");
+		
+		try {
+			if(bid!=null)
+			{
+				bookingRepo.deleteById(bid);
+				response.setStatus(1);
+				response.setMessage("Booking has been cancelled successfully! You can reach us at blog.farmeasy.com");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			logger.error(e);
+		}
+		return response;
+	}
 }

@@ -22,4 +22,8 @@ export class BookService {
   bookit(b: Booking): Observable<Response> {
     return this.h.post<Response>("http://localhost:8080/booking/bookit", b);
   }
+
+  cancelmybooking(bid: any): Observable<Response> {
+    return this.h.get<Response>("http://localhost:8080/booking/cancelbooking?bid="+bid);
+  }
 }

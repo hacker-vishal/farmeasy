@@ -49,7 +49,19 @@ export class BookingComponent implements OnInit {
     }
 
     if(this.b.serviceprovider==null || this.b.serviceprovider==undefined)
-    this.b.serviceprovider=this.bookData.serviceprovider;
+    {
+	      this.b.serviceprovider=this.bookData.serviceprovider;
+    }
+
+    //we habe to pass entire booking object to payment page
+    //to confirm booking on successful payment
+    this.b.email=this.bookData.email;
+    this.b.equipmenttype=this.bookData.equipmenttype;
+    this.b.location=this.bookData.location;
+    this.b.manufacturer=this.bookData.manufacturer;
+    this.b.rent=this.bookData.rent;
+    this.b.servicetype=this.bookData.servicetype;
+    this.b.invalid=false;
 
     //you can book upto 4 months from today
     let today = new Date();
@@ -78,17 +90,6 @@ export class BookingComponent implements OnInit {
           this.diff=this.calculateDiff(this.b);
           this.total=this.diff*this.showdata.rent;
           //console.log("difference in dates: "+this.diff);
-
-          //we habe to pass entire booking object to payment page
-          //to confirm booking on successful payment
-          this.b.email=this.bookData.email;
-          this.b.equipmenttype=this.bookData.equipmenttype;
-          this.b.location=this.bookData.location;
-          this.b.manufacturer=this.bookData.manufacturer;
-          this.b.rent=this.bookData.rent;
-          //this.b.serviceprovider=this.bookData.serviceprovider;
-          this.b.servicetype=this.bookData.servicetype;
-          this.b.invalid=false;
 
           this.session.set('rent',this.total);
           this.session.set('booking',this.b);

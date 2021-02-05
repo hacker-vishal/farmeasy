@@ -28,6 +28,7 @@
             <th scope="col">Booking Date</th>
             <th scope="col">Finish Date</th>
             <th scope="col">Rent</th>
+            <th scope="col">Cancel</th>
           </tr>
         </thead>
         <tbody *ngFor="let b of mybookings">
@@ -39,7 +40,7 @@
             <td>{{b.dateofbooking}}</td>
             <td>{{b.datefinish}}</td>
             <td>{{b.rent}}</td>
-           <!-- <td><button class="btn btn-success" type="button">Show</button></td> -->
+            <td><button class="btn btn-danger" type="button" (click)="cancel(b.bookingid)">Cancel</button></td>
           </tr>
         </tbody>
       </table>

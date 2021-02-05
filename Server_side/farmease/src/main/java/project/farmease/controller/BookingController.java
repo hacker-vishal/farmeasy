@@ -52,5 +52,11 @@ public class BookingController {
 		return bookingService.getbookings(username);
 	}
 	
-	
+	@CrossOrigin
+	@GetMapping("/cancelbooking")
+	public Response cancelmybookings(@RequestParam Integer bid)
+	{
+		logger.debug(bid);
+		return bookingService.cancelbooking(bid);
+	}
 }

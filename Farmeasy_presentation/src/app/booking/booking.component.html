@@ -1,0 +1,90 @@
+  <div class="container">
+    <div class="row">
+      
+      <div class="containercard">
+        <div class="col-sm">
+          
+            <mat-card *ngIf="isShowDataAvailable">
+                <h3 class="head"><u>Your booking</u></h3>
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image">
+                <h4>Equipment:<strong>{{showdata.equipmenttype}}</strong> </h4>
+              </div>
+            </mat-card-header>
+            <img class= "mat-card-image" src="../../assets/tractor2.jpg" alt="">
+            <mat-card-content>
+              <h4>Rent: <strong>INR{{showdata.rent}}</strong></h4>
+              <h4><strong>Serviceprovider:</strong>{{showdata.hostemail}}{{showdata.serviceprovider}}</h4>
+              <h4><strong>Manufacturer:</strong>{{showdata.manufacturer}}</h4>
+              <h4><strong>Service Type:</strong>{{showdata.servicetype}}</h4>
+              <h4><strong>Location:</strong>{{showdata.location}}</h4>
+            </mat-card-content>
+          </mat-card>
+          
+        </div>
+      </div>
+
+
+      <div class="col-sm cc">
+        <!-- <form [formGroup]="rangeFormGroup"> --> 
+          <div class="cal">  
+            <mat-form-field appearance="fill">  
+              <mat-label>From:</mat-label>
+          <input matInput [ngxMatDatetimePicker]="picker" placeholder="Choose start date & time" [(ngModel)]="b.dateofbooking" [min]="today">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <ngx-mat-datetime-picker #picker></ngx-mat-datetime-picker>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+          <mat-label>To:</mat-label>
+            <input matInput [ngxMatDatetimePicker]="picker1" placeholder="Choose finish date & time" [(ngModel)]="b.datefinish" [min]="b.dateofbooking" [max]="maxDate">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <ngx-mat-datetime-picker #picker1></ngx-mat-datetime-picker>
+        </mat-form-field>
+        </div>
+        <!--</form>-->
+
+        <div>
+          <button class="btn" mat-button (click)='check()'>Check Availability</button>
+        </div>
+
+        <br>
+
+        <div *ngIf ="isBookingAvailable">
+          <div class="calc">
+            <h3>Your Rent: ₹ {{showdata.rent}} x {{diff}}  =  ₹ {{total}}</h3>
+          </div>
+          <div>
+            <button class="btn btc" mat-button (click)='goToPayment()'>Make Payment</button>
+          </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+ <!--<div class="container">  
+    <h1>Angular Material Date Range Picker Demo</h1>  
+    <form [formGroup]="rangeFormGroup">  
+      <div>  
+        <mat-form-field appearance="fill">  
+          <mat-label>Enter a date range</mat-label>  
+          //<mat-date-range-input [rangePicker]="picker">   
+            <input matStartDate placeholder="Start date" formControlName="start">  
+            <input matEndDate placeholder="End date" formControlName="end">  
+          </mat-date-range-input>//
+          <mat-date-range-input [rangePicker]="picker" separator="to" required [min]="today" [dateFilter]="dateFilterFn">   
+            <input matStartDate placeholder="Start date" formControlName="start">  
+            <input matEndDate placeholder="End date" formControlName="end">  
+          </mat-date-range-input>  
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>  
+          <mat-date-range-picker #picker></mat-date-range-picker>  
+          <mat-error>Date Range is mandatory</mat-error>  
+        </mat-form-field>  
+      </div>  
+    </form>  
+    <div class="json">  
+      <h2>Integrated Form JSON</h2>  
+      <code><pre>{{rangeFormGroup.value | json}}</pre></code>  
+    </div>  
+  </div>  -->

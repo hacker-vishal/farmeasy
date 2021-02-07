@@ -131,7 +131,8 @@ public class AuthService {
   // ---------------------------- Refresh token Service code ----------------------------------- 
   
   public AuthenticationResponse refreshToken(RefreshTokenRequest refreshTokenRequest) {
-       refreshTokenService.validateRefreshToken(refreshTokenRequest.getRefreshToken());
+  
+		refreshTokenService.validateRefreshToken(refreshTokenRequest.getRefreshToken());
        
        String token = jwtProvider.generateTokenWithUserName(refreshTokenRequest.getUsername());
             logger.info("here we validate refreshToken, if success , this will generate new refreshToken with username{}: ",token);

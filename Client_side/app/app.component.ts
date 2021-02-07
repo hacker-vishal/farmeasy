@@ -27,15 +27,31 @@ export class AppComponent {
     msg:any;
     isLoggedIn: boolean;
     username: string;
+    loginflag:boolean=false;
+    url:any;
   
     //get data of user on load
     ngOnInit() {
       this.loginService.loggedIn.subscribe((data: boolean) => this.isLoggedIn = data);
       this.loginService.username.subscribe((data: string) => this.username = data);
       this.isLoggedIn = this.loginService.isLoggedIn();
-      //console.log(this.isLoggedIn);
+      //  console.log(this.isLoggedIn);
+      // console.log(this.username);
       this.username = this.loginService.getUserName();
+      if(this.isLoggedIn)
+        this.loginflag=true;
+
+      if(this.loginflag)
+      {
+        if(this.username===undefined || this.username===null)
+        {
+          this.url='login';
+          this.t.warning("Session has expired! Please log in again!!!");
+          this.logout();
+        }
+      }
       //console.log(this.title);
+      //below part is a part of poc to check screen size
       this.resp.getMobileStatus().subscribe( isMobile =>{
         if(isMobile){
           //console.log('Mobile device detected')
@@ -44,7 +60,7 @@ export class AppComponent {
           //console.log('Desktop detected')
         }
       });
-      this.onResize();    
+      //this.onResize();    
     }
   
     //logic to resize the page
@@ -67,7 +83,8 @@ export class AppComponent {
     logout() {
       this.loginService.logout();
       this.isLoggedIn = false;
-      this.r.navigateByUrl('');
+      this.loginflag = false;
+      this.r.navigateByUrl(this.url);
       this.t.info("Logged out! Thank you!");
     }
 }

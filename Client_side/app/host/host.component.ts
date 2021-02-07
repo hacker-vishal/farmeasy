@@ -15,6 +15,9 @@ export class HostComponent implements OnInit {
   h:Hostuser;
   selectedFile:File;
   msg:string;
+  isListEmpty:boolean=true;
+  myservices:any;
+  num:any;
   
   //inject services required into constructor and initialize the hostuser object
   constructor(private loginService:LoginService, private hs:HostService, private t:ToastrService) 
@@ -34,6 +37,7 @@ export class HostComponent implements OnInit {
   ngOnInit(): void {
     this.h.hostemail = this.loginService.getUserName();
     //console.log(this.h.hostemail);
+    this.getservices();
   }
 
   //show the name of image file chosen to upload
@@ -53,6 +57,7 @@ export class HostComponent implements OnInit {
         {
           this.t.show(rsp.message);
           //console.log(rsp.message);
+          window.location.reload();
         }
         else
         {
@@ -61,8 +66,28 @@ export class HostComponent implements OnInit {
         }
       },
     (err)=>{//console.log(JSON.stringify(err));
-      this.t.error("You got some error!!!");
+      this.t.error("Some error occured! Could not perform this action! Same service may already exist there!");
+      this.t.info(JSON.stringify("You can see logs at C:/Users/Admin/AdvancedJAVA/farmease/logs/farmeasy.txt"));
+      window.location.reload();
+    });
+  }
+
+  getservices()
+  {
+    this.hs.getservices(this.h.hostemail).subscribe(
+     
+      (List:any)=>{
+        //console.log(List.length);
+        if(List!==null && List!==undefined)
+        {
+          this.isListEmpty=false;
+          this.myservices=List;
+          //console.log(this.myservices);
+        }
+      },
+    (err)=>{//console.log(JSON.stringify(err));
+      this.t.error("Some error occured!");
       this.t.info(JSON.stringify("You can see logs at C:/Users/Admin/AdvancedJAVA/farmease/logs/farmeasy.txt"));
     });
-}
+  }
 }

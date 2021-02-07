@@ -15,6 +15,7 @@ export class OtpverificationComponent implements OnInit {
 
   username:string;
   otp=null;
+  disableResend:boolean=true;
 
   //inject services required into constructor
   constructor(private r: Router, private pr:PassresetService, private ls:LoginService,
@@ -40,7 +41,7 @@ export class OtpverificationComponent implements OnInit {
        alert(otp);
       },
       (err)=>{//console.log(JSON.stringify(err));
-        this.t.error("You got some error!!!");
+        this.t.error("Some error occured! Try again!");
         this.t.info(JSON.stringify("You can see logs at C:/Users/Admin/AdvancedJAVA/farmease/logs/farmeasy.txt"));
       });
   }
@@ -59,12 +60,20 @@ export class OtpverificationComponent implements OnInit {
           // this.r.navigate(['/setnewpassword'],{ state: { id: this.username } } );
         }
         else
-        this.t.error(rsp.message);
+        {
+          this.t.error(rsp.message);
+          this.disableResend=false;
+        }      
       },
       (err)=>{//console.log(JSON.stringify(err));
-        this.t.error("You got some error!!!");
+        this.t.error("Some error occured!");
         this.t.info(JSON.stringify("You can see logs at C:/Users/Admin/AdvancedJAVA/farmease/logs/farmease.txt"));
       });
   }
 
+  resendotp()
+  {
+    this.findOtp();
+    this.disableResend=true;
+  }
 }

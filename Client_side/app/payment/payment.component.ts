@@ -47,12 +47,13 @@ export class PaymentComponent implements OnInit {
         else{
           this.t.warning("Payment failed!!!");
           this.t.info(rsp.message);
+          this.r.navigate(['/book']);
           //console.log(rsp.message);
         }
       },
       (err)=>{//console.log(JSON.stringify(err));
-        this.t.error("You got some error!!!");
-        this.t.warning("Payment failed!!!");
+        this.t.error("Some error occured! Try again!");
+        this.t.warning("In case of any deduction, amount will be refunded back in 3-4 working days!");
       });
   }
 

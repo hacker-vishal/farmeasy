@@ -37,13 +37,16 @@ export class SignupComponent implements OnInit {
     this.pr.isEmailExists(this.user.email).subscribe(
       (rsp:Response)=>{
         if(rsp.status===1)
+        {
           this.userAlreadyExists = true;
+          this.t.warning("Seems you already have an account! Try logging in!!!");
+        }
         else
           this.userAlreadyExists = false;
       },
       (err)=>{//console.log(JSON.stringify(err));
         //console.log("you got some error");
-        this.t.error("You got some error!!!");
+        this.t.error("Some error occured! Seems you already have an account! Try logging in!!!");
         this.t.info(JSON.stringify("You can see logs at C:/Users/Admin/AdvancedJAVA/farmease/logs/farmeasy.txt"));
       });
   }

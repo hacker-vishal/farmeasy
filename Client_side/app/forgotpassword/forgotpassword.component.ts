@@ -30,7 +30,7 @@ export class ForgotpasswordComponent implements OnInit {
       (rsp:Response)=>{
         if(rsp.status===1)
         {
-          this.t.show(rsp.message);
+          //this.t.show(rsp.message);
           //console.log(rsp.status);
           this.r.navigate(['/otpverification']);
           this.session.set('id',this.username);
@@ -41,8 +41,9 @@ export class ForgotpasswordComponent implements OnInit {
         }
       },
       (err)=>{//console.log(JSON.stringify(err));
-        this.t.error("You got some error!!!");
+        this.t.error("Some error occured! Try again!");
         this.t.info(JSON.stringify("You can see logs at C:/Users/Admin/AdvancedJAVA/farmease/logs/farmeasy.txt"));
+        window.location.reload();
       });
   }
 

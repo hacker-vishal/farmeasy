@@ -15,4 +15,8 @@ export class HostService {
     // console.log(hu);
     return this.h.post<Response>("http://localhost:8080/services/insert",hu);
   }
+
+  getservices(hostemail: string): Observable<any> {
+    return this.h.get<any>("http://localhost:8080/services/getservices?hostemail="+hostemail);
+  }
 }

@@ -59,12 +59,11 @@ export class SetnewpasswordComponent implements OnInit {
           this.r.navigate(['/login']);
         }
         else
-        this.t.error(rsp.message);
+        this.t.error(rsp.message+" Please try again!");
       },
       (err)=>{//console.log(JSON.stringify(err));
-        this.t.error("You got some error!!!");
+        this.t.error("Some error occured! Please try again!");
         this.t.info(JSON.stringify("You can see logs at C:/Users/Admin/AdvancedJAVA/farmease/logs/farmeasy.txt"));
       });
   }
-
 }

@@ -34,7 +34,7 @@ strong
 .containercard
 {
     margin-top: 8%;
-    height:50%;
+    height:40%;
 }
 
 .ep1
@@ -88,4 +88,19 @@ strong
 {
     color:navy;
     background-color:orange;
+}
+
+.slotcontainercard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10%;
+    width:80%;
+    float: left;
+  }
+
+.slot{
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 5%;
 }

@@ -110,5 +110,18 @@ public class HomeAndSearchService {
 		
 		return resp;
 	}
-	
+
+
+	public List<Hostuser> getlistofservice(String hostemail) {
+		List<Hostuser> l = new ArrayList<Hostuser>();
+		
+		try {
+			if(hostemail!=null)
+			l = hostuserRepo.findByHostemail(hostemail);
+		} catch (Exception e) {
+			logger.error(e);
+		}
+		
+		return l;
+	}	
 }

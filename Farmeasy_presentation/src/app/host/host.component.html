@@ -85,4 +85,34 @@
     <button class="btn  my-2 my-sm-0" type="button" (click)='registerhost()'>Add Equipment</button>
    </div>
 
+   <div class="list">
+    <h3>List of services registered</h3>
+   </div>
+
+   <div class="containercard" >
+    <mat-card>
+        <table class="table table-striped" *ngIf="!isListEmpty">
+        <thead>
+          <tr>
+            <th scope="col">Service Type</th>
+            <th scope="col">Equipment Type</th>
+            <th scope="col">Location</th>
+            <th scope="col">Manufacturer</th>
+            <th scope="col">Rent</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let h of myservices">
+          <tr>
+            <td>{{h.servicetype}}</td>
+            <td>{{h.equipmenttype}}</td>
+            <td>{{h.location}}</td>
+            <td>{{h.manufacturer}}</td>
+            <td>{{h.rent}}</td>
+          </tr>
+        </tbody>
+      </table>
+    
+  </mat-card>
+  </div>
+
 </div>

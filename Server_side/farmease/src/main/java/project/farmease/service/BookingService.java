@@ -200,4 +200,17 @@ public class BookingService {
 		}
 		return response;
 	}
+
+	public List<Booking> getAlreadyBookedSlots(String sp) {
+		List<Booking> l = new ArrayList<Booking>();
+		
+		try {
+			if(sp!=null)
+			l = bookingRepo.findByServiceprovider(sp);
+		} catch (Exception e) {
+			logger.error(e);
+		}
+				
+		return l;
+	}
 }

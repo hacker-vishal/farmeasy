@@ -74,14 +74,22 @@ public class PswdworkService {
 		//assume it came from db
 //		User user = new User("abc","",123456,"","");
 		//write query to select row where otp obtained to client matches with db data
-		user = userRepo.findByOtp(otp);
+		try {
+			user = userRepo.findByOtp(otp);
+		} catch (Exception e) {
+			logger.error(e);
+		}
 		
 		//if(user.getOtp().equals(otp))
-		if(user.get().getOtp().equals(otp))
+		if(user.isPresent())
 		{
-			response.setStatus(1);
-			response.setMessage("OTP verified successfully");
+			if(user.get().getOtp().equals(otp))
+			{
+				response.setStatus(1);
+				response.setMessage("OTP verified successfully");
+			}
 		}
+		
 		return response;
 	}
 

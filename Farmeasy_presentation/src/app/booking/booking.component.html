@@ -30,7 +30,7 @@
           <div class="cal">  
             <mat-form-field appearance="fill">  
               <mat-label>From:</mat-label>
-          <input matInput [ngxMatDatetimePicker]="picker" placeholder="Choose start date & time" [(ngModel)]="b.dateofbooking" [min]="today">
+          <input matInput [ngxMatDatetimePicker]="picker" placeholder="Choose start date & time" [(ngModel)]="b.dateofbooking" [min]="today" (ngModelChange)="disable()">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <ngx-mat-datetime-picker #picker></ngx-mat-datetime-picker>
             </mat-form-field>
@@ -59,8 +59,31 @@
         </div>
 
     </div>
+  </div>
 </div>
-
+<div class="slotcontainercard" *ngIf="!isListEmpty">
+  <h3 class="slot">Already booked slots</h3>
+<mat-card>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Service Type</th>
+        <th scope="col">Equipment Type</th>
+        <th scope="col">Booking Date</th>
+        <th scope="col">Finish Date</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let b of slots">
+      <tr>
+        <td>{{b.servicetype}}</td>
+        <td>{{b.equipmenttype}}</td>
+        <td>{{b.dateofbooking}}</td>
+        <td>{{b.datefinish}}</td>
+      </tr>
+    </tbody>
+  </table>
+</mat-card>
+</div>
 
 
  <!--<div class="container">  

@@ -59,4 +59,12 @@ public class BookingController {
 		logger.debug(bid);
 		return bookingService.cancelbooking(bid);
 	}
+	
+	@CrossOrigin
+	@GetMapping("/getslots")
+	public List<Booking> getslots(@RequestParam String sp)
+	{
+		logger.debug(sp);
+		return bookingService.getAlreadyBookedSlots(sp);
+	}
 }

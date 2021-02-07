@@ -11,3 +11,7 @@
   <div class="fb w-75">
     <button type="button" class="otpbtn btn-lg " (click)='pswrdreset()'>Confirm OTP</button>
   </div>
+
+  <div *ngIf="!disableResend">
+    <button type="button" class="btn btn-primary" (click)='resendotp()'>Resend OTP</button>
+  </div>

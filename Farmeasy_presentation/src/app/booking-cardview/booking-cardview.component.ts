@@ -50,8 +50,9 @@ export class BookingCardviewComponent implements OnInit {
         }
       },
       (err)=>{//console.log(JSON.stringify(err));
-        this.t.error("You got some error!!!");
+        this.t.error("Some error occured! Seems you do not have any bookings yet!");
         this.t.info(JSON.stringify("You can see logs at C:/Users/Admin/AdvancedJAVA/farmease/logs/farmeasy.txt"));
+        window.location.reload();
       });
   }
 
@@ -71,8 +72,9 @@ export class BookingCardviewComponent implements OnInit {
           this.t.warning(rsp.message);
       },
       (err)=>{//console.log(JSON.stringify(err));
-        this.t.error("You got some error!!!");
+        this.t.error("Some error occured! Could not perform this action!");
         this.t.info(JSON.stringify("You can see logs at C:/Users/Admin/AdvancedJAVA/farmease/logs/farmeasy.txt"));
+        window.location.reload();
       });
   }
 }

@@ -23,6 +23,8 @@ export class BookingComponent implements OnInit {
   showdata:any;
   diff:any;
   total:any;
+  slots:any;
+  isListEmpty:boolean=true;
   isBookingAvailable:boolean=false;
   isShowDataAvailable:boolean=false;
 
@@ -96,11 +98,12 @@ export class BookingComponent implements OnInit {
         }
         else{
           this.t.info(rsp.message);
+          this.getslotsbooked();
           //console.log(rsp.message);
         }
       },
       (err)=>{//console.log(JSON.stringify(err));
-        this.t.error("You got some error!!!");
+        this.t.error("Some error occured! Can not book now!");
         this.t.info(JSON.stringify("You can see logs at C:/Users/Admin/AdvancedJAVA/farmease/logs/farmeasy.txt"));
       });
   }
@@ -119,6 +122,37 @@ export class BookingComponent implements OnInit {
       let url = '/book';
       this.r.navigate(['/login'], {state:{url:url}});
     }
+  }
+
+  getslotsbooked()
+  {
+    this.bs.getslots(this.b.serviceprovider).subscribe(
+      (list)=>{//console.log(rsp);
+        if(list)
+        {
+          for(let d of list)
+          {
+            d.dateofbooking=new Date(d.dateofbooking).toLocaleDateString("en-us");
+            d.datefinish=new Date(d.datefinish).toLocaleDateString("en-us");
+            //console.log(d.datefinish);
+          }
+
+          if(list!==undefined && list!==null)
+          {
+            this.isListEmpty=false;
+            this.slots=list;
+          }
+        }
+      },
+      (err)=>{//console.log(JSON.stringify(err));
+        this.t.error("Some error occured!");
+        this.t.info(JSON.stringify("You can see logs at C:/Users/Admin/AdvancedJAVA/farmease/logs/farmeasy.txt"));
+      });
+  }
+
+  disable()
+  {
+    this.isBookingAvailable=false;
   }
 
   //calculates the difference between dateofbooking and datefinish to calculate total charges

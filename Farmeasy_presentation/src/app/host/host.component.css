@@ -49,3 +49,19 @@
     background-color: #0079d3;
     color:white;
 }
+
+.containercard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 15%;
+    margin-left: 15%;
+    width:80%;
+    float: left;
+  }
+
+.list{
+      font-weight: bold;
+      padding-top: 5%;
+      padding-left: 15%;
+  }

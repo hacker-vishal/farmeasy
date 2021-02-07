@@ -16,4 +16,6 @@ public interface HostuserRepo extends JpaRepository<Hostuser, HostuserId> {
 	List<Hostuser> findmatchingservice(@Param("equipment") String equipment, @Param("location") String location);
 
 	Boolean existsByHostemail(String hostemail);
+
+	List<Hostuser> findByHostemail(String hostemail);
 	}

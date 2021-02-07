@@ -57,3 +57,28 @@ git stash        git stash -u	Also does the same to untracked files
 
 git auto merge-
 git commit -am "your message"
+
+
+==to delete folder from remote branch
+git status
+
+git add --all
+
+git commit -a
+
+git push -u origin <branch>
+
+git filter-branch -f --index-filter "git rm -rf --cached --ignore-unmatch <foldername to remove>" -- --all
+
+git filter-branch -f --index-filter "git rm -rf --cached --ignore-unmatch FarmeasyUI" -- --all
+
+git filter-branch -f --index-filter "git rm -rf --cached --ignore-unmatch farmease" -- --all
+
+git reflog expire --expire=now --all
+
+git gc --prune=now
+
+git gc --aggressive --prune=now
+
+git push --all --force
+====

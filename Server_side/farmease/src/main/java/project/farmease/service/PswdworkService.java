@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import project.farmease.dao.UserRepo;
 import project.farmease.dto.Response;
 import project.farmease.dto.Userdto;
+import project.farmease.farmeasyexception.FarmeasyException;
 import project.farmease.pojo.User;
 
 @Transactional
@@ -36,7 +37,8 @@ public class PswdworkService {
 		try {
 			user = userRepo.findById(id);
 		} catch (Exception e) {
-			logger.debug(e.getMessage(),e);
+			logger.error(e);
+			throw new FarmeasyException("Error in resetting password!", e);
 		}
 		
 		response = new Response(0, "User not found");
@@ -51,7 +53,12 @@ public class PswdworkService {
 			
 			//create trigger to set otp to null
 			//db logic to add random number into table
-			userRepo.createotp(random,id);
+			try {
+				userRepo.createotp(random,id);
+			} catch (Exception e) {
+				logger.error(e);
+				throw new FarmeasyException("Error in creating otp!", e);
+			}
 			
 			//return the response
 			response.setStatus(1);
@@ -63,7 +70,13 @@ public class PswdworkService {
 	public Integer getotp(String id) {
 
 		Optional<User> u;
-		u=userRepo.findById(id);
+		try {
+			u=userRepo.findById(id);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			logger.error(e);
+			throw new FarmeasyException("Error in getting otp!", e);
+		}
 		//logger.debug(user.get().getOtp());
 		return u.get().getOtp();
 	}
@@ -78,6 +91,7 @@ public class PswdworkService {
 			user = userRepo.findByOtp(otp);
 		} catch (Exception e) {
 			logger.error(e);
+			throw new FarmeasyException("Error in verifying otp!", e);
 		}
 		
 		//if(user.getOtp().equals(otp))
@@ -110,7 +124,8 @@ public class PswdworkService {
 					//logger.debug(isupdatesuccessful);
 				} catch (Exception e) {
 					//log errors to the file
-					logger.debug(e.getMessage(),e);
+					logger.error(e);
+					throw new FarmeasyException("Error in setting new password!", e);
 				}
 				
 				//user = userRepo.findById(id);

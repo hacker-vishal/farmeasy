@@ -38,7 +38,7 @@ public class SecConfig extends WebSecurityConfigurerAdapter {    // this class h
 	    }
 	 
 	 @Override
-	    public void configure(HttpSecurity httpSecurity) throws Exception {    //we are configuring Spring to allow all the requests which match the endpoint â€œ/api/auth/**â€� , as these endpoints are used for authentication and registration we donâ€™t expect the user to be authenticated at that point of time.
+	    public void configure(HttpSecurity httpSecurity) throws Exception {    //we are configuring Spring to allow all the requests which match the endpoint
 	        httpSecurity.cors().and()
 	                .csrf().disable()        
 	                .authorizeRequests()
@@ -50,8 +50,7 @@ public class SecConfig extends WebSecurityConfigurerAdapter {    // this class h
 					.antMatchers("/wishlist/**") .permitAll()
 					.antMatchers("/booking/**") .permitAll()
 					.antMatchers(HttpMethod.GET, "/wishlist/**") .permitAll()
-					.antMatchers("/configuration/ui", "/configuration/security")                
-					.permitAll()
+					.antMatchers("/configuration/ui", "/configuration/security").permitAll()
 	                .anyRequest()
 	                .authenticated();
 	                httpSecurity.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
@@ -65,7 +64,7 @@ public class SecConfig extends WebSecurityConfigurerAdapter {    // this class h
 	    }
 
 		
-		 @Bean        // we used bean annotation because PasswordEncoder is a interface and whenver we are Autowiring this bean , we will get PasswordEncoder() object
+		 @Bean        // we used bean annotation because PasswordEncoder is an interface and whenever we are Autowiring this bean , we will get PasswordEncoder() object
 		 PasswordEncoder passwordEncoder() { 
 			 logger.info("Password is encrypted using BCrypt Hashing algorithm ");
 			 return new BCryptPasswordEncoder();

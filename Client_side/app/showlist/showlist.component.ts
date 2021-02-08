@@ -100,7 +100,7 @@ export class ShowlistComponent implements OnInit {
         {
           this.t.success(rsp.message);
           //console.log(rsp.message);
-          this.r.navigate(['/wishlist-cardview']);
+          //this.r.navigate(['/wishlist-cardview']);
         }
         else
         {

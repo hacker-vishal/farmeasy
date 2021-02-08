@@ -13,6 +13,7 @@ import project.farmease.dao.BookingRepo;
 import project.farmease.dao.HostuserRepo;
 import project.farmease.dao.UserRepo;
 import project.farmease.dto.Response;
+import project.farmease.farmeasyexception.FarmeasyException;
 import project.farmease.pojo.Booking;
 
 @Transactional
@@ -55,6 +56,7 @@ public class BookingService {
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				logger.error(e);
+				throw new FarmeasyException("Error in checking availability for booking!", e);
 			}
 			
 			//logger.debug(l.size());
@@ -152,6 +154,7 @@ public class BookingService {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			logger.error(e);
+			throw new FarmeasyException("Error in doing book operation!", e);
 		}
 		
 		logger.debug(isUserPresent);
@@ -163,7 +166,12 @@ public class BookingService {
 		else
 		{
 			logger.debug(booking.getDateofbooking()+" "+booking.getDatefinish()+" "+booking.getRent()+" "+booking.getInvalid());
-			bookingRepo.save(booking);
+			try {
+				bookingRepo.save(booking);
+			} catch (Exception e) {
+				logger.error(e);
+				throw new FarmeasyException("Error in doing booking!", e);
+			}
 			response.setStatus(1);
 			response.setMessage("Booking successful!");
 		}
@@ -176,7 +184,12 @@ public class BookingService {
 		
 		List<Booking> l = new ArrayList<Booking>();
 		
-		l= bookingRepo.findByEmail(username);
+		try {
+			l= bookingRepo.findByEmail(username);
+		} catch (Exception e) {
+			logger.error(e);
+			throw new FarmeasyException("Error in getting bookings!", e);
+		}
 		logger.debug(l);
 		
 		return l;
@@ -192,11 +205,11 @@ public class BookingService {
 			{
 				bookingRepo.deleteById(bid);
 				response.setStatus(1);
-				response.setMessage("Booking has been cancelled successfully! You can reach us at blog.farmeasy.com");
+				response.setMessage("Booking has been cancelled successfully! If you've any issues, reach us at help@farmeasy.com");
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			logger.error(e);
+			throw new FarmeasyException("Error in cancelling booking!", e);
 		}
 		return response;
 	}
@@ -209,6 +222,7 @@ public class BookingService {
 			l = bookingRepo.findByServiceprovider(sp);
 		} catch (Exception e) {
 			logger.error(e);
+			throw new FarmeasyException("Error in fetching booked slots!", e);
 		}
 				
 		return l;

@@ -5,14 +5,12 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import project.farmease.dao.BookingRepo;
 import project.farmease.dao.UserRepo;
 import project.farmease.dao.WishlistRepo;
 import project.farmease.dto.Response;
+import project.farmease.farmeasyexception.FarmeasyException;
 import project.farmease.pojo.Wishlist;
 import project.farmease.pojo.WishlistId;
 
@@ -26,8 +24,6 @@ public class WishlistService {
 	private WishlistRepo wishlistRepo;
 	@Autowired
 	private UserRepo userRepo;
-	@Autowired
-	private BookingRepo bookingRepo;
 	
 	public Response addtowishlist(Wishlist wishlist) {
 
@@ -37,8 +33,9 @@ public class WishlistService {
 		
 		try {
 			isPresent = userRepo.existsById(wishlist.getEmail());
-		} catch (Exception e1) {
-			logger.error(e1);
+		} catch (Exception e) {
+			logger.error(e);
+			throw new FarmeasyException("Error in adding to wishlist!", e);
 		}
 		
 		if(wishlist.getEmail()!=null && isPresent==true)
@@ -49,8 +46,8 @@ public class WishlistService {
 				response.setStatus(1);
 				response.setMessage("Added to wishlist");
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				logger.error(e);
+				throw new FarmeasyException("Error in adding to wishlist!", e);
 			}			
 		}
 		else
@@ -76,7 +73,12 @@ public class WishlistService {
 //		l.add(w2);
 //		l.add(w3);
 		
-		l = wishlistRepo.findByEmail(email);
+		try {
+			l = wishlistRepo.findByEmail(email);
+		} catch (Exception e) {
+			logger.error(e);
+			throw new FarmeasyException("Error in fetching wishlist!", e);
+		}
 		
 		for(Wishlist w:l)
 		{
@@ -108,6 +110,7 @@ public class WishlistService {
 			}
 		} catch (Exception e) {
 			logger.error(e);
+			throw new FarmeasyException("Error in removing from wishlist!", e);
 		}
 		
 		return response;

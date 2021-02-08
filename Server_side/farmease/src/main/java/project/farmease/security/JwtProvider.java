@@ -19,7 +19,6 @@ import javax.annotation.PostConstruct;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
@@ -65,7 +64,7 @@ public class JwtProvider {
     }
 
     public String generateTokenWithUserName(String username) {
-    	logger.info("Generating token with username which will expire after 90 sec");
+    	logger.info("Generating token with username which will expire after 300 sec");
         return Jwts.builder()
                 .setSubject(username)
                 .setIssuedAt(from(Instant.now()))
@@ -76,9 +75,10 @@ public class JwtProvider {
 
     private PrivateKey getPrivateKey() {
         try {
-        	    PrivateKey privatekey=(PrivateKey) keyStore.getKey("farmeasy","farmeasy".toCharArray());
+        	return (PrivateKey) keyStore.getKey("farmeasy","farmeasy".toCharArray());
+        	    //PrivateKey privatekey=(PrivateKey) keyStore.getKey("farmeasy","farmeasy".toCharArray());
         	    //logger.debug(privatekey);
-            return privatekey;// here "farmeasy" is the alias, and "farmeasy" is the password for this alias.
+            //return privatekey;// here "farmeasy" is the alias, and "farmeasy" is the password for this alias.
         } catch (KeyStoreException | NoSuchAlgorithmException | UnrecoverableKeyException e) {
             throw new FarmeasyException("Exception occured while retrieving public key from keystore",e);
         }

@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import project.farmease.dao.UserRepo;
 import project.farmease.dto.Response;
 import project.farmease.dto.UserProfile;
+import project.farmease.farmeasyexception.FarmeasyException;
 import project.farmease.pojo.User;
 
 @Transactional
@@ -40,8 +41,8 @@ public class EditProfileService {
 			isupdatesuccessful = userRepo.updateforuser(userProfile.getEmail(),userProfile.getFname(),userProfile.getLname(),userProfile.getMobileno());
 			logger.debug(isupdatesuccessful);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			logger.debug(e.getMessage(),e);
+			throw new FarmeasyException("Error in edit profile!", e);
 		}
 
 		if (isupdatesuccessful!=0) 
@@ -63,6 +64,7 @@ public class EditProfileService {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			logger.debug(e.getMessage(),e);
+			throw new FarmeasyException("Error in fetching profile details!", e);
 		}
 
 		if (user.isPresent() && user!=null) 

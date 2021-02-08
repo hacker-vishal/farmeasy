@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import project.farmease.dto.Response;
 import project.farmease.dto.Userdto;
+import project.farmease.poc.LoginController;
 
 class LoginTest {
 	

@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import project.farmease.dto.Response;
+import project.farmease.poc.SignupController;
 import project.farmease.pojo.User;
 
 class SignupTest {

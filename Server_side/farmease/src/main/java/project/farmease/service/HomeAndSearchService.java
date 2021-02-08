@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import project.farmease.dao.HostuserRepo;
 import project.farmease.dao.UserRepo;
 import project.farmease.dto.Response;
+import project.farmease.farmeasyexception.FarmeasyException;
 import project.farmease.pojo.Hostuser;
 import project.farmease.pojo.HostuserId;
 
@@ -39,8 +40,14 @@ public class HomeAndSearchService {
 //		l.add(h2);
 //		l.add(h3);
 		
-		l = hostuserRepo.findmatchingservice(hostuser.getEquipmenttype(),hostuser.getLocation());
-		//logger.debug(hostdto.getEquipmenttype(),hostdto.getLocation());
+		try {
+			l = hostuserRepo.findmatchingservice(hostuser.getEquipmenttype(),hostuser.getLocation());
+			//logger.debug(hostdto.getEquipmenttype(),hostdto.getLocation());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new FarmeasyException("Error while searching services!", e);
+		}
 		
 		List<Hostuser> delete = new ArrayList<Hostuser>();
 		
@@ -75,6 +82,7 @@ public class HomeAndSearchService {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			logger.error("Invalid Operation!");
+			throw new FarmeasyException("Error in registration of host!", e);
 		}
 		
 		//if(!(host.getHostemail().equals(hostuser.getHostemail())))
@@ -88,17 +96,32 @@ public class HomeAndSearchService {
 				
 				Boolean isHostpresent=false;
 				
-				isHostpresent = hostuserRepo.existsById(id);
+				try {
+					isHostpresent = hostuserRepo.existsById(id);
+				} catch (Exception e) {
+					logger.error(e);
+					throw new FarmeasyException("Error in registration of host!", e);
+				}
 				
 				if (!isHostpresent) {
-					hostuserRepo.save(hostuser);
+					try {
+						hostuserRepo.save(hostuser);
+					} catch (Exception e) {
+						logger.error(e);
+						throw new FarmeasyException("Error in registration of host!", e);
+					}
 					resp.setStatus(1);
 					resp.setMessage("Inserted successfully!");
 				}
 			}
 			else
 			{
-				hostuserRepo.save(hostuser);
+				try {
+					hostuserRepo.save(hostuser);
+				} catch (Exception e) {
+					logger.error(e);
+					throw new FarmeasyException("Error in registration of host!", e);
+				}
 				resp.setStatus(1);
 				resp.setMessage("Inserted successfully!");
 			}
@@ -120,6 +143,7 @@ public class HomeAndSearchService {
 			l = hostuserRepo.findByHostemail(hostemail);
 		} catch (Exception e) {
 			logger.error(e);
+			throw new FarmeasyException("Error in fetching list of host!", e);
 		}
 		
 		return l;

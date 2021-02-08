@@ -65,7 +65,13 @@ public class AuthService {
         user.setCreated(Instant.now());
         user.setEnabled(true);  //set it to false and it will be set to true only when user verifies his/her email
         
-		userRepo.save(user);
+		try {
+			userRepo.save(user);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			logger.error(e);
+			throw new FarmeasyException("Error in signup!", e);
+		}
 		    logger.info("8. User credential Saved in Database");
 		 
 		 String token = generateVerificationToken(user);    
@@ -82,7 +88,13 @@ public class AuthService {
 	  verificationToken.setToken(token);
       verificationToken.setUser(user);
             logger.info("9. verification token generated and it is a random token, token {} ",token);
-       verificationTokenRepo.save(verificationToken);      // these token will stored in DB , so that user can verify its account anytime
+       try {
+		verificationTokenRepo.save(verificationToken);
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		logger.error(e);
+		throw new FarmeasyException("Error in generating verification token!", e);
+	}      // these token will stored in DB , so that user can verify its account anytime
          return token;
       }
   
@@ -90,7 +102,14 @@ public class AuthService {
   // ---------------------------- verify token code ----------------------------------- 
  
    public void verifyAccount(String token) {     // here we query the verificationTokenRepository by the given token   
-	      Optional<VerificationToken> verificationToken = verificationTokenRepo.findByToken(token);   // this will check the token present in DB(token) or not
+	      Optional<VerificationToken> verificationToken;
+		try {
+			verificationToken = verificationTokenRepo.findByToken(token);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			logger.error(e);
+			throw new FarmeasyException("Error in verifying account!", e);
+		}   // this will check the token present in DB(token) or not
              logger.info("verifyAccount() method called");
 	      fetchUserAndEnable(verificationToken.orElseThrow(() -> new FarmeasyException("Invalid Token"))); // if token not found, it will throw the custom exception "invalid token" or if found , it will enable the user
                 
